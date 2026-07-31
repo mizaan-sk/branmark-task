@@ -55,9 +55,10 @@ export default function Hero() {
             <div className="relative max-w-md md:max-w-[28vw] w-full rounded-2xl md:rounded-[1.2vw] overflow-hidden shadow-2xl border border-amber-100 bg-white p-2 md:p-[0.5vw]">
               <img
                 src="/assets/9grid.webp"
-                alt="Brandshark portfolio work grid"
+                alt="Rivreach portfolio work grid"
                 className="w-full h-auto object-cover rounded-xl md:rounded-[0.9vw]"
               />
+
             </div>
           </motion.div>
 

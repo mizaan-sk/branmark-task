@@ -9,8 +9,8 @@ export default function FaqSection() {
 
   const faqs = [
     {
-      question: "What makes Brandshark the best digital marketing agency in Bangalore?",
-      answer: "Brandshark was started 9 years ago by alumni of IIT Kanpur & IIM Calcutta with a mission to bring data-backed creative results in digital marketing. We focus purely on measurable revenue growth and high ROI.",
+      question: "What makes Rivreach the best digital marketing agency in Bangalore?",
+      answer: "Rivreach was started 9 years ago by alumni of IIT Kanpur & IIM Calcutta with a mission to bring data-backed creative results in digital marketing. We focus purely on measurable revenue growth and high ROI.",
     },
     {
       question: "How fast can we expect results from our marketing campaigns?",
@@ -43,8 +43,9 @@ export default function FaqSection() {
             Frequently Asked Questions
           </h2>
           <p className="text-slate-600 text-sm md:text-[0.9vw] md:leading-[1.3vw] mt-2 md:mt-[0.5vw]">
-            Everything you need to know about partnering with Brandshark
+            Everything you need to know about partnering with Rivreach
           </p>
+
         </div>
 
         <div className="max-w-3xl md:max-w-[50vw] mx-auto flex flex-col gap-4 md:gap-[1vw]">

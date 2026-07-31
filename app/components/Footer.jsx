@@ -15,15 +15,40 @@ export default function Footer() {
           
           {/* Brand Col */}
           <div className="lg:col-span-2 flex flex-col items-start pr-4 md:pr-[1vw]">
-            <a href="#" className="flex items-center gap-3 md:gap-[0.6vw] mb-4 md:mb-[1vw]">
+            <a href="#" className="flex items-center gap-2.5 md:gap-[0.6vw] mb-4 md:mb-[1vw] group">
+              <div className="w-8 h-8 md:w-[2vw] md:h-[2vw] rounded-xl md:rounded-[0.5vw] bg-gradient-to-br from-[#2ea3f2] to-[#2b2058] p-[1.5px] flex items-center justify-center shrink-0">
+                <div className="w-full h-full bg-[#1e1640] rounded-[9px] md:rounded-[0.4vw] flex items-center justify-center">
+                  <svg 
+                    viewBox="0 0 32 32" 
+                    fill="none" 
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-4 h-4 md:w-[1.1vw] md:h-[1.1vw]"
+                  >
+                    <path 
+                      d="M6 22C10 22 12 14 17 14C22 14 23 20 26 20" 
+                      stroke="#2ea3f2" 
+                      strokeWidth="3" 
+                      strokeLinecap="round"
+                    />
+                    <path 
+                      d="M17 14L24 7M24 7H18M24 7V13" 
+                      stroke="#2ea3f2" 
+                      strokeWidth="3" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+              </div>
               <span className="font-heading font-black text-2xl md:text-[1.5vw] tracking-tight text-white">
-                BRAND<span className="text-[#2ea3f2]">SHARK</span>
+                RIV<span className="text-[#2ea3f2]">REACH</span>
               </span>
             </a>
 
             <p className="text-xs sm:text-sm md:text-[0.85vw] md:leading-[1.3vw] text-slate-300 mb-6 md:mb-[1.5vw] max-w-sm md:max-w-[24vw]">
               Best Digital Marketing Agency in Bangalore. Founded by alumni of IIT &amp; IIM with a mission to bring data-backed creative results in digital marketing.
             </p>
+
 
             <div className="flex items-center gap-3 md:gap-[0.8vw]">
               <a href="https://facebook.com" target="_blank" rel="noreferrer" className="p-2.5 md:p-[0.6vw] rounded-lg md:rounded-[0.5vw] bg-white/10 text-white hover:bg-[#2ea3f2] transition-colors" aria-label="Facebook">
@@ -81,7 +106,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2.5 md:gap-[0.5vw]">
                 <Mail className="w-4 h-4 md:w-[1vw] md:h-[1vw] text-[#2ea3f2] shrink-0" />
-                <span>design@brandshark.com</span>
+                <span>contact@rivreach.com</span>
               </li>
             </ul>
           </div>
@@ -90,7 +115,8 @@ export default function Footer() {
 
         {/* Bottom copyright & scroll top */}
         <div className="pt-8 md:pt-[2vw] flex flex-col sm:flex-row items-center justify-between gap-4 md:gap-[1vw] text-xs md:text-[0.8vw]">
-          <p>© {new Date().getFullYear()} Brandshark. All Rights Reserved.</p>
+          <p>© {new Date().getFullYear()} Rivreach. All Rights Reserved.</p>
+
 
           <button
             onClick={scrollToTop}

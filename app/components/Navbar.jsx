@@ -34,14 +34,40 @@ export default function Navbar() {
     >
       <div className="w-full max-w-full md:max-w-[80vw] mx-auto px-4 md:px-[2vw] flex items-center justify-between">
         
-        {/* Brandshark Logo */}
-        <a href="#" className="flex items-center gap-3 lg:gap-[0.8vw]">
-          <div className="flex items-center gap-2 lg:gap-[0.5vw]">
-            <span className="font-heading font-black text-2xl lg:text-[1.5vw] tracking-tight text-[#2b2058]">
-              BRAND<span className="text-[#2ea3f2]">SHARK</span>
-            </span>
+        {/* Rivreach Logo */}
+        <a href="#" className="flex items-center gap-2.5 lg:gap-[0.7vw] group">
+          {/* Custom Rivreach SVG Icon */}
+          <div className="w-9 h-9 md:w-[2.2vw] md:h-[2.2vw] rounded-xl md:rounded-[0.6vw] bg-gradient-to-br from-[#2b2058] via-[#1e1640] to-[#2ea3f2] p-[2px] shadow-sm group-hover:scale-105 transition-transform duration-300 flex items-center justify-center shrink-0">
+            <div className="w-full h-full bg-[#2b2058] rounded-[10px] md:rounded-[0.5vw] flex items-center justify-center">
+              <svg 
+                viewBox="0 0 32 32" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-5 h-5 md:w-[1.3vw] md:h-[1.3vw]"
+              >
+                {/* River Wave & Upward Reach Peak */}
+                <path 
+                  d="M6 22C10 22 12 14 17 14C22 14 23 20 26 20" 
+                  stroke="#2ea3f2" 
+                  strokeWidth="3" 
+                  strokeLinecap="round"
+                />
+                <path 
+                  d="M17 14L24 7M24 7H18M24 7V13" 
+                  stroke="#2ea3f2" 
+                  strokeWidth="3" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
           </div>
+
+          <span className="font-heading font-black text-2xl lg:text-[1.5vw] tracking-tight text-[#2b2058]">
+            RIV<span className="text-[#2ea3f2]">REACH</span>
+          </span>
         </a>
+
 
         {/* Desktop Navigation Links */}
         <nav className="hidden lg:flex items-center lg:gap-[2vw]">

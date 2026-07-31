@@ -223,10 +223,11 @@ export default function InquiryForm() {
                 <Phone className="w-4 h-4 md:w-[1vw] md:h-[1vw] text-[#2ea3f2]" />
                 <span className="text-sm md:text-[0.85vw] font-bold">+91 7827113855</span>
               </a>
-              <a href="mailto:design@brandshark.com" className="flex items-center gap-3 md:gap-[0.6vw] hover:text-[#2ea3f2] transition-colors">
+              <a href="mailto:contact@rivreach.com" className="flex items-center gap-3 md:gap-[0.6vw] hover:text-[#2ea3f2] transition-colors">
                 <Mail className="w-4 h-4 md:w-[1vw] md:h-[1vw] text-[#2ea3f2]" />
-                <span className="text-sm md:text-[0.85vw] font-bold">design@brandshark.com</span>
+                <span className="text-sm md:text-[0.85vw] font-bold">contact@rivreach.com</span>
               </a>
+
             </div>
           </motion.div>
 

@@ -17,9 +17,10 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "Best Digital Marketing Agency in Bangalore | Brandshark Clone",
+  title: "Rivreach | Best Digital Marketing & Growth Agency",
   description: "Data-driven digital marketing agency delivering 3.5x average ROI across SEO, PPC, Social Media, and Web Development.",
 };
+
 
 export default function RootLayout({ children }) {
   return (

@@ -43,8 +43,9 @@ export default function WhyChooseUs() {
           >
             <div className="inline-flex items-center gap-2 md:gap-[0.5vw] px-3.5 py-1.5 md:px-[0.9vw] md:py-[0.4vw] rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs md:text-[0.75vw] font-bold mb-4 md:mb-[1vw]">
               <Sparkles className="w-3.5 h-3.5 md:w-[0.9vw] md:h-[0.9vw]" />
-              <span>The Brandshark Advantage</span>
+              <span>The Rivreach Advantage</span>
             </div>
+
 
             <h2 className="font-heading text-3xl sm:text-4xl md:text-[3vw] md:leading-[3.5vw] font-black text-white tracking-tight leading-tight mb-6 md:mb-[1.5vw]">
               Why Premier Brands Partner With Us
