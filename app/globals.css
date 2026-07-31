@@ -1,26 +1,164 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --brand-purple: #2b2058;
+  --brand-purple-dark: #1e1640;
+  --brand-blue: #2ea3f2;
+  --brand-gold: #c8a75d;
+  --brand-bg-light: #ffffff;
+  --brand-card-bg: #f8fafc;
+  --font-heading: var(--font-montserrat), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: var(--font-inter), sans-serif;
+  --font-heading: var(--font-montserrat), sans-serif;
+  --color-brand-purple: #2b2058;
+  --color-brand-blue: #2ea3f2;
+  --color-brand-gold: #c8a75d;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+  color: #333333;
+  background-color: #ffffff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-heading {
+  font-family: var(--font-heading);
+  color: #2b2058;
+}
+
+/* Custom Utilities & Animations */
+@keyframes infinite-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-infinite-scroll {
+  display: flex;
+  width: max-content;
+  animation: infinite-scroll 25s linear infinite;
+}
+
+.animate-infinite-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* White theme card styles */
+.brand-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 20px rgba(43, 32, 88, 0.06);
+}
+
+.brand-card-purple {
+  background: #2b2058;
+  color: #ffffff;
+}
+
+.brand-button-purple {
+  background-color: #2b2058;
+  color: #ffffff;
+  border-radius: 5px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  padding: 10px 32px;
+  transition: all 0.25s ease;
+}
+
+.brand-button-purple:hover {
+  background-color: #1e1640;
+  transform: translateY(-1px);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2b2058;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1e1640;
+}
+
+
+.consult-btn {
+  position: relative;
+  overflow: hidden;
+  background: #2b2058;
+  border: 1px solid #2b2058;
+  border-radius: 5px;
+  transition: color 0.4s ease;
+}
+
+.consult-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #ffffff;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s ease;
+  z-index: 0;
+}
+
+.consult-btn:hover::before {
+  transform: scaleX(1);
+}
+
+.consult-btn span,
+.consult-btn svg {
+  position: relative;
+  z-index: 10;
+  color: #ffffff;
+  transition: color 0.4s ease;
+}
+
+.consult-btn:hover span,
+.consult-btn:hover svg {
+  color: #2b2058 !important;
+}
+
+
+/* Lenis Smooth Scroll CSS */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
 }
