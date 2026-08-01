@@ -28,8 +28,8 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200 py-3 lg:py-[0.7vw]"
-          : "bg-white/90 backdrop-blur-sm border-b border-slate-100 py-4 lg:py-[1vw]"
+          ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-[#E7E1FF] py-3 lg:py-[0.7vw]"
+          : "bg-white/90 backdrop-blur-sm border-b border-[#F8FAFC] py-4 lg:py-[1vw]"
       }`}
     >
       <div className="w-full max-w-full md:max-w-[80vw] mx-auto px-4 md:px-[2vw] flex items-center justify-between">
@@ -37,8 +37,8 @@ export default function Navbar() {
         {/* Rivreach Logo */}
         <a href="#" className="flex items-center gap-2.5 lg:gap-[0.7vw] group">
           {/* Custom Rivreach SVG Icon */}
-          <div className="w-9 h-9 md:w-[2.2vw] md:h-[2.2vw] rounded-xl md:rounded-[0.6vw] bg-gradient-to-br from-[#2b2058] via-[#1e1640] to-[#2ea3f2] p-[2px] shadow-sm group-hover:scale-105 transition-transform duration-300 flex items-center justify-center shrink-0">
-            <div className="w-full h-full bg-[#2b2058] rounded-[10px] md:rounded-[0.5vw] flex items-center justify-center">
+          <div className="w-9 h-9 md:w-[2.2vw] md:h-[2.2vw] rounded-xl md:rounded-[0.6vw] bg-gradient-to-br from-[#480ED8] via-[#1E293B] to-[#FF5914] p-[2px] shadow-sm group-hover:scale-105 transition-transform duration-300 flex items-center justify-center shrink-0">
+            <div className="w-full h-full bg-[#480ED8] rounded-[10px] md:rounded-[0.5vw] flex items-center justify-center">
               <svg 
                 viewBox="0 0 32 32" 
                 fill="none" 
@@ -48,13 +48,13 @@ export default function Navbar() {
                 {/* River Wave & Upward Reach Peak */}
                 <path 
                   d="M6 22C10 22 12 14 17 14C22 14 23 20 26 20" 
-                  stroke="#2ea3f2" 
+                  stroke="#FF5914" 
                   strokeWidth="3" 
                   strokeLinecap="round"
                 />
                 <path 
                   d="M17 14L24 7M24 7H18M24 7V13" 
-                  stroke="#2ea3f2" 
+                  stroke="#FF5914" 
                   strokeWidth="3" 
                   strokeLinecap="round" 
                   strokeLinejoin="round"
@@ -63,8 +63,8 @@ export default function Navbar() {
             </div>
           </div>
 
-          <span className="font-heading font-black text-2xl lg:text-[1.5vw] tracking-tight text-[#2b2058]">
-            RIV<span className="text-[#2ea3f2]">REACH</span>
+          <span className="font-heading font-black text-2xl lg:text-[1.5vw] tracking-tight text-[#480ED8]">
+            RIV<span className="text-[#FF5914]">REACH</span>
           </span>
         </a>
 
@@ -75,7 +75,7 @@ export default function Navbar() {
             <a
               key={link.name}
               href={link.href}
-              className="text-sm lg:text-[0.9vw] font-semibold text-slate-700 hover:text-[#2b2058] transition-colors relative py-1 lg:py-[0.2vw]"
+              className="text-sm lg:text-[0.9vw] font-semibold text-[#1E293B] hover:text-[#480ED8] transition-colors relative py-1 lg:py-[0.2vw]"
             >
               {link.name}
             </a>
@@ -86,9 +86,9 @@ export default function Navbar() {
         <div className="hidden lg:flex items-center lg:gap-[1.5vw]">
           <a
             href="tel:+917827113855"
-            className="flex items-center lg:gap-[0.4vw] text-xs lg:text-[0.8vw] font-bold text-slate-700 hover:text-[#2b2058] transition-colors"
+            className="flex items-center lg:gap-[0.4vw] text-xs lg:text-[0.8vw] font-bold text-[#1E293B] hover:text-[#480ED8] transition-colors"
           >
-            <Phone className="w-4 h-4 lg:w-[1vw] lg:h-[1vw] text-[#2ea3f2]" />
+            <Phone className="w-4 h-4 lg:w-[1vw] lg:h-[1vw] text-[#FF5914]" />
             <span>+91 7827113855</span>
           </a>
 
@@ -104,14 +104,14 @@ export default function Navbar() {
         <div className="flex items-center gap-3 lg:hidden">
           <a
             href="tel:+917827113855"
-            className="p-2 rounded-lg bg-slate-100 text-[#2b2058]"
+            className="p-2 rounded-lg bg-[#E7E1FF] text-[#480ED8]"
             aria-label="Call Us"
           >
             <Phone className="w-4 h-4" />
           </a>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2.5 rounded-lg bg-slate-100 text-slate-700 hover:text-[#2b2058] focus:outline-none"
+            className="p-2.5 rounded-lg bg-[#F8FAFC] text-[#1E293B] hover:text-[#480ED8] focus:outline-none"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -126,7 +126,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white border-b border-slate-200 overflow-hidden"
+            className="lg:hidden bg-white border-b border-[#E7E1FF] overflow-hidden"
           >
             <div className="px-6 py-6 flex flex-col gap-4">
               {navLinks.map((link) => (
@@ -134,7 +134,7 @@ export default function Navbar() {
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-base font-semibold text-slate-800 hover:text-[#2b2058] py-2 border-b border-slate-100 flex items-center justify-between"
+                  className="text-base font-semibold text-[#1E293B] hover:text-[#480ED8] py-2 border-b border-[#F8FAFC] flex items-center justify-between"
                 >
                   <span>{link.name}</span>
                   <ArrowRight className="w-4 h-4 text-slate-400" />

@@ -13,7 +13,7 @@ import Footer from "./components/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white text-slate-800 flex flex-col font-sans">
+    <main className="min-h-screen bg-white text-[#1E293B] flex flex-col font-sans">
       <Navbar />
       <Hero />
       <TrustedBrands />

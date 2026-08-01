@@ -21,15 +21,15 @@ export default function FoundersSection() {
   ];
 
   return (
-    <section id="founders" className="py-20 md:py-[5vw] bg-white border-b border-slate-200">
+    <section id="founders" className="py-20 md:py-[5vw] bg-white border-b border-[#E7E1FF]">
       <div className="w-full max-w-full md:max-w-[80vw] mx-auto px-4 md:px-[2vw]">
         
         {/* Header */}
         <div className="text-center max-w-3xl md:max-w-[45vw] mx-auto mb-16 md:mb-[3vw]">
-          <h2 className="font-heading text-2xl sm:text-3xl md:text-[2.2vw] md:leading-[2.6vw] font-extrabold text-[#2b2058] mb-3 md:mb-[0.8vw]">
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-[2.2vw] md:leading-[2.6vw] font-extrabold text-[#480ED8] mb-3 md:mb-[0.8vw]">
             The Best in the business
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base md:text-[0.95vw] md:leading-[1.4vw]">
+          <p className="text-[#1E293B] text-sm sm:text-base md:text-[0.95vw] md:leading-[1.4vw]">
             Started 9 years ago by alumni of IIT and IIM with a mission to bring data backed creative results in digital marketing
           </p>
         </div>
@@ -43,9 +43,9 @@ export default function FoundersSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.15 }}
-              className="p-8 md:p-[2vw] rounded-2xl md:rounded-[1.2vw] bg-slate-50 border border-slate-200 shadow-sm hover:shadow-md transition-all text-center flex flex-col items-center"
+              className="p-8 md:p-[2vw] rounded-2xl md:rounded-[1.2vw] bg-[#F8FAFC] border border-[#E7E1FF] shadow-sm hover:shadow-md transition-all text-center flex flex-col items-center"
             >
-              <div className="w-24 h-24 md:w-[6vw] md:h-[6vw] rounded-full bg-[#2b2058] text-white flex items-center justify-center font-heading font-extrabold text-2xl md:text-[1.5vw] mb-5 md:mb-[1.2vw] shadow-md overflow-hidden">
+              <div className="w-24 h-24 md:w-[6vw] md:h-[6vw] rounded-full bg-[#480ED8] text-white flex items-center justify-center font-heading font-extrabold text-2xl md:text-[1.5vw] mb-5 md:mb-[1.2vw] shadow-md overflow-hidden">
                 <img
                   src={founder.image}
                   alt={founder.name}
@@ -58,15 +58,15 @@ export default function FoundersSection() {
                 <span className="fallback-text">{founder.avatarLetter}</span>
               </div>
 
-              <h3 className="font-heading font-extrabold text-xl md:text-[1.3vw] md:leading-[1.6vw] text-[#2b2058] mb-1 md:mb-[0.3vw]">
+              <h3 className="font-heading font-extrabold text-xl md:text-[1.3vw] md:leading-[1.6vw] text-[#480ED8] mb-1 md:mb-[0.3vw]">
                 {founder.name}
               </h3>
 
-              <p className="text-xs md:text-[0.75vw] font-bold text-[#2ea3f2] uppercase tracking-wider mb-2 md:mb-[0.5vw]">
+              <p className="text-xs md:text-[0.75vw] font-bold text-[#FF5914] uppercase tracking-wider mb-2 md:mb-[0.5vw]">
                 {founder.degree}
               </p>
 
-              <p className="text-sm md:text-[0.85vw] md:leading-[1.2vw] font-semibold text-slate-700">
+              <p className="text-sm md:text-[0.85vw] md:leading-[1.2vw] font-semibold text-[#1E293B]">
                 {founder.role}
               </p>
             </motion.div>

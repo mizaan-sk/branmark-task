@@ -1,39 +1,63 @@
 @import "tailwindcss";
 
 :root {
-  --brand-purple: #2b2058;
-  --brand-purple-dark: #1e1640;
-  --brand-blue: #2ea3f2;
-  --brand-gold: #c8a75d;
+  --color-white: #ffffff;
+  --color-slate-light: #f8fafc;
+  --color-lavender: #e7e1ff;
+  --color-purple: #480ed8;
+  --color-purple-dark: #370aa9;
+  --color-dark: #1e293b;
+  --color-orange: #ff5914;
+  --color-orange-hover: #e04705;
+
+  --brand-purple: #480ed8;
+  --brand-purple-dark: #370aa9;
+  --brand-orange: #ff5914;
+  --brand-lavender: #e7e1ff;
+  --brand-dark: #1e293b;
   --brand-bg-light: #ffffff;
   --brand-card-bg: #f8fafc;
-  --font-heading: var(--font-montserrat), sans-serif;
-  --font-body: var(--font-inter), sans-serif;
+  --font-heading: var(--font-poppins), sans-serif;
+  --font-body: var(--font-poppins), sans-serif;
 }
 
 @theme inline {
-  --font-sans: var(--font-inter), sans-serif;
-  --font-heading: var(--font-montserrat), sans-serif;
-  --color-brand-purple: #2b2058;
-  --color-brand-blue: #2ea3f2;
-  --color-brand-gold: #c8a75d;
+  --font-sans: var(--font-poppins), sans-serif;
+  --font-heading: var(--font-poppins), sans-serif;
+  --color-brand-purple: #480ed8;
+  --color-brand-purple-dark: #370aa9;
+  --color-brand-orange: #ff5914;
+  --color-brand-lavender: #e7e1ff;
+  --color-brand-dark: #1e293b;
+  --color-brand-light: #f8fafc;
 }
 
-body {
-  font-family: var(--font-body);
-  color: #333333;
-  background-color: #ffffff;
-}
+@layer base {
+  *,
+  *::before,
+  *::after {
+    font-family: var(--font-poppins), sans-serif;
+  }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.font-heading {
-  font-family: var(--font-heading);
-  color: #2b2058;
+  body {
+    font-family: var(--font-poppins), sans-serif;
+    color: #1e293b;
+    background-color: #ffffff;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-poppins), sans-serif;
+    color: #480ed8;
+  }
+
+  .font-heading {
+    font-family: var(--font-poppins), sans-serif;
+  }
 }
 
 /* Custom Utilities & Animations */
@@ -57,20 +81,20 @@ h6,
   animation-play-state: paused;
 }
 
-/* White theme card styles */
+/* Theme card styles */
 .brand-card {
   background: #ffffff;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 4px 20px rgba(43, 32, 88, 0.06);
+  border: 1px solid #e7e1ff;
+  box-shadow: 0 4px 20px rgba(72, 14, 216, 0.06);
 }
 
 .brand-card-purple {
-  background: #2b2058;
+  background: #480ed8;
   color: #ffffff;
 }
 
 .brand-button-purple {
-  background-color: #2b2058;
+  background-color: #480ed8;
   color: #ffffff;
   border-radius: 5px;
   font-family: var(--font-heading);
@@ -80,7 +104,22 @@ h6,
 }
 
 .brand-button-purple:hover {
-  background-color: #1e1640;
+  background-color: #370aa9;
+  transform: translateY(-1px);
+}
+
+.brand-button-orange {
+  background-color: #ff5914;
+  color: #ffffff;
+  border-radius: 5px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  padding: 10px 32px;
+  transition: all 0.25s ease;
+}
+
+.brand-button-orange:hover {
+  background-color: #e04705;
   transform: translateY(-1px);
 }
 
@@ -90,24 +129,23 @@ h6,
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: #f8fafc;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2b2058;
+  background: #480ed8;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #1e1640;
+  background: #370aa9;
 }
-
 
 .consult-btn {
   position: relative;
   overflow: hidden;
-  background: #2b2058;
-  border: 1px solid #2b2058;
+  background: #ff5914;
+  border: 1px solid #ff5914;
   border-radius: 5px;
   transition: color 0.4s ease;
 }
@@ -116,7 +154,7 @@ h6,
   content: "";
   position: absolute;
   inset: 0;
-  background: #ffffff;
+  background: #480ed8;
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.45s ease;
@@ -137,9 +175,8 @@ h6,
 
 .consult-btn:hover span,
 .consult-btn:hover svg {
-  color: #2b2058 !important;
+  color: #ffffff !important;
 }
-
 
 /* Lenis Smooth Scroll CSS */
 html.lenis,

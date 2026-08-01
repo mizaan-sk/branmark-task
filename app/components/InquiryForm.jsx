@@ -25,7 +25,7 @@ export default function InquiryForm() {
   };
 
   return (
-    <section id="lets-talk-Form" className="py-20 md:py-[5vw] bg-slate-50 border-b border-slate-200">
+    <section id="lets-talk-Form" className="py-20 md:py-[5vw] bg-[#F8FAFC] border-b border-[#E7E1FF]">
       <div className="w-full max-w-full md:max-w-[80vw] mx-auto px-4 md:px-[2vw]">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-[3vw]">
           
@@ -37,18 +37,18 @@ export default function InquiryForm() {
             transition={{ duration: 0.5 }}
             className="md:col-span-6"
           >
-            <div className="p-8 md:p-[2.5vw] rounded-2xl md:rounded-[1.5vw] bg-white border border-slate-200 shadow-lg">
-              <h2 className="font-heading text-2xl sm:text-3xl md:text-[2.2vw] md:leading-[2.6vw] font-extrabold text-[#2b2058] mb-6 md:mb-[1.5vw]">
+            <div className="p-8 md:p-[2.5vw] rounded-2xl md:rounded-[1.5vw] bg-white border border-[#E7E1FF] shadow-lg">
+              <h2 className="font-heading text-2xl sm:text-3xl md:text-[2.2vw] md:leading-[2.6vw] font-extrabold text-[#480ED8] mb-6 md:mb-[1.5vw]">
                 Let&apos;s Get Started
               </h2>
 
               {submitted ? (
                 <div className="py-12 md:py-[3vw] text-center flex flex-col items-center justify-center">
-                  <div className="w-16 h-16 md:w-[4vw] md:h-[4vw] rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mb-4 md:mb-[1vw]">
+                  <div className="w-16 h-16 md:w-[4vw] md:h-[4vw] rounded-full bg-[#E7E1FF] text-[#480ED8] flex items-center justify-center mb-4 md:mb-[1vw]">
                     <ShieldCheck className="w-8 h-8 md:w-[2vw] md:h-[2vw]" />
                   </div>
-                  <h3 className="text-xl md:text-[1.3vw] font-bold text-[#2b2058] mb-2 md:mb-[0.5vw]">Form Submitted Successfully!</h3>
-                  <p className="text-sm md:text-[0.9vw] text-slate-600 max-w-sm md:max-w-[24vw] mb-4 md:mb-[1vw]">
+                  <h3 className="text-xl md:text-[1.3vw] font-bold text-[#480ED8] mb-2 md:mb-[0.5vw]">Form Submitted Successfully!</h3>
+                  <p className="text-sm md:text-[0.9vw] text-[#1E293B] max-w-sm md:max-w-[24vw] mb-4 md:mb-[1vw]">
                     Thank you, {formData.name || "there"}. Our team will review your project details and reach out shortly.
                   </p>
                   <button
@@ -56,7 +56,7 @@ export default function InquiryForm() {
                       setSubmitted(false);
                       setFormData({ name: "", phone: "", email: "", company: "", budget: "" });
                     }}
-                    className="text-xs md:text-[0.8vw] text-[#2ea3f2] underline font-semibold"
+                    className="text-xs md:text-[0.8vw] text-[#FF5914] underline font-semibold"
                   >
                     Submit Another Inquiry
                   </button>
@@ -64,7 +64,7 @@ export default function InquiryForm() {
               ) : (
                 <form onSubmit={handleSubmit} className="flex flex-col gap-4 md:gap-[1vw]">
                   <div>
-                    <label className="block text-xs md:text-[0.8vw] font-semibold text-slate-700 mb-1 md:mb-[0.3vw]">
+                    <label className="block text-xs md:text-[0.8vw] font-semibold text-[#1E293B] mb-1 md:mb-[0.3vw]">
                       Full Name *
                     </label>
                     <input
@@ -73,12 +73,12 @@ export default function InquiryForm() {
                       placeholder="Your name"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3 md:px-[1vw] md:py-[0.7vw] rounded-md md:rounded-[0.4vw] bg-white border border-slate-300 text-slate-900 text-sm md:text-[0.9vw] focus:outline-none focus:border-[#2b2058]"
+                      className="w-full px-4 py-3 md:px-[1vw] md:py-[0.7vw] rounded-md md:rounded-[0.4vw] bg-white border border-slate-300 text-[#1E293B] text-sm md:text-[0.9vw] focus:outline-none focus:border-[#480ED8]"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs md:text-[0.8vw] font-semibold text-slate-700 mb-1 md:mb-[0.3vw]">
+                    <label className="block text-xs md:text-[0.8vw] font-semibold text-[#1E293B] mb-1 md:mb-[0.3vw]">
                       Phone Number *
                     </label>
                     <input
@@ -87,12 +87,12 @@ export default function InquiryForm() {
                       placeholder="Phone number"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-4 py-3 md:px-[1vw] md:py-[0.7vw] rounded-md md:rounded-[0.4vw] bg-white border border-slate-300 text-slate-900 text-sm md:text-[0.9vw] focus:outline-none focus:border-[#2b2058]"
+                      className="w-full px-4 py-3 md:px-[1vw] md:py-[0.7vw] rounded-md md:rounded-[0.4vw] bg-white border border-slate-300 text-[#1E293B] text-sm md:text-[0.9vw] focus:outline-none focus:border-[#480ED8]"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs md:text-[0.8vw] font-semibold text-slate-700 mb-1 md:mb-[0.3vw]">
+                    <label className="block text-xs md:text-[0.8vw] font-semibold text-[#1E293B] mb-1 md:mb-[0.3vw]">
                       Email *
                     </label>
                     <input
@@ -101,12 +101,12 @@ export default function InquiryForm() {
                       placeholder="Your email address"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3 md:px-[1vw] md:py-[0.7vw] rounded-md md:rounded-[0.4vw] bg-white border border-slate-300 text-slate-900 text-sm md:text-[0.9vw] focus:outline-none focus:border-[#2b2058]"
+                      className="w-full px-4 py-3 md:px-[1vw] md:py-[0.7vw] rounded-md md:rounded-[0.4vw] bg-white border border-slate-300 text-[#1E293B] text-sm md:text-[0.9vw] focus:outline-none focus:border-[#480ED8]"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs md:text-[0.8vw] font-semibold text-slate-700 mb-1 md:mb-[0.3vw]">
+                    <label className="block text-xs md:text-[0.8vw] font-semibold text-[#1E293B] mb-1 md:mb-[0.3vw]">
                       Company / Project Details
                     </label>
                     <input
@@ -114,19 +114,19 @@ export default function InquiryForm() {
                       placeholder="Company or project brief"
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      className="w-full px-4 py-3 md:px-[1vw] md:py-[0.7vw] rounded-md md:rounded-[0.4vw] bg-white border border-slate-300 text-slate-900 text-sm md:text-[0.9vw] focus:outline-none focus:border-[#2b2058]"
+                      className="w-full px-4 py-3 md:px-[1vw] md:py-[0.7vw] rounded-md md:rounded-[0.4vw] bg-white border border-slate-300 text-[#1E293B] text-sm md:text-[0.9vw] focus:outline-none focus:border-[#480ED8]"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs md:text-[0.8vw] font-semibold text-slate-700 mb-1 md:mb-[0.3vw]">
+                    <label className="block text-xs md:text-[0.8vw] font-semibold text-[#1E293B] mb-1 md:mb-[0.3vw]">
                       What is your marketing budget? *
                     </label>
                     <select
                       required
                       value={formData.budget}
                       onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                      className="w-full px-4 py-3 md:px-[1vw] md:py-[0.7vw] rounded-md md:rounded-[0.4vw] bg-white border border-slate-300 text-slate-800 text-sm md:text-[0.9vw] focus:outline-none focus:border-[#2b2058] cursor-pointer"
+                      className="w-full px-4 py-3 md:px-[1vw] md:py-[0.7vw] rounded-md md:rounded-[0.4vw] bg-white border border-slate-300 text-[#1E293B] text-sm md:text-[0.9vw] focus:outline-none focus:border-[#480ED8] cursor-pointer"
                     >
                       <option value="">Select your marketing budget</option>
                       <option value="2-5 Lakhs/month">2-5 Lakhs/month</option>
@@ -165,51 +165,51 @@ export default function InquiryForm() {
             className="md:col-span-6 flex flex-col justify-between"
           >
             <div>
-              <h3 className="font-heading text-2xl md:text-[1.8vw] font-extrabold text-[#2b2058] mb-2 md:mb-[0.5vw]">
+              <h3 className="font-heading text-2xl md:text-[1.8vw] font-extrabold text-[#480ED8] mb-2 md:mb-[0.5vw]">
                 Our Offices
               </h3>
-              <p className="text-slate-500 text-sm md:text-[0.9vw] mb-8 md:mb-[2vw]">
+              <p className="text-[#1E293B] text-sm md:text-[0.9vw] mb-8 md:mb-[2vw]">
                 Reach us at any of our global locations
               </p>
 
               <div className="flex flex-col gap-6 md:gap-[1.5vw] mb-10 md:mb-[2.5vw]">
                 {/* Bangalore */}
-                <div className="p-5 md:p-[1.2vw] rounded-xl md:rounded-[0.9vw] bg-white border border-slate-200 flex items-start gap-4 md:gap-[1vw]">
-                  <div className="p-3 md:p-[0.7vw] rounded-lg md:rounded-[0.5vw] bg-amber-100 text-[#f0bb3b] shrink-0">
+                <div className="p-5 md:p-[1.2vw] rounded-xl md:rounded-[0.9vw] bg-white border border-[#E7E1FF] flex items-start gap-4 md:gap-[1vw]">
+                  <div className="p-3 md:p-[0.7vw] rounded-lg md:rounded-[0.5vw] bg-[#E7E1FF] text-[#FF5914] shrink-0">
                     <MapPin className="w-5 h-5 md:w-[1.2vw] md:h-[1.2vw]" />
                   </div>
                   <div>
-                    <h4 className="font-heading font-bold text-[#2b2058] text-base md:text-[1.1vw]">Bangalore</h4>
-                    <span className="text-[11px] md:text-[0.65vw] font-bold text-[#f0bb3b] uppercase">INDIA</span>
-                    <p className="text-xs md:text-[0.8vw] md:leading-[1.2vw] text-slate-600 mt-1 md:mt-[0.2vw]">
+                    <h4 className="font-heading font-bold text-[#480ED8] text-base md:text-[1.1vw]">Bangalore</h4>
+                    <span className="text-[11px] md:text-[0.65vw] font-bold text-[#FF5914] uppercase">INDIA</span>
+                    <p className="text-xs md:text-[0.8vw] md:leading-[1.2vw] text-[#1E293B] mt-1 md:mt-[0.2vw]">
                       Vishala Complex, 1st Floor, Sector 7, HSR Layout, Bangalore, Karnataka 560102
                     </p>
                   </div>
                 </div>
 
                 {/* Mumbai */}
-                <div className="p-5 md:p-[1.2vw] rounded-xl md:rounded-[0.9vw] bg-white border border-slate-200 flex items-start gap-4 md:gap-[1vw]">
-                  <div className="p-3 md:p-[0.7vw] rounded-lg md:rounded-[0.5vw] bg-amber-100 text-[#f0bb3b] shrink-0">
+                <div className="p-5 md:p-[1.2vw] rounded-xl md:rounded-[0.9vw] bg-white border border-[#E7E1FF] flex items-start gap-4 md:gap-[1vw]">
+                  <div className="p-3 md:p-[0.7vw] rounded-lg md:rounded-[0.5vw] bg-[#E7E1FF] text-[#FF5914] shrink-0">
                     <MapPin className="w-5 h-5 md:w-[1.2vw] md:h-[1.2vw]" />
                   </div>
                   <div>
-                    <h4 className="font-heading font-bold text-[#2b2058] text-base md:text-[1.1vw]">Mumbai</h4>
-                    <span className="text-[11px] md:text-[0.65vw] font-bold text-[#f0bb3b] uppercase">INDIA</span>
-                    <p className="text-xs md:text-[0.8vw] md:leading-[1.2vw] text-slate-600 mt-1 md:mt-[0.2vw]">
+                    <h4 className="font-heading font-bold text-[#480ED8] text-base md:text-[1.1vw]">Mumbai</h4>
+                    <span className="text-[11px] md:text-[0.65vw] font-bold text-[#FF5914] uppercase">INDIA</span>
+                    <p className="text-xs md:text-[0.8vw] md:leading-[1.2vw] text-[#1E293B] mt-1 md:mt-[0.2vw]">
                       10th Floor, RCity Offices, Lal Bahadur Shastri Marg, Ghatkopar West, Mumbai 400086
                     </p>
                   </div>
                 </div>
 
                 {/* Virginia */}
-                <div className="p-5 md:p-[1.2vw] rounded-xl md:rounded-[0.9vw] bg-white border border-slate-200 flex items-start gap-4 md:gap-[1vw]">
-                  <div className="p-3 md:p-[0.7vw] rounded-lg md:rounded-[0.5vw] bg-amber-100 text-[#f0bb3b] shrink-0">
+                <div className="p-5 md:p-[1.2vw] rounded-xl md:rounded-[0.9vw] bg-white border border-[#E7E1FF] flex items-start gap-4 md:gap-[1vw]">
+                  <div className="p-3 md:p-[0.7vw] rounded-lg md:rounded-[0.5vw] bg-[#E7E1FF] text-[#FF5914] shrink-0">
                     <MapPin className="w-5 h-5 md:w-[1.2vw] md:h-[1.2vw]" />
                   </div>
                   <div>
-                    <h4 className="font-heading font-bold text-[#2b2058] text-base md:text-[1.1vw]">Virginia</h4>
-                    <span className="text-[11px] md:text-[0.65vw] font-bold text-[#f0bb3b] uppercase">USA</span>
-                    <p className="text-xs md:text-[0.8vw] md:leading-[1.2vw] text-slate-600 mt-1 md:mt-[0.2vw]">
+                    <h4 className="font-heading font-bold text-[#480ED8] text-base md:text-[1.1vw]">Virginia</h4>
+                    <span className="text-[11px] md:text-[0.65vw] font-bold text-[#FF5914] uppercase">USA</span>
+                    <p className="text-xs md:text-[0.8vw] md:leading-[1.2vw] text-[#1E293B] mt-1 md:mt-[0.2vw]">
                       Arbor Creek Drive, Henrico, Virginia 23233
                     </p>
                   </div>
@@ -218,16 +218,15 @@ export default function InquiryForm() {
             </div>
 
             {/* Direct Contact Bar */}
-            <div className="p-5 md:p-[1.2vw] rounded-xl md:rounded-[0.9vw] bg-[#2b2058] text-white flex flex-wrap items-center justify-between gap-4 md:gap-[1vw]">
-              <a href="tel:+917827113855" className="flex items-center gap-3 md:gap-[0.6vw] hover:text-[#2ea3f2] transition-colors">
-                <Phone className="w-4 h-4 md:w-[1vw] md:h-[1vw] text-[#2ea3f2]" />
+            <div className="p-5 md:p-[1.2vw] rounded-xl md:rounded-[0.9vw] bg-[#480ED8] text-white flex flex-wrap items-center justify-between gap-4 md:gap-[1vw]">
+              <a href="tel:+917827113855" className="flex items-center gap-3 md:gap-[0.6vw] hover:text-[#FF5914] transition-colors">
+                <Phone className="w-4 h-4 md:w-[1vw] md:h-[1vw] text-[#FF5914]" />
                 <span className="text-sm md:text-[0.85vw] font-bold">+91 7827113855</span>
               </a>
-              <a href="mailto:contact@rivreach.com" className="flex items-center gap-3 md:gap-[0.6vw] hover:text-[#2ea3f2] transition-colors">
-                <Mail className="w-4 h-4 md:w-[1vw] md:h-[1vw] text-[#2ea3f2]" />
+              <a href="mailto:contact@rivreach.com" className="flex items-center gap-3 md:gap-[0.6vw] hover:text-[#FF5914] transition-colors">
+                <Mail className="w-4 h-4 md:w-[1vw] md:h-[1vw] text-[#FF5914]" />
                 <span className="text-sm md:text-[0.85vw] font-bold">contact@rivreach.com</span>
               </a>
-
             </div>
           </motion.div>
 

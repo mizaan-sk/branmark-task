@@ -27,9 +27,9 @@ export default function TrustedBrands() {
   ];
 
   return (
-    <section className="py-10 md:py-[2.5vw] bg-slate-50 border-y border-slate-200 overflow-hidden relative select-none">
+    <section className="py-10 md:py-[2.5vw] bg-[#F8FAFC] border-y border-[#E7E1FF] overflow-hidden relative select-none">
       <div className="w-full max-w-full md:max-w-[80vw] mx-auto px-4 md:px-[2vw] mb-6 md:mb-[1.5vw] text-center">
-        <p className="text-xs md:text-[0.8vw] md:tracking-[0.15vw] uppercase tracking-widest text-[#2b2058] font-bold">
+        <p className="text-xs md:text-[0.8vw] md:tracking-[0.15vw] uppercase tracking-widest text-[#480ED8] font-bold">
           Trusted by 500+ High-Growth Brands &amp; Enterprise Leaders Across India
         </p>
       </div>
@@ -37,8 +37,8 @@ export default function TrustedBrands() {
       {/* Infinite Scrolling Marquee Track */}
       <div className="flex overflow-hidden relative w-full items-center py-2 md:py-[0.5vw]">
         {/* Left & Right Gradient Fades */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 md:w-[9vw] bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 md:w-[9vw] bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-24 md:w-[9vw] bg-gradient-to-r from-[#F8FAFC] to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 md:w-[9vw] bg-gradient-to-l from-[#F8FAFC] to-transparent z-10 pointer-events-none" />
 
         <div className="animate-infinite-scroll flex items-center gap-10 md:gap-[3.5vw]">
           {[...logos, ...logos, ...logos].map((src, idx) => (

@@ -23,14 +23,14 @@ export default function MediaFeatured() {
   ];
 
   return (
-    <section className="py-16 md:py-[4vw] bg-white border-b border-slate-200">
+    <section className="py-16 md:py-[4vw] bg-[#F8FAFC] border-b border-[#E7E1FF]">
       <div className="w-full max-w-full md:max-w-[80vw] mx-auto px-4 md:px-[2vw]">
         
         <div className="text-center mb-10 md:mb-[2.5vw]">
-          <h2 className="font-heading text-2xl md:text-[2vw] font-extrabold text-[#2b2058]">
+          <h2 className="font-heading text-2xl md:text-[2vw] font-extrabold text-[#480ED8]">
             Featured In
           </h2>
-          <p className="text-xs sm:text-sm md:text-[0.9vw] text-slate-500 mt-1 md:mt-[0.3vw]">
+          <p className="text-xs sm:text-sm md:text-[0.9vw] text-[#1E293B] mt-1 md:mt-[0.3vw]">
             Recognized by leading media platforms
           </p>
         </div>
@@ -43,7 +43,7 @@ export default function MediaFeatured() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: idx * 0.1 }}
-              className="p-4 md:p-[1vw] rounded-xl md:rounded-[0.8vw] bg-slate-50 border border-slate-200 flex items-center justify-center h-24 md:h-[6vw] hover:border-[#2b2058]/30 transition-all"
+              className="p-4 md:p-[1vw] rounded-xl md:rounded-[0.8vw] bg-white border border-[#E7E1FF] flex items-center justify-center h-24 md:h-[6vw] hover:border-[#FF5914] transition-all shadow-sm"
             >
               <img
                 src={media.src}
@@ -54,7 +54,7 @@ export default function MediaFeatured() {
                   e.target.nextSibling.style.display = 'block';
                 }}
               />
-              <span className="hidden font-heading font-bold text-slate-700 text-sm md:text-[0.85vw] text-center">
+              <span className="hidden font-heading font-bold text-[#480ED8] text-sm md:text-[0.85vw] text-center">
                 {media.name}
               </span>
             </motion.div>

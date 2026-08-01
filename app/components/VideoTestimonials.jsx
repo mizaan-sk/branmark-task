@@ -50,18 +50,18 @@ export default function VideoTestimonials() {
   };
 
   return (
-    <section id="testimonials" className="py-20 md:py-[5vw] bg-slate-50 border-b border-slate-200">
+    <section id="testimonials" className="py-20 md:py-[5vw] bg-[#F8FAFC] border-b border-[#E7E1FF]">
       <div className="w-full max-w-full md:max-w-[80vw] mx-auto px-4 md:px-[2vw]">
         
         {/* Header */}
         <div className="grid grid-cols-1 md:grid-cols-2 md:gap-[3vw] items-end mb-12 md:mb-[2.5vw]">
           <div>
-            <h2 className="font-heading text-2xl sm:text-3xl md:text-[2.2vw] md:leading-[2.6vw] font-extrabold text-[#2b2058]">
+            <h2 className="font-heading text-2xl sm:text-3xl md:text-[2.2vw] md:leading-[2.6vw] font-extrabold text-[#480ED8]">
               Proven Results and Lasting Partnerships
             </h2>
           </div>
           <div>
-            <p className="text-slate-600 text-sm md:text-[0.9vw] md:leading-[1.4vw]">
+            <p className="text-[#1E293B] text-sm md:text-[0.9vw] md:leading-[1.4vw]">
               Discover the impact we&apos;ve made through our clients&apos; perspectives. Each testimonial reflects our commitment to excellence, trust, and measurable outcomes. See how our collaborative approach has driven success across diverse industries.
             </p>
           </div>
@@ -76,7 +76,7 @@ export default function VideoTestimonials() {
                   key={i}
                   onClick={() => setActiveIndex(i)}
                   className={`w-3 h-3 md:h-[0.7vw] rounded-full transition-all ${
-                    i === activeIndex ? "bg-[#2b2058] w-6 md:w-[1.5vw]" : "bg-slate-300 md:w-[0.7vw]"
+                    i === activeIndex ? "bg-[#480ED8] w-6 md:w-[1.5vw]" : "bg-[#E7E1FF] md:w-[0.7vw]"
                   }`}
                   aria-label={`Go to slide ${i + 1}`}
                 />
@@ -86,14 +86,14 @@ export default function VideoTestimonials() {
             <div className="flex items-center gap-2 md:gap-[0.6vw]">
               <button
                 onClick={handlePrev}
-                className="p-3 md:p-[0.7vw] rounded-full bg-white border border-slate-200 text-slate-700 hover:bg-[#2b2058] hover:text-white transition-all shadow-sm"
+                className="p-3 md:p-[0.7vw] rounded-full bg-white border border-[#E7E1FF] text-[#1E293B] hover:bg-[#480ED8] hover:text-white transition-all shadow-sm"
                 aria-label="Previous Testimonial"
               >
                 <ChevronLeft className="w-5 h-5 md:w-[1.2vw] md:h-[1.2vw]" />
               </button>
               <button
                 onClick={handleNext}
-                className="p-3 md:p-[0.7vw] rounded-full bg-white border border-slate-200 text-slate-700 hover:bg-[#2b2058] hover:text-white transition-all shadow-sm"
+                className="p-3 md:p-[0.7vw] rounded-full bg-white border border-[#E7E1FF] text-[#1E293B] hover:bg-[#480ED8] hover:text-white transition-all shadow-sm"
                 aria-label="Next Testimonial"
               >
                 <ChevronRight className="w-5 h-5 md:w-[1.2vw] md:h-[1.2vw]" />
@@ -112,10 +112,10 @@ export default function VideoTestimonials() {
                   initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="rounded-2xl md:rounded-[1.2vw] bg-white border border-slate-200 overflow-hidden shadow-md group flex flex-col"
+                  className="rounded-2xl md:rounded-[1.2vw] bg-white border border-[#E7E1FF] overflow-hidden shadow-md group flex flex-col"
                 >
                   <div
-                    className="relative aspect-video bg-slate-900 overflow-hidden cursor-pointer"
+                    className="relative aspect-video bg-[#1E293B] overflow-hidden cursor-pointer"
                     onClick={() => setActiveVideoModal(item.id)}
                   >
                     <img
@@ -123,15 +123,15 @@ export default function VideoTestimonials() {
                       alt={item.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
-                    <div className="absolute inset-0 bg-slate-950/30 group-hover:bg-slate-950/10 transition-colors flex items-center justify-center">
-                      <div className="w-12 h-12 md:w-[2.8vw] md:h-[2.8vw] rounded-full bg-[#2b2058] text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                    <div className="absolute inset-0 bg-[#1E293B]/40 group-hover:bg-[#1E293B]/20 transition-colors flex items-center justify-center">
+                      <div className="w-12 h-12 md:w-[2.8vw] md:h-[2.8vw] rounded-full bg-[#FF5914] text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
                         <Play className="w-5 h-5 md:w-[1.2vw] md:h-[1.2vw] fill-white ml-0.5" />
                       </div>
                     </div>
                   </div>
 
                   <div className="p-5 md:p-[1.2vw] bg-white flex flex-col justify-center flex-1">
-                    <h3 className="font-heading font-bold text-[#2b2058] text-base md:text-[1.1vw] md:leading-[1.3vw]">
+                    <h3 className="font-heading font-bold text-[#480ED8] text-base md:text-[1.1vw] md:leading-[1.3vw]">
                       {item.name}
                     </h3>
                     <p className="text-xs md:text-[0.8vw] text-slate-500 font-medium mt-0.5 md:mt-[0.2vw]">
@@ -153,7 +153,7 @@ export default function VideoTestimonials() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4 md:p-[2vw]"
+            className="fixed inset-0 z-50 bg-[#1E293B]/80 backdrop-blur-md flex items-center justify-center p-4 md:p-[2vw]"
             onClick={() => setActiveVideoModal(null)}
           >
             <div
@@ -162,7 +162,7 @@ export default function VideoTestimonials() {
             >
               <button
                 onClick={() => setActiveVideoModal(null)}
-                className="absolute top-4 right-4 md:top-[1vw] md:right-[1vw] z-10 p-2 md:p-[0.5vw] rounded-full bg-slate-900/80 text-white hover:bg-slate-800"
+                className="absolute top-4 right-4 md:top-[1vw] md:right-[1vw] z-10 p-2 md:p-[0.5vw] rounded-full bg-[#1E293B]/80 text-white hover:bg-[#480ED8]"
                 aria-label="Close"
               >
                 <X className="w-6 h-6 md:w-[1.5vw] md:h-[1.5vw]" />

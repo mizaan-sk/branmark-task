@@ -117,17 +117,17 @@ export default function DrivingImpact() {
   };
 
   return (
-    <section className="py-12 md:py-[4vw] bg-white text-slate-800 select-none overflow-hidden border-b border-slate-100">
+    <section className="py-12 md:py-[4vw] bg-white text-[#1E293B] select-none overflow-hidden border-b border-[#E7E1FF]">
       <div className="w-full max-w-full md:max-w-[80vw] mx-auto px-4 md:px-[2vw]">
         
-        {/* Header Section: Title on Left, Subtitle on Right on Desktop with Scroll Reveal using pure vw units above md */}
+        {/* Header Section */}
         <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-8 md:mb-[2.5vw] gap-4 md:gap-[2vw]">
           <motion.h2 
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="font-sans font-bold text-2xl sm:text-3xl md:text-[2.2vw] md:leading-[2.6vw] text-[#1f1a40] tracking-tight"
+            className="font-sans font-bold text-2xl sm:text-3xl md:text-[2.2vw] md:leading-[2.6vw] text-[#480ED8] tracking-tight"
           >
             Driving impact
           </motion.h2>
@@ -137,13 +137,13 @@ export default function DrivingImpact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
-            className="font-sans text-sm sm:text-base md:text-[0.95vw] md:leading-[1.4vw] text-slate-600 md:max-w-[34vw]"
+            className="font-sans text-sm sm:text-base md:text-[0.95vw] md:leading-[1.4vw] text-[#1E293B] md:max-w-[34vw]"
           >
             Every engagement starts with ambition and ends with proof. Explore how we&apos;ve turned creative strategy into measurable business outcomes &ndash; across industries, at scale.
           </motion.p>
         </div>
 
-        {/* --- DESKTOP GRID VIEW (md and up) - ALL SIZES, GAP, PADDING, RADII USE VW UNITS --- */}
+        {/* --- DESKTOP GRID VIEW (md and up) --- */}
         <div className="hidden md:grid md:grid-cols-3 md:gap-[2vw]">
           {cardData.map((card, index) => (
             <motion.div 
@@ -157,7 +157,7 @@ export default function DrivingImpact() {
             >
               {/* Card Image Container */}
               <div 
-                className="relative w-full aspect-[4/3] md:aspect-[1.38/1] md:rounded-[1.2vw] overflow-hidden border border-slate-100 shadow-sm"
+                className="relative w-full aspect-[4/3] md:aspect-[1.38/1] md:rounded-[1.2vw] overflow-hidden border border-[#E7E1FF] shadow-sm"
                 style={{ backgroundColor: card.bgColor }}
               >
                 <motion.div 
@@ -177,7 +177,7 @@ export default function DrivingImpact() {
 
               {/* Card Details */}
               <div className="pt-4 md:pt-[1vw] flex flex-col">
-                <h3 className="font-sans font-bold text-lg md:text-[1.15vw] md:leading-[1.4vw] text-[#1f1a40] tracking-tight md:mb-[0.2vw] group-hover:text-[#2563eb] transition-colors duration-200">
+                <h3 className="font-sans font-bold text-lg md:text-[1.15vw] md:leading-[1.4vw] text-[#480ED8] tracking-tight md:mb-[0.2vw] group-hover:text-[#FF5914] transition-colors duration-200">
                   {card.title}
                 </h3>
                 
@@ -190,13 +190,13 @@ export default function DrivingImpact() {
                   {card.metrics.map((m, idx) => (
                     <div 
                       key={idx} 
-                      className="font-sans text-xs md:text-[0.85vw] md:leading-[1.1vw] text-slate-700 flex items-start"
+                      className="font-sans text-xs md:text-[0.85vw] md:leading-[1.1vw] text-[#1E293B] flex items-start"
                     >
                       {card.isBullet && (
-                        <span className="text-amber-500 font-bold mr-1.5 md:mr-[0.4vw]">•</span>
+                        <span className="text-[#FF5914] font-bold mr-1.5 md:mr-[0.4vw]">•</span>
                       )}
                       <div>
-                        <strong className="font-bold text-[#1f1a40]">{m.bold}</strong>
+                        <strong className="font-bold text-[#480ED8]">{m.bold}</strong>
                         <span>{m.text}</span>
                       </div>
                     </div>
@@ -225,7 +225,7 @@ export default function DrivingImpact() {
                   <div className="flex flex-col">
                     {/* Card Image Box */}
                     <div 
-                      className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-slate-100 shadow-sm"
+                      className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-[#E7E1FF] shadow-sm"
                       style={{ backgroundColor: card.bgColor }}
                     >
                       <Image
@@ -239,7 +239,7 @@ export default function DrivingImpact() {
 
                     {/* Content */}
                     <div className="pt-4 flex flex-col">
-                      <h3 className="font-sans font-bold text-xl text-[#1f1a40] tracking-tight">
+                      <h3 className="font-sans font-bold text-xl text-[#480ED8] tracking-tight">
                         {card.title}
                       </h3>
                       
@@ -250,12 +250,12 @@ export default function DrivingImpact() {
                       {/* Metrics */}
                       <div className="space-y-1.5">
                         {card.metrics.map((m, idx) => (
-                          <div key={idx} className="font-sans text-xs text-slate-700 leading-relaxed flex items-start">
+                          <div key={idx} className="font-sans text-xs text-[#1E293B] leading-relaxed flex items-start">
                             {card.isBullet && (
-                              <span className="text-amber-500 font-bold mr-2">•</span>
+                              <span className="text-[#FF5914] font-bold mr-2">•</span>
                             )}
                             <div>
-                              <strong className="font-bold text-[#1f1a40]">{m.bold}</strong>
+                              <strong className="font-bold text-[#480ED8]">{m.bold}</strong>
                               <span>{m.text}</span>
                             </div>
                           </div>
@@ -268,11 +268,11 @@ export default function DrivingImpact() {
             </motion.div>
           </div>
 
-          {/* Mobile Slider Controls: Prev Button, Pagination Dots, Next Button */}
+          {/* Mobile Slider Controls */}
           <div className="flex justify-between items-center mt-6 px-1">
             <button
               onClick={handlePrev}
-              className="p-2.5 rounded-full bg-slate-100 hover:bg-slate-200 text-[#1f1a40] active:scale-95 transition-all shadow-sm"
+              className="p-2.5 rounded-full bg-[#E7E1FF] hover:bg-[#480ED8] hover:text-white text-[#480ED8] active:scale-95 transition-all shadow-sm"
               aria-label="Previous Slide"
             >
               <ChevronLeft className="w-5 h-5" />
@@ -288,7 +288,7 @@ export default function DrivingImpact() {
                   animate={{ width: activeIndex === idx ? 28 : 10 }}
                   transition={{ type: "spring", stiffness: 300, damping: 25 }}
                   className={`h-2.5 rounded-full transition-colors duration-300 ${
-                    activeIndex === idx ? "bg-[#1f1a40]" : "bg-slate-300"
+                    activeIndex === idx ? "bg-[#480ED8]" : "bg-[#E7E1FF]"
                   }`}
                 />
               ))}
@@ -296,7 +296,7 @@ export default function DrivingImpact() {
 
             <button
               onClick={handleNext}
-              className="p-2.5 rounded-full bg-slate-100 hover:bg-slate-200 text-[#1f1a40] active:scale-95 transition-all shadow-sm"
+              className="p-2.5 rounded-full bg-[#E7E1FF] hover:bg-[#480ED8] hover:text-white text-[#480ED8] active:scale-95 transition-all shadow-sm"
               aria-label="Next Slide"
             >
               <ChevronRight className="w-5 h-5" />
