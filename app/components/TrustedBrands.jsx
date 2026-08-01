@@ -27,20 +27,20 @@ export default function TrustedBrands() {
   ];
 
   return (
-    <section className="py-10 md:py-[2.5vw] bg-[#F8FAFC] border-y border-[#E7E1FF] overflow-hidden relative select-none">
+    <section id="logos" className="py-12 md:py-[3vw] bg-[#F8FAFC] border-y border-[#E7E1FF] overflow-hidden relative select-none">
       <div className="w-full max-w-full md:max-w-[80vw] mx-auto px-4 md:px-[2vw] mb-6 md:mb-[1.5vw] text-center">
-        <p className="text-xs md:text-[0.8vw] md:tracking-[0.15vw] uppercase tracking-widest text-[#480ED8] font-bold">
-          Trusted by 500+ High-Growth Brands &amp; Enterprise Leaders Across India
-        </p>
+        <h2 className="font-heading font-extrabold text-xl sm:text-2xl md:text-[1.8vw] md:leading-[2.2vw] text-[#0B1B3D]">
+          Trusted by brands ready to scale.
+        </h2>
       </div>
 
-      {/* Infinite Scrolling Marquee Track */}
+      {/* Fast-Moving Horizontal Scroll of Client Logos in Grayscale */}
       <div className="flex overflow-hidden relative w-full items-center py-2 md:py-[0.5vw]">
         {/* Left & Right Gradient Fades */}
         <div className="absolute left-0 top-0 bottom-0 w-24 md:w-[9vw] bg-gradient-to-r from-[#F8FAFC] to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-24 md:w-[9vw] bg-gradient-to-l from-[#F8FAFC] to-transparent z-10 pointer-events-none" />
 
-        <div className="animate-infinite-scroll flex items-center gap-10 md:gap-[3.5vw]">
+        <div className="animate-fast-scroll flex items-center gap-10 md:gap-[3.5vw]">
           {[...logos, ...logos, ...logos].map((src, idx) => (
             <div
               key={`${src}-${idx}`}
@@ -49,7 +49,7 @@ export default function TrustedBrands() {
               <img
                 src={src}
                 alt="Client Brand Logo"
-                className="max-h-10 md:max-h-[3vw] w-auto max-w-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300 opacity-75 hover:opacity-100 hover:scale-105"
+                className="max-h-10 md:max-h-[3vw] w-auto max-w-full object-contain filter grayscale opacity-70 hover:opacity-100 transition-opacity duration-200"
                 onError={(e) => {
                   e.target.style.display = 'none';
                 }}

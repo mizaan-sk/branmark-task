@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Volume2, VolumeX } from "lucide-react";
+import { Volume2, VolumeX, Play, ArrowRight } from "lucide-react";
 
 export default function ReelShowcase() {
   const [mutedStates, setMutedStates] = useState({});
@@ -78,20 +78,24 @@ export default function ReelShowcase() {
   };
 
   return (
-    <section id="reels" className="py-20 md:py-[5vw] bg-[#F8FAFC] border-b border-[#E7E1FF]">
+    <section id="creative" className="py-20 md:py-[5vw] bg-[#F8FAFC] border-b border-[#E7E1FF]">
       <div className="w-full max-w-full md:max-w-[80vw] mx-auto px-4 md:px-[2vw]">
         
-        <div className="text-center max-w-2xl md:max-w-[40vw] mx-auto mb-14 md:mb-[3vw]">
+        {/* Section Header */}
+        <div className="text-center max-w-3xl md:max-w-[48vw] mx-auto mb-14 md:mb-[3vw]">
           <span className="text-xs md:text-[0.8vw] uppercase tracking-widest text-[#FF5914] font-bold mb-2 md:mb-[0.5vw] block">
-            Creative Showcase
+            Creative Portfolio
           </span>
-          <h2 className="font-heading text-2xl sm:text-3xl md:text-[2.2vw] md:leading-[2.6vw] font-extrabold text-[#480ED8]">
-            High-Performing Social Media Video Reels
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-[2.6vw] md:leading-[3vw] font-black text-[#0B1B3D] mb-3 md:mb-[0.8vw]">
+            Scroll-Stopping Creative.
           </h2>
+          <p className="text-black text-base sm:text-lg md:text-[1.05vw] md:leading-[1.6vw] font-medium">
+            We design videos and graphics that demand attention and drive action.
+          </p>
         </div>
 
-        {/* Video Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 md:gap-[1.2vw]">
+        {/* Clean Auto-Playing Video Snippet Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 md:gap-[1.2vw] mb-12 md:mb-[2.5vw]">
           {reels.map((reel, index) => {
             const isMuted = mutedStates[reel.id] !== false;
 
@@ -136,6 +140,17 @@ export default function ReelShowcase() {
               </motion.div>
             );
           })}
+        </div>
+
+        {/* CTA Button */}
+        <div className="flex justify-center">
+          <a
+            href="#contact"
+            className="consult-btn inline-flex items-center gap-3 px-8 py-3.5 md:px-[2vw] md:py-[0.8vw] rounded-[6px] md:rounded-[0.4vw] font-heading font-bold text-sm sm:text-base md:text-[0.95vw] shadow-lg cursor-pointer hover:scale-[1.02] transition-transform"
+          >
+            <span>View Creative Portfolio</span>
+            <ArrowRight className="w-4 h-4 md:w-[1vw] md:h-[1vw]" />
+          </a>
         </div>
 
       </div>

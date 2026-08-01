@@ -8,45 +8,23 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#1E293B] text-slate-300 pt-16 pb-12 md:pt-[4vw] md:pb-[3vw] border-t border-[#480ED8]">
+    <footer className="bg-[#0B1B3D] text-slate-200 pt-16 pb-12 md:pt-[4vw] md:pb-[3vw] border-t border-[#FF5914]/30">
       <div className="w-full max-w-full md:max-w-[80vw] mx-auto px-4 md:px-[2vw]">
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 md:gap-[2.5vw] pb-12 md:pb-[3vw] border-b border-white/10">
           
           {/* Brand Col */}
           <div className="lg:col-span-2 flex flex-col items-start pr-4 md:pr-[1vw]">
-            <a href="#" className="flex items-center gap-2.5 md:gap-[0.6vw] mb-4 md:mb-[1vw] group">
-              <div className="w-8 h-8 md:w-[2vw] md:h-[2vw] rounded-xl md:rounded-[0.5vw] bg-gradient-to-br from-[#FF5914] to-[#480ED8] p-[1.5px] flex items-center justify-center shrink-0">
-                <div className="w-full h-full bg-[#1E293B] rounded-[9px] md:rounded-[0.4vw] flex items-center justify-center">
-                  <svg 
-                    viewBox="0 0 32 32" 
-                    fill="none" 
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-4 h-4 md:w-[1.1vw] md:h-[1.1vw]"
-                  >
-                    <path 
-                      d="M6 22C10 22 12 14 17 14C22 14 23 20 26 20" 
-                      stroke="#FF5914" 
-                      strokeWidth="3" 
-                      strokeLinecap="round"
-                    />
-                    <path 
-                      d="M17 14L24 7M24 7H18M24 7V13" 
-                      stroke="#FF5914" 
-                      strokeWidth="3" 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </div>
-              </div>
-              <span className="font-heading font-black text-2xl md:text-[1.5vw] tracking-tight text-white">
-                RIV<span className="text-[#FF5914]">REACH</span>
-              </span>
+            <a href="#hero" className="flex items-center mb-4 md:mb-[1vw] group">
+              <img
+                src="/assets/Rivreach LOGO 184 x 43 px-08.webp"
+                alt="Rivreach Logo"
+                className="h-9 sm:h-10 md:h-[2.4vw] w-auto object-contain brightness-0 invert group-hover:scale-105 transition-transform duration-300"
+              />
             </a>
 
-            <p className="text-xs sm:text-sm md:text-[0.85vw] md:leading-[1.3vw] text-slate-300 mb-6 md:mb-[1.5vw] max-w-sm md:max-w-[24vw]">
-              Best Digital Marketing Agency in Bangalore. Founded by alumni of IIT &amp; IIM with a mission to bring data-backed creative results in digital marketing.
+            <p className="text-xs sm:text-sm md:text-[0.85vw] md:leading-[1.3vw] text-slate-300 mb-6 md:mb-[1.5vw] max-w-sm md:max-w-[24vw] font-medium">
+              Data-driven ads, thumb-stopping visuals, and AI-powered strategies that turn clicks into revenue. Trusted by brands ready to scale.
             </p>
 
             <div className="flex items-center gap-3 md:gap-[0.8vw]">
@@ -68,24 +46,26 @@ export default function Footer() {
               Quick Links
             </h4>
             <ul className="flex flex-col gap-2.5 md:gap-[0.6vw] text-xs md:text-[0.8vw]">
-              <li><a href="#reels" className="hover:text-[#FF5914] transition-colors">Reels Showcase</a></li>
-              <li><a href="#expertise" className="hover:text-[#FF5914] transition-colors">Our Expertise</a></li>
-              <li><a href="#testimonials" className="hover:text-[#FF5914] transition-colors">Client Testimonials</a></li>
-              <li><a href="#founders" className="hover:text-[#FF5914] transition-colors">Leadership</a></li>
-              <li><a href="#faqs" className="hover:text-[#FF5914] transition-colors">FAQs</a></li>
+              <li><a href="#portfolio" className="hover:text-[#FF5914] transition-colors">Client Results</a></li>
+              <li><a href="#creative" className="hover:text-[#FF5914] transition-colors">Creative Showcase</a></li>
+              <li><a href="#partners" className="hover:text-[#FF5914] transition-colors">Our Partners</a></li>
+              <li><a href="#services" className="hover:text-[#FF5914] transition-colors">Growth Goals</a></li>
+              <li><a href="#faq" className="hover:text-[#FF5914] transition-colors">FAQ</a></li>
+              <li><a href="#contact" className="hover:text-[#FF5914] transition-colors">Book Strategy Call</a></li>
             </ul>
           </div>
 
-          {/* Services */}
+          {/* Growth Goals */}
           <div>
             <h4 className="font-heading font-bold text-white text-sm md:text-[1vw] mb-4 md:mb-[1vw]">
-              Services
+              Growth Goals
             </h4>
             <ul className="flex flex-col gap-2.5 md:gap-[0.6vw] text-xs md:text-[0.8vw]">
-              <li><a href="#expertise" className="hover:text-[#FF5914] transition-colors">Social Media Management</a></li>
-              <li><a href="#expertise" className="hover:text-[#FF5914] transition-colors">Search Engine Optimization</a></li>
-              <li><a href="#expertise" className="hover:text-[#FF5914] transition-colors">Performance Marketing</a></li>
-              <li><a href="#expertise" className="hover:text-[#FF5914] transition-colors">Influencer Collaboration</a></li>
+              <li><a href="#services" className="hover:text-[#FF5914] transition-colors">Lead Generation</a></li>
+              <li><a href="#services" className="hover:text-[#FF5914] transition-colors">E-Commerce Sales</a></li>
+              <li><a href="#services" className="hover:text-[#FF5914] transition-colors">Brand Awareness</a></li>
+              <li><a href="#services" className="hover:text-[#FF5914] transition-colors">High-Converting Creative</a></li>
+              <li><a href="#services" className="hover:text-[#FF5914] transition-colors">Landing Pages That Convert</a></li>
             </ul>
           </div>
 
@@ -118,7 +98,7 @@ export default function Footer() {
 
           <button
             onClick={scrollToTop}
-            className="flex items-center gap-2 md:gap-[0.5vw] px-4 py-2 md:px-[1vw] md:py-[0.5vw] rounded-full bg-white/10 text-white hover:bg-[#480ED8] transition-all cursor-pointer"
+            className="flex items-center gap-2 md:gap-[0.5vw] px-4 py-2 md:px-[1vw] md:py-[0.5vw] rounded-full bg-white/10 text-white hover:bg-[#FF5914] transition-all cursor-pointer"
           >
             <span>Back to Top</span>
             <ArrowUp className="w-3.5 h-3.5 md:w-[0.9vw] md:h-[0.9vw] text-[#FF5914]" />

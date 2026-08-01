@@ -9,24 +9,36 @@ export default function FaqSection() {
 
   const faqs = [
     {
-      question: "What makes Rivreach the best digital marketing agency in Bangalore?",
-      answer: "Rivreach was started 9 years ago by alumni of IIT Kanpur & IIM Calcutta with a mission to bring data-backed creative results in digital marketing. We focus purely on measurable revenue growth and high ROI.",
+      question: "How is Rivreach different from other agencies?",
+      answer: "Most agencies are strictly media buyers or strictly creative designers. We are both. By combining high-converting video and graphics with AI-driven ad strategies, we remove the friction and get you better results, faster.",
     },
     {
-      question: "How fast can we expect results from our marketing campaigns?",
-      answer: "PPC ad campaigns on Google & Meta start generating qualified leads and sales within 48 to 72 hours of launch. For organic SEO and content strategies, ranking improvements take 60 to 90 days.",
+      question: "How do you actually use AI in your process?",
+      answer: "We don't use AI to get lazy; we use it to get lethal. We use advanced AI tools to analyze data trends faster, split-test creatives aggressively, and optimize your ad budgets in real-time. It’s about working smarter so your money goes further.",
     },
     {
-      question: "Do you require long-term lock-in contracts?",
-      answer: "No! We operate on flexible month-to-month retainers. We believe in earning your trust every month through transparent performance, high ROAS, and continuous business growth.",
+      question: "Do you work with a specific industry?",
+      answer: "We care more about the goal than the industry. Whether you are a local service business needing leads or a DTC brand needing e-commerce sales, the core principles of capturing attention and driving conversions remain the same.",
     },
     {
-      question: "What monthly ad budget do you recommend for scaling?",
-      answer: "We typically work with brands that have a monthly marketing budget starting from 2-5 Lakhs/month up to 20 Lakhs+/month.",
+      question: "What platforms do you run ads on?",
+      answer: "We run campaigns wherever your customers' attention is underpriced. For most clients, this is a mix of Google, Meta, TikTok, and market-specific ad networks. We audit your audience first, then pick the channels that yield the highest ROI.",
     },
     {
-      question: "What digital marketing services do you handle in-house?",
-      answer: "Everything is handled in-house! Our team includes senior performance marketers, short-form reel video creators, copywriters, SEO specialists, and web developers.",
+      question: "How fast can I expect to see results?",
+      answer: "You’ll see traffic hitting your site within 48 hours of launch. While every brand is unique, give us 3 to 4 weeks to run creative tests, dial in your target audiences, and lock down a consistent, profitable ROI.",
+    },
+    {
+      question: "What should my monthly ad spend budget be?",
+      answer: "We usually recommend starting at around ₹60,000/month in ad spend (which goes straight to Google or Meta, not us). That’s the sweet spot where the algorithms get enough real data to optimize quickly without wasting a single rupee of your cash.",
+    },
+    {
+      question: "Is there a minimum contract period?",
+      answer: "We recommend at least a 3-month commitment for ads to show real, compounding results, but we'll always be upfront with you if we think something isn't working.",
+    },
+    {
+      question: "How do I track what's working?",
+      answer: "You'll get regular performance reports and full transparency on ad spend, results, and what we're optimizing next. No black boxes.",
     },
   ];
 
@@ -35,34 +47,40 @@ export default function FaqSection() {
   };
 
   return (
-    <section id="faqs" className="py-20 md:py-[5vw] bg-[#F8FAFC] border-b border-[#E7E1FF]">
+    <section id="faq" className="py-20 md:py-[6vw] bg-white border-b border-[#E7E1FF]">
       <div className="w-full max-w-full md:max-w-[70vw] mx-auto px-4 md:px-[2vw]">
         
-        <div className="text-center max-w-3xl md:max-w-[45vw] mx-auto mb-14 md:mb-[3vw]">
-          <h2 className="font-heading text-2xl sm:text-3xl md:text-[2.2vw] md:leading-[2.6vw] font-extrabold text-[#480ED8]">
-            Frequently Asked Questions
+        {/* Section Header */}
+        <div className="text-center max-w-3xl md:max-w-[48vw] mx-auto mb-14 md:mb-[3vw]">
+          <span className="text-xs md:text-[0.8vw] uppercase tracking-widest text-[#FF5914] font-bold mb-2 block">
+            Got Questions?
+          </span>
+          <h2 className="font-heading font-black text-3xl sm:text-4xl md:text-[2.6vw] md:leading-[3vw] text-[#0B1B3D]">
+            You’ve Got Questions. We’ve Got Answers.
           </h2>
-          <p className="text-[#1E293B] text-sm md:text-[0.9vw] md:leading-[1.3vw] mt-2 md:mt-[0.5vw]">
-            Everything you need to know about partnering with Rivreach
-          </p>
-
         </div>
 
-        <div className="max-w-3xl md:max-w-[50vw] mx-auto flex flex-col gap-4 md:gap-[1vw]">
+        {/* 8 Accordion Q&A List */}
+        <div className="max-w-3xl md:max-w-[52vw] mx-auto flex flex-col gap-4 md:gap-[1vw]">
           {faqs.map((faq, idx) => {
             const isOpen = openIndex === idx;
 
             return (
               <div
                 key={faq.question}
-                className="rounded-xl md:rounded-[0.8vw] bg-white border border-[#E7E1FF] overflow-hidden shadow-sm transition-colors"
+                className={`rounded-xl md:rounded-[0.9vw] bg-[#F8FAFC] border transition-all duration-200 overflow-hidden ${
+                  isOpen ? "border-[#0B1B3D] shadow-md bg-white" : "border-[#E7E1FF] shadow-sm hover:border-[#0B1B3D]"
+                }`}
               >
                 <button
                   onClick={() => toggleFaq(idx)}
-                  className="w-full p-5 md:p-[1.2vw] text-left flex items-center justify-between gap-4 md:gap-[1vw] text-[#480ED8] font-heading font-bold text-base sm:text-lg md:text-[1.1vw] md:leading-[1.4vw] hover:text-[#FF5914] transition-colors"
+                  className="w-full p-5 md:p-[1.3vw] text-left flex items-center justify-between gap-4 md:gap-[1vw] text-[#0B1B3D] font-heading font-bold text-base sm:text-lg md:text-[1.1vw] md:leading-[1.4vw] hover:text-[#FF5914] transition-colors"
                 >
-                  <span>{faq.question}</span>
-                  <div className={`p-1.5 md:p-[0.4vw] rounded-full bg-[#E7E1FF] text-[#480ED8] shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}>
+                  <span className="flex items-center gap-3">
+                    <span className="text-[#FF5914] font-extrabold text-sm md:text-[0.9vw]">0{idx + 1}.</span>
+                    <span>{faq.question}</span>
+                  </span>
+                  <div className={`p-1.5 md:p-[0.4vw] rounded-full bg-[#E7E1FF] text-[#0B1B3D] shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180 bg-[#0B1B3D] text-white" : ""}`}>
                     {isOpen ? <Minus className="w-4 h-4 md:w-[1vw] md:h-[1vw]" /> : <Plus className="w-4 h-4 md:w-[1vw] md:h-[1vw]" />}
                   </div>
                 </button>
@@ -75,7 +93,7 @@ export default function FaqSection() {
                       exit={{ opacity: 0, height: 0 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <div className="px-5 pb-5 text-[#1E293B] text-xs sm:text-sm md:text-[0.85vw] md:leading-[1.4vw] border-t border-[#E7E1FF] pt-3 md:px-[1.2vw] md:pb-[1.2vw] md:pt-[0.8vw]">
+                      <div className="px-5 pb-5 text-black text-sm sm:text-base md:text-[0.9vw] md:leading-[1.5vw] border-t border-[#E7E1FF] pt-4 md:px-[1.3vw] md:pb-[1.3vw] md:pt-[0.9vw] font-medium">
                         {faq.answer}
                       </div>
                     </motion.div>

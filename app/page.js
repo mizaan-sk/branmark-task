@@ -1,14 +1,12 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import TrustedBrands from "./components/TrustedBrands";
-import DrivingImpact from "./components/DrivingImpact";
+import ClientResults from "./components/ClientResults";
 import ReelShowcase from "./components/ReelShowcase";
+import PlatformExpertise from "./components/PlatformExpertise";
 import Services from "./components/Services";
-import VideoTestimonials from "./components/VideoTestimonials";
-import MediaFeatured from "./components/MediaFeatured";
-import FoundersSection from "./components/FoundersSection";
-import InquiryForm from "./components/InquiryForm";
 import FaqSection from "./components/FaqSection";
+import InquiryForm from "./components/InquiryForm";
 import Footer from "./components/Footer";
 
 export default function Home() {
@@ -17,14 +15,12 @@ export default function Home() {
       <Navbar />
       <Hero />
       <TrustedBrands />
-      <DrivingImpact />
+      <ClientResults />
       <ReelShowcase />
+      <PlatformExpertise />
       <Services />
-      <VideoTestimonials />
-      <MediaFeatured />
-      <FoundersSection />
-      <InquiryForm />
       <FaqSection />
+      <InquiryForm />
       <Footer />
     </main>
   );
