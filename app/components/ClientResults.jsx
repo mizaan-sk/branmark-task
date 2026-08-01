@@ -88,32 +88,38 @@ export default function ClientResults() {
             return (
               <motion.div 
                 key={card.id}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 35 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.12 }}
-                whileHover={{ y: -8 }}
-                className="p-8 md:p-[2.2vw] rounded-2xl md:rounded-[1.4vw] bg-[#F8FAFC] border border-[#E7E1FF] shadow-sm hover:shadow-xl hover:border-[#0B1B3D] transition-all flex flex-col justify-between relative group"
+                transition={{ duration: 0.6, delay: index * 0.12 }}
+                whileHover={{ y: -10, scale: 1.02 }}
+                className="p-8 md:p-[2.2vw] rounded-2xl md:rounded-[1.4vw] bg-[#F8FAFC] border border-[#E7E1FF] shadow-md hover:shadow-2xl hover:border-[#0B1B3D] transition-all duration-300 flex flex-col justify-between relative group cursor-pointer"
               >
+                {/* Decorative Subtle Corner Glow */}
+                <div className="absolute -top-12 -right-12 w-28 h-28 bg-[#FF5914]/5 rounded-full blur-2xl group-hover:bg-[#FF5914]/15 transition-all" />
+
                 <div>
                   {/* Top Badge & Icon */}
                   <div className="flex items-center justify-between mb-8 md:mb-[2vw]">
                     <span 
-                      className="px-3.5 py-1 rounded-full text-xs md:text-[0.75vw] font-bold uppercase tracking-wider text-white"
+                      className="px-3.5 py-1 rounded-full text-xs md:text-[0.75vw] font-bold uppercase tracking-wider text-white shadow-sm"
                       style={{ backgroundColor: card.accentColor }}
                     >
                       {card.badge}
                     </span>
-                    <div className="w-10 h-10 md:w-[2.2vw] md:h-[2.2vw] rounded-full bg-[#E7E1FF] flex items-center justify-center text-[#0B1B3D] group-hover:bg-[#0B1B3D] group-hover:text-white transition-colors">
+                    <div className="w-10 h-10 md:w-[2.2vw] md:h-[2.2vw] rounded-full bg-[#E7E1FF] flex items-center justify-center text-[#0B1B3D] group-hover:bg-[#0B1B3D] group-hover:text-white transition-colors duration-300 shadow-sm">
                       <Icon className="w-5 h-5 md:w-[1.1vw] md:h-[1.1vw]" />
                     </div>
                   </div>
 
                   {/* MASSIVE TYPOGRAPHY NUMERICAL DATA */}
                   <div className="mb-6 md:mb-[1.5vw]">
-                    <div className="font-heading font-black text-5xl sm:text-6xl md:text-[4vw] leading-none text-[#0B1B3D] tracking-tight mb-2 group-hover:text-[#FF5914] transition-colors duration-300">
+                    <motion.div 
+                      whileHover={{ scale: 1.03 }}
+                      className="font-heading font-black text-5xl sm:text-6xl md:text-[4vw] leading-none text-[#0B1B3D] tracking-tight mb-2 group-hover:text-[#FF5914] transition-colors duration-300"
+                    >
                       {card.metric}
-                    </div>
+                    </motion.div>
                     <div className="text-xs sm:text-sm md:text-[0.85vw] uppercase tracking-widest text-black/70 font-bold">
                       {card.metricLabel}
                     </div>
@@ -121,7 +127,7 @@ export default function ClientResults() {
 
                   {/* Brand & Service Details */}
                   <div className="pt-4 border-t border-[#E7E1FF] mb-6 md:mb-[1.5vw]">
-                    <h3 className="font-heading font-semibold text-xl md:text-[1.3vw] text-[#0B1B3D] mb-1">
+                    <h3 className="font-heading font-semibold text-xl md:text-[1.3vw] text-[#0B1B3D] mb-1 group-hover:text-[#FF5914] transition-colors">
                       {card.brand}
                     </h3>
                     <p className="text-xs md:text-[0.8vw] text-black/80 font-medium">
@@ -131,7 +137,7 @@ export default function ClientResults() {
                 </div>
 
                 {/* Highlights List */}
-                <div className="space-y-2 md:space-y-[0.5vw] bg-white p-4 md:p-[1vw] rounded-xl border border-[#E7E1FF]">
+                <div className="space-y-2 md:space-y-[0.5vw] bg-white p-4 md:p-[1vw] rounded-xl border border-[#E7E1FF] shadow-inner">
                   {card.highlights.map((h, i) => (
                     <div key={i} className="flex items-center justify-between text-xs md:text-[0.78vw] font-semibold text-black">
                       <span className="text-black/70">{h.label}</span>

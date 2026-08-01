@@ -1,6 +1,8 @@
 import { Poppins } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import SmoothScroll from "./components/SmoothScroll";
+import CustomCursor from "./components/CustomCursor";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -10,18 +12,29 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: "Rivreach | Best Digital Marketing & Growth Agency",
-  description: "Data-driven digital marketing agency delivering 3.5x average ROI across SEO, PPC, Social Media, and Web Development.",
+  title: "Rivreach | Data-Driven Ads & High-Converting Growth Agency",
+  description: "Data-driven ads, thumb-stopping visuals, and AI-powered strategies that turn clicks into revenue.",
 };
-
 
 export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${poppins.variable} h-full antialiased`}
+      className={`${poppins.variable} h-full antialiased scroll-smooth`}
     >
-      <body className="font-sans bg-slate-50 text-slate-900 min-h-full flex flex-col selection:bg-blue-500 selection:text-white overflow-x-hidden">
+      <head>
+        {/* GSAP & ScrollTrigger CDN Libraries */}
+        <Script
+          src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+          strategy="beforeInteractive"
+        />
+        <Script
+          src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+          strategy="beforeInteractive"
+        />
+      </head>
+      <body className="font-sans bg-white text-black min-h-full flex flex-col selection:bg-[#FF5914] selection:text-white overflow-x-hidden">
+        <CustomCursor />
         <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>

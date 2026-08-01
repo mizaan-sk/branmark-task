@@ -36,23 +36,24 @@ export default function PlatformExpertise() {
 
         <div className="animate-fast-scroll flex items-center gap-6 md:gap-[1.8vw]">
           {[...platforms, ...platforms, ...platforms].map((platform, idx) => (
-            <div
+            <motion.div
               key={`${platform.name}-${idx}`}
-              className="px-6 py-3 md:px-[1.5vw] md:py-[0.8vw] rounded-xl md:rounded-[0.8vw] bg-[#F8FAFC] border border-[#E7E1FF] shadow-sm flex items-center gap-3 shrink-0 hover:border-[#0B1B3D] hover:shadow-md transition-all group"
+              whileHover={{ scale: 1.05, y: -2 }}
+              className="px-6 py-3 md:px-[1.5vw] md:py-[0.8vw] rounded-xl md:rounded-[0.8vw] bg-[#F8FAFC] border border-[#E7E1FF] shadow-sm flex items-center gap-3 shrink-0 hover:border-[#0B1B3D] hover:shadow-lg transition-all duration-300 group cursor-pointer"
             >
               <div 
-                className="w-3 h-3 md:w-[0.7vw] md:h-[0.7vw] rounded-full shrink-0" 
+                className="w-3 h-3 md:w-[0.7vw] md:h-[0.7vw] rounded-full shrink-0 shadow-sm" 
                 style={{ backgroundColor: platform.color }}
               />
               <div className="flex flex-col">
-                <span className="font-heading font-extrabold text-sm md:text-[0.95vw] text-[#0B1B3D] group-hover:text-[#FF5914] transition-colors">
+                <span className="font-heading font-semibold text-sm md:text-[0.95vw] text-[#0B1B3D] group-hover:text-[#FF5914] transition-colors">
                   {platform.name}
                 </span>
                 <span className="text-[10px] md:text-[0.65vw] text-black/70 font-semibold uppercase tracking-wider">
                   {platform.tag}
                 </span>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

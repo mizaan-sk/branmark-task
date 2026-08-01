@@ -24,7 +24,7 @@ export default function InquiryForm() {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-[6vw] bg-[#F8FAFC] border-b border-[#E7E1FF]">
+    <section id="contact" className="py-20 md:py-[6vw] bg-[#F8FAFC] border-b border-[#E7E1FF] select-none">
       <div id="lets-talk-Form" className="w-full max-w-full md:max-w-[80vw] mx-auto px-4 md:px-[2vw]">
         
         {/* Section Title */}
@@ -44,13 +44,13 @@ export default function InquiryForm() {
           
           {/* Left Form Column */}
           <motion.div
-            initial={{ opacity: 0, y: 25 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.6 }}
             className="md:col-span-6"
           >
-            <div className="p-8 md:p-[2.5vw] rounded-2xl md:rounded-[1.5vw] bg-white border border-[#E7E1FF] shadow-lg">
+            <div className="p-8 md:p-[2.5vw] rounded-2xl md:rounded-[1.5vw] bg-white border border-[#E7E1FF] shadow-xl hover:shadow-2xl transition-shadow duration-300">
 
               {submitted ? (
                 <div className="py-12 md:py-[3vw] text-center flex flex-col items-center justify-center">
@@ -85,7 +85,7 @@ export default function InquiryForm() {
                       placeholder="Enter your name"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3 md:px-[1vw] md:py-[0.7vw] rounded-md md:rounded-[0.4vw] bg-white border border-slate-300 text-black text-sm md:text-[0.9vw] focus:outline-none focus:border-[#0B1B3D] font-medium"
+                      className="w-full px-4 py-3 md:px-[1vw] md:py-[0.7vw] rounded-md md:rounded-[0.4vw] bg-white border border-slate-300 text-black text-sm md:text-[0.9vw] focus:outline-none focus:border-[#0B1B3D] focus:ring-2 focus:ring-[#0B1B3D]/10 font-medium transition-all"
                     />
                   </div>
 
@@ -100,7 +100,7 @@ export default function InquiryForm() {
                       placeholder="your.email@company.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3 md:px-[1vw] md:py-[0.7vw] rounded-md md:rounded-[0.4vw] bg-white border border-slate-300 text-black text-sm md:text-[0.9vw] focus:outline-none focus:border-[#0B1B3D] font-medium"
+                      className="w-full px-4 py-3 md:px-[1vw] md:py-[0.7vw] rounded-md md:rounded-[0.4vw] bg-white border border-slate-300 text-black text-sm md:text-[0.9vw] focus:outline-none focus:border-[#0B1B3D] focus:ring-2 focus:ring-[#0B1B3D]/10 font-medium transition-all"
                     />
                   </div>
 
@@ -115,7 +115,7 @@ export default function InquiryForm() {
                       placeholder="https://yourbrand.com"
                       value={formData.websiteUrl}
                       onChange={(e) => setFormData({ ...formData, websiteUrl: e.target.value })}
-                      className="w-full px-4 py-3 md:px-[1vw] md:py-[0.7vw] rounded-md md:rounded-[0.4vw] bg-white border border-slate-300 text-black text-sm md:text-[0.9vw] focus:outline-none focus:border-[#0B1B3D] font-medium"
+                      className="w-full px-4 py-3 md:px-[1vw] md:py-[0.7vw] rounded-md md:rounded-[0.4vw] bg-white border border-slate-300 text-black text-sm md:text-[0.9vw] focus:outline-none focus:border-[#0B1B3D] focus:ring-2 focus:ring-[#0B1B3D]/10 font-medium transition-all"
                     />
                   </div>
 
@@ -128,7 +128,7 @@ export default function InquiryForm() {
                       required
                       value={formData.goal}
                       onChange={(e) => setFormData({ ...formData, goal: e.target.value })}
-                      className="w-full px-4 py-3 md:px-[1vw] md:py-[0.7vw] rounded-md md:rounded-[0.4vw] bg-white border border-slate-300 text-black text-sm md:text-[0.9vw] focus:outline-none focus:border-[#0B1B3D] font-medium cursor-pointer"
+                      className="w-full px-4 py-3 md:px-[1vw] md:py-[0.7vw] rounded-md md:rounded-[0.4vw] bg-white border border-slate-300 text-black text-sm md:text-[0.9vw] focus:outline-none focus:border-[#0B1B3D] focus:ring-2 focus:ring-[#0B1B3D]/10 font-medium cursor-pointer transition-all"
                     >
                       <option value="">Select your growth goal</option>
                       <option value="More Leads">More Leads</option>
@@ -142,7 +142,7 @@ export default function InquiryForm() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="consult-btn w-full mt-3 md:mt-[0.6vw] py-3.5 px-8 md:py-[0.8vw] md:px-[2vw] rounded-[5px] md:rounded-[0.4vw] font-heading font-bold text-sm md:text-[0.95vw] shadow-md cursor-pointer flex items-center justify-center gap-2.5 md:gap-[0.6vw]"
+                    className="consult-btn w-full mt-3 md:mt-[0.6vw] py-3.5 px-8 md:py-[0.8vw] md:px-[2vw] rounded-[5px] md:rounded-[0.4vw] font-heading font-bold text-sm md:text-[0.95vw] shadow-md cursor-pointer flex items-center justify-center gap-2.5 md:gap-[0.6vw] hover:scale-[1.02] active:scale-[0.98] transition-all"
                   >
                     {loading ? (
                       <span className="w-5 h-5 md:w-[1.2vw] md:h-[1.2vw] border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -161,10 +161,10 @@ export default function InquiryForm() {
 
           {/* Right Offices & Contact Info Column */}
           <motion.div
-            initial={{ opacity: 0, y: 25 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
             className="md:col-span-6 flex flex-col justify-between"
           >
             <div>
@@ -177,7 +177,10 @@ export default function InquiryForm() {
 
               <div className="flex flex-col gap-6 md:gap-[1.5vw] mb-10 md:mb-[2.5vw]">
                 {/* Bangalore */}
-                <div className="p-5 md:p-[1.2vw] rounded-xl md:rounded-[0.9vw] bg-white border border-[#E7E1FF] flex items-start gap-4 md:gap-[1vw]">
+                <motion.div 
+                  whileHover={{ x: 6 }}
+                  className="p-5 md:p-[1.2vw] rounded-xl md:rounded-[0.9vw] bg-white border border-[#E7E1FF] shadow-sm hover:shadow-md hover:border-[#0B1B3D] transition-all duration-300 flex items-start gap-4 md:gap-[1vw]"
+                >
                   <div className="p-3 md:p-[0.7vw] rounded-lg md:rounded-[0.5vw] bg-[#E7E1FF] text-[#FF5914] shrink-0">
                     <MapPin className="w-5 h-5 md:w-[1.2vw] md:h-[1.2vw]" />
                   </div>
@@ -188,10 +191,13 @@ export default function InquiryForm() {
                       Vishala Complex, 1st Floor, Sector 7, HSR Layout, Bangalore, Karnataka 560102
                     </p>
                   </div>
-                </div>
+                </motion.div>
 
                 {/* Mumbai */}
-                <div className="p-5 md:p-[1.2vw] rounded-xl md:rounded-[0.9vw] bg-white border border-[#E7E1FF] flex items-start gap-4 md:gap-[1vw]">
+                <motion.div 
+                  whileHover={{ x: 6 }}
+                  className="p-5 md:p-[1.2vw] rounded-xl md:rounded-[0.9vw] bg-white border border-[#E7E1FF] shadow-sm hover:shadow-md hover:border-[#0B1B3D] transition-all duration-300 flex items-start gap-4 md:gap-[1vw]"
+                >
                   <div className="p-3 md:p-[0.7vw] rounded-lg md:rounded-[0.5vw] bg-[#E7E1FF] text-[#FF5914] shrink-0">
                     <MapPin className="w-5 h-5 md:w-[1.2vw] md:h-[1.2vw]" />
                   </div>
@@ -202,10 +208,13 @@ export default function InquiryForm() {
                       10th Floor, RCity Offices, Lal Bahadur Shastri Marg, Ghatkopar West, Mumbai 400086
                     </p>
                   </div>
-                </div>
+                </motion.div>
 
                 {/* Virginia */}
-                <div className="p-5 md:p-[1.2vw] rounded-xl md:rounded-[0.9vw] bg-white border border-[#E7E1FF] flex items-start gap-4 md:gap-[1vw]">
+                <motion.div 
+                  whileHover={{ x: 6 }}
+                  className="p-5 md:p-[1.2vw] rounded-xl md:rounded-[0.9vw] bg-white border border-[#E7E1FF] shadow-sm hover:shadow-md hover:border-[#0B1B3D] transition-all duration-300 flex items-start gap-4 md:gap-[1vw]"
+                >
                   <div className="p-3 md:p-[0.7vw] rounded-lg md:rounded-[0.5vw] bg-[#E7E1FF] text-[#FF5914] shrink-0">
                     <MapPin className="w-5 h-5 md:w-[1.2vw] md:h-[1.2vw]" />
                   </div>
@@ -216,12 +225,12 @@ export default function InquiryForm() {
                       Arbor Creek Drive, Henrico, Virginia 23233
                     </p>
                   </div>
-                </div>
+                </motion.div>
               </div>
             </div>
 
             {/* Direct Contact Bar */}
-            <div className="p-5 md:p-[1.2vw] rounded-xl md:rounded-[0.9vw] bg-[#0B1B3D] text-white flex flex-wrap items-center justify-between gap-4 md:gap-[1vw]">
+            <div className="p-5 md:p-[1.2vw] rounded-xl md:rounded-[0.9vw] bg-[#0B1B3D] text-white flex flex-wrap items-center justify-between gap-4 md:gap-[1vw] shadow-md">
               <a href="tel:+917827113855" className="flex items-center gap-3 md:gap-[0.6vw] hover:text-[#FF5914] transition-colors">
                 <Phone className="w-4 h-4 md:w-[1vw] md:h-[1vw] text-[#FF5914]" />
                 <span className="text-sm md:text-[0.85vw] font-bold">+91 7827113855</span>

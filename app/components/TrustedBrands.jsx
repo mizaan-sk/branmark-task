@@ -1,5 +1,7 @@
 "use client";
 
+import { motion } from "framer-motion";
+
 export default function TrustedBrands() {
   const logos = [
     "/logos/imageye___-_imgi_10_90149438.cms_.webp",
@@ -28,8 +30,8 @@ export default function TrustedBrands() {
 
   return (
     <section id="logos" className="py-12 md:py-[3vw] bg-[#F8FAFC] border-y border-[#E7E1FF] overflow-hidden relative select-none">
-      <div className="w-full max-w-full md:max-w-[80vw] mx-auto px-4 md:px-[2vw] mb-6 md:mb-[1.5vw] text-center">
-        <h2 className="font-heading font-semibold md:pb-[4vw] text-xl sm:text-2xl md:text-[2.8vw] md:leading-[2.2vw] text-[#0B1B3D]">
+      <div className="w-full max-w-full md:max-w-[80vw] mx-auto px-4 md:px-[2vw] mb-6 md:mb-[1.8vw] text-center">
+        <h2 className="font-heading font-semibold text-xl sm:text-2xl md:text-[2.2vw] md:leading-[2.6vw] text-[#0B1B3D]">
           Trusted by brands ready to scale.
         </h2>
       </div>
@@ -42,19 +44,20 @@ export default function TrustedBrands() {
 
         <div className="animate-fast-scroll flex items-center gap-10 md:gap-[3.5vw]">
           {[...logos, ...logos, ...logos].map((src, idx) => (
-            <div
+            <motion.div
               key={`${src}-${idx}`}
+              whileHover={{ scale: 1.08, opacity: 1 }}
               className="h-12 w-28 md:h-[3vw] md:w-[9vw] flex items-center justify-center shrink-0"
             >
               <img
                 src={src}
                 alt="Client Brand Logo"
-                className="max-h-10 md:max-h-[3vw] w-auto max-w-full object-contain filter grayscale opacity-70 hover:opacity-100 transition-opacity duration-200"
+                className="max-h-10 md:max-h-[3vw] w-auto max-w-full object-contain filter grayscale opacity-70 hover:opacity-100 transition-all duration-300"
                 onError={(e) => {
                   e.target.style.display = 'none';
                 }}
               />
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
