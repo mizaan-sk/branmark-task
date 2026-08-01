@@ -32,7 +32,7 @@ export default function InquiryForm() {
           <span className="text-xs md:text-[0.8vw] uppercase tracking-widest text-[#FF5914] font-bold mb-2 block">
             Start Scaling Today
           </span>
-          <h2 className="font-heading font-black text-3xl sm:text-4xl md:text-[2.8vw] md:leading-[3.2vw] text-[#0B1B3D] mb-3 md:mb-[0.8vw]">
+          <h2 className="font-heading font-semibold text-3xl sm:text-4xl md:text-[2.8vw] md:leading-[3.2vw] text-[#0B1B3D] mb-3 md:mb-[0.8vw]">
             Let’s Talk Growth.
           </h2>
           <p className="text-black text-base sm:text-lg md:text-[1.1vw] md:leading-[1.6vw] font-medium">
@@ -57,7 +57,7 @@ export default function InquiryForm() {
                   <div className="w-16 h-16 md:w-[4vw] md:h-[4vw] rounded-full bg-[#E7E1FF] text-[#0B1B3D] flex items-center justify-center mb-4 md:mb-[1vw]">
                     <ShieldCheck className="w-8 h-8 md:w-[2vw] md:h-[2vw]" />
                   </div>
-                  <h3 className="text-xl md:text-[1.3vw] font-bold text-[#0B1B3D] mb-2 md:mb-[0.5vw]">Strategy Session Requested!</h3>
+                  <h3 className="text-xl md:text-[1.3vw] font-semibold text-[#0B1B3D] mb-2 md:mb-[0.5vw]">Strategy Session Requested!</h3>
                   <p className="text-sm md:text-[0.9vw] text-black max-w-sm md:max-w-[24vw] mb-6 md:mb-[1.5vw] font-medium">
                     Thank you, {formData.name || "there"}. We will review your website ({formData.websiteUrl || "details"}) and contact you within 24 hours.
                   </p>
@@ -168,7 +168,7 @@ export default function InquiryForm() {
             className="md:col-span-6 flex flex-col justify-between"
           >
             <div>
-              <h3 className="font-heading text-2xl md:text-[1.8vw] font-extrabold text-[#0B1B3D] mb-2 md:mb-[0.5vw]">
+              <h3 className="font-heading text-2xl md:text-[1.8vw] font-semibold text-[#0B1B3D] mb-2 md:mb-[0.5vw]">
                 Global Presence
               </h3>
               <p className="text-black text-sm md:text-[0.9vw] mb-8 md:mb-[2vw] font-medium opacity-90">
@@ -182,7 +182,7 @@ export default function InquiryForm() {
                     <MapPin className="w-5 h-5 md:w-[1.2vw] md:h-[1.2vw]" />
                   </div>
                   <div>
-                    <h4 className="font-heading font-bold text-[#0B1B3D] text-base md:text-[1.1vw]">Bangalore</h4>
+                    <h4 className="font-heading font-semibold text-[#0B1B3D] text-base md:text-[1.1vw]">Bangalore</h4>
                     <span className="text-[11px] md:text-[0.65vw] font-bold text-[#FF5914] uppercase">INDIA HUB</span>
                     <p className="text-xs md:text-[0.8vw] md:leading-[1.2vw] text-black mt-1 md:mt-[0.2vw] font-medium">
                       Vishala Complex, 1st Floor, Sector 7, HSR Layout, Bangalore, Karnataka 560102
@@ -196,7 +196,7 @@ export default function InquiryForm() {
                     <MapPin className="w-5 h-5 md:w-[1.2vw] md:h-[1.2vw]" />
                   </div>
                   <div>
-                    <h4 className="font-heading font-bold text-[#0B1B3D] text-base md:text-[1.1vw]">Mumbai</h4>
+                    <h4 className="font-heading font-semibold text-[#0B1B3D] text-base md:text-[1.1vw]">Mumbai</h4>
                     <span className="text-[11px] md:text-[0.65vw] font-bold text-[#FF5914] uppercase">WEST INDIA</span>
                     <p className="text-xs md:text-[0.8vw] md:leading-[1.2vw] text-black mt-1 md:mt-[0.2vw] font-medium">
                       10th Floor, RCity Offices, Lal Bahadur Shastri Marg, Ghatkopar West, Mumbai 400086
@@ -210,7 +210,7 @@ export default function InquiryForm() {
                     <MapPin className="w-5 h-5 md:w-[1.2vw] md:h-[1.2vw]" />
                   </div>
                   <div>
-                    <h4 className="font-heading font-bold text-[#0B1B3D] text-base md:text-[1.1vw]">Virginia</h4>
+                    <h4 className="font-heading font-semibold text-[#0B1B3D] text-base md:text-[1.1vw]">Virginia</h4>
                     <span className="text-[11px] md:text-[0.65vw] font-bold text-[#FF5914] uppercase">USA HQ</span>
                     <p className="text-xs md:text-[0.8vw] md:leading-[1.2vw] text-black mt-1 md:mt-[0.2vw] font-medium">
                       Arbor Creek Drive, Henrico, Virginia 23233

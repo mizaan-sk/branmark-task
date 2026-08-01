@@ -86,7 +86,7 @@ export default function ReelShowcase() {
           <span className="text-xs md:text-[0.8vw] uppercase tracking-widest text-[#FF5914] font-bold mb-2 md:mb-[0.5vw] block">
             Creative Portfolio
           </span>
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-[2.6vw] md:leading-[3vw] font-black text-[#0B1B3D] mb-3 md:mb-[0.8vw]">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-[2.6vw] md:leading-[3vw] font-semibold text-[#0B1B3D] mb-3 md:mb-[0.8vw]">
             Scroll-Stopping Creative.
           </h2>
           <p className="text-black text-base sm:text-lg md:text-[1.05vw] md:leading-[1.6vw] font-medium">

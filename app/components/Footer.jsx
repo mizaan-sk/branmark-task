@@ -42,7 +42,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-heading font-bold text-white text-sm md:text-[1vw] mb-4 md:mb-[1vw]">
+            <h4 className="font-heading font-semibold text-white text-sm md:text-[1vw] mb-4 md:mb-[1vw]">
               Quick Links
             </h4>
             <ul className="flex flex-col gap-2.5 md:gap-[0.6vw] text-xs md:text-[0.8vw]">
@@ -57,7 +57,7 @@ export default function Footer() {
 
           {/* Growth Goals */}
           <div>
-            <h4 className="font-heading font-bold text-white text-sm md:text-[1vw] mb-4 md:mb-[1vw]">
+            <h4 className="font-heading font-semibold text-white text-sm md:text-[1vw] mb-4 md:mb-[1vw]">
               Growth Goals
             </h4>
             <ul className="flex flex-col gap-2.5 md:gap-[0.6vw] text-xs md:text-[0.8vw]">
@@ -71,7 +71,7 @@ export default function Footer() {
 
           {/* Contact Details */}
           <div>
-            <h4 className="font-heading font-bold text-white text-sm md:text-[1vw] mb-4 md:mb-[1vw]">
+            <h4 className="font-heading font-semibold text-white text-sm md:text-[1vw] mb-4 md:mb-[1vw]">
               Contact Info
             </h4>
             <ul className="flex flex-col gap-3 md:gap-[0.8vw] text-xs md:text-[0.8vw]">

@@ -46,7 +46,7 @@ export default function Services() {
           <span className="text-xs md:text-[0.8vw] uppercase tracking-widest text-[#FF5914] font-bold mb-2 block">
             Goal-Driven Solutions
           </span>
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-[2.6vw] md:leading-[3vw] font-black text-[#0B1B3D] mb-4 md:mb-[1vw]">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-[2.6vw] md:leading-[3vw] font-semibold text-[#0B1B3D] mb-4 md:mb-[1vw]">
             Choose Your Growth Goal.
           </h2>
           <p className="text-black text-base sm:text-lg md:text-[1.05vw] md:leading-[1.6vw] font-medium">
@@ -78,7 +78,7 @@ export default function Services() {
                     </span>
                   </div>
 
-                  <h3 className="font-heading font-extrabold text-xl md:text-[1.35vw] text-[#0B1B3D] mb-3 md:mb-[0.8vw] group-hover:text-[#FF5914] transition-colors">
+                  <h3 className="font-heading font-semibold text-xl md:text-[1.35vw] text-[#0B1B3D] mb-3 md:mb-[0.8vw] group-hover:text-[#FF5914] transition-colors">
                     {service.goal}
                   </h3>
 

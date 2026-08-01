@@ -55,7 +55,7 @@ export default function FaqSection() {
           <span className="text-xs md:text-[0.8vw] uppercase tracking-widest text-[#FF5914] font-bold mb-2 block">
             Got Questions?
           </span>
-          <h2 className="font-heading font-black text-3xl sm:text-4xl md:text-[2.6vw] md:leading-[3vw] text-[#0B1B3D]">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-[2.6vw] md:leading-[3vw] font-semibold text-[#0B1B3D]">
             You’ve Got Questions. We’ve Got Answers.
           </h2>
         </div>

@@ -29,7 +29,7 @@ export default function TrustedBrands() {
   return (
     <section id="logos" className="py-12 md:py-[3vw] bg-[#F8FAFC] border-y border-[#E7E1FF] overflow-hidden relative select-none">
       <div className="w-full max-w-full md:max-w-[80vw] mx-auto px-4 md:px-[2vw] mb-6 md:mb-[1.5vw] text-center">
-        <h2 className="font-heading font-extrabold text-xl sm:text-2xl md:text-[1.8vw] md:leading-[2.2vw] text-[#0B1B3D]">
+        <h2 className="font-heading font-semibold md:pb-[4vw] text-xl sm:text-2xl md:text-[2.8vw] md:leading-[2.2vw] text-[#0B1B3D]">
           Trusted by brands ready to scale.
         </h2>
       </div>

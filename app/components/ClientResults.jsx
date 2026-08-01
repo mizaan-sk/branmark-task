@@ -64,7 +64,7 @@ export default function ClientResults() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="font-heading font-black text-3xl sm:text-4xl md:text-[2.8vw] md:leading-[3.2vw] text-[#0B1B3D] tracking-tight"
+              className="font-heading font-semibold text-3xl sm:text-4xl md:text-[2.8vw] md:leading-[3.2vw] text-[#0B1B3D] tracking-tight"
             >
               Proof, Not Promises.
             </motion.h2>
@@ -121,7 +121,7 @@ export default function ClientResults() {
 
                   {/* Brand & Service Details */}
                   <div className="pt-4 border-t border-[#E7E1FF] mb-6 md:mb-[1.5vw]">
-                    <h3 className="font-heading font-extrabold text-xl md:text-[1.3vw] text-[#0B1B3D] mb-1">
+                    <h3 className="font-heading font-semibold text-xl md:text-[1.3vw] text-[#0B1B3D] mb-1">
                       {card.brand}
                     </h3>
                     <p className="text-xs md:text-[0.8vw] text-black/80 font-medium">

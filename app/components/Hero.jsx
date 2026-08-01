@@ -26,7 +26,7 @@ export default function Hero() {
             </div>
 
             {/* Main Headline (Dark Blue Heading) */}
-            <h1 className="font-heading text-4xl sm:text-5xl md:text-[3.8vw] font-black text-[#0B1B3D] tracking-tight leading-[1.12] md:leading-[4.2vw] mb-6 md:mb-[1.5vw]">
+            <h1 className="font-heading text-4xl sm:text-5xl md:text-[3.8vw] font-semibold text-[#0B1B3D] tracking-tight leading-[1.12] md:leading-[4.2vw] mb-6 md:mb-[1.5vw]">
               Stop Blending In. <br className="hidden sm:inline" />
               <span className="text-[#FF5914]">Start Breaking Through.</span>
             </h1>

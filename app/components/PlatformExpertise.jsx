@@ -23,7 +23,7 @@ export default function PlatformExpertise() {
         <span className="text-xs md:text-[0.8vw] uppercase tracking-widest text-[#FF5914] font-bold mb-2 block">
           Platform Mastery
         </span>
-        <h2 className="font-heading font-black text-2xl sm:text-3xl md:text-[2.2vw] md:leading-[2.6vw] text-[#0B1B3D]">
+        <h2 className="font-heading font-semibold text-2xl sm:text-3xl md:text-[2.2vw] md:leading-[2.6vw] text-[#0B1B3D]">
           Our Partners.
         </h2>
       </div>
