@@ -28,27 +28,27 @@ export default function PlatformExpertise() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-4xl sm:text-5xl md:text-[3.5vw] font-semibold text-white mb-12 md:mb-[3vw] tracking-tight"
+          className="text-4xl sm:text-5xl md:text-[3.5vw] font-semibold text-white mb-12 md:mb-[4vw] tracking-tight"
         >
           Our Expertise
         </motion.h2>
 
-        {/* Partner Logos Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4 md:gap-[1.2vw] items-center justify-center">
+        {/* Partner Logos - Clean layout without block containers */}
+        <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12 md:gap-[3.5vw]">
           {partnerLogos.map((partner, index) => (
             <motion.div
               key={partner.name}
-              initial={{ opacity: 0, y: 25 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
-              whileHover={{ y: -6, scale: 1.05 }}
-              className="h-24 md:h-[7vw] rounded-2xl md:rounded-[1.2vw] bg-[#24084c]/80 border border-purple-500/20 backdrop-blur-md p-4 md:p-[1.2vw] shadow-xl flex items-center justify-center group cursor-pointer hover:border-purple-400/60 hover:bg-[#2e0b61] transition-all duration-300"
+              transition={{ duration: 0.5, delay: index * 0.07 }}
+              whileHover={{ scale: 1.1 }}
+              className="flex items-center justify-center p-2 cursor-pointer transition-transform duration-300"
             >
               <img
                 src={partner.src}
                 alt={partner.name}
-                className="max-h-10 md:max-h-[2.8vw] w-auto max-w-[85%] object-contain group-hover:scale-108 transition-transform duration-300"
+                className="h-12 sm:h-14 md:h-[3.6vw] w-auto object-contain max-w-[140px] sm:max-w-[170px] md:max-w-[12vw] transition-all duration-300 hover:brightness-110 drop-shadow-md"
               />
             </motion.div>
           ))}
@@ -58,4 +58,5 @@ export default function PlatformExpertise() {
     </section>
   );
 }
+
 

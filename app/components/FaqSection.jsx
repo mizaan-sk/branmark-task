@@ -55,7 +55,7 @@ export default function FaqSection() {
   };
 
   return (
-    <section id="faq" className="py-20 md:py-[6vw] bg-gradient-to-b from-[#310599] to-[#180336] text-white select-none relative overflow-hidden">
+    <section id="faq" className="py-20 md:pt-[2vw] md:pb-[4vw] bg-gradient-to-b from-[#310599] to-[#180336] text-white select-none relative overflow-hidden">
       <div className="w-full max-w-4xl md:max-w-[60vw] mx-auto px-6 md:px-[3vw] relative z-10">
         
         {/* Header Matching PDF Page 7 */}

@@ -189,7 +189,7 @@ export default function Services() {
             </div>
 
             {/* Right Arch Icon */}
-            <div className="w-24 self-stretch rounded-t-3xl rounded-bl-3xl rounded-br-xl bg-[#EAE4FF] flex items-center justify-center shrink-0 p-3">
+            <div className="w-24 self-stretch max-md:my-7 rounded-t-3xl rounded-bl-3xl rounded-br-xl bg-[#EAE4FF] flex items-center justify-center shrink-0 p-3">
               <img
                 src={goals[mobileIndex].iconSrc}
                 alt={goals[mobileIndex].title}

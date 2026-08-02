@@ -51,58 +51,58 @@ export default function ClientResults() {
   };
 
   const renderCard = (card) => (
-    <div className="bg-white rounded-3xl md:rounded-[2vw] p-8 sm:p-10 md:p-[2.2vw] shadow-xl border border-purple-100/80 flex flex-col md:flex-row gap-8 md:gap-[2vw] items-center justify-between hover:shadow-2xl transition-all duration-300 group h-full">
+    <div className="bg-white rounded-2xl sm:rounded-3xl md:rounded-[2vw] p-5 sm:p-8 md:p-[2.2vw] shadow-lg border border-purple-100/80 flex flex-col md:flex-row gap-4 sm:gap-6 md:gap-[2vw] items-center justify-between hover:shadow-2xl transition-all duration-300 group h-full">
       {/* Left Metrics & Details */}
-      <div className="flex-1 space-y-5 md:space-y-[1.2vw] w-full">
+      <div className="flex-1 space-y-3 sm:space-y-5 md:space-y-[1.2vw] w-full">
         
         {/* Top Brand Header */}
-        <div className="flex items-center gap-3 md:gap-[0.8vw]">
+        <div className="flex items-center gap-2.5 sm:gap-3 md:gap-[0.8vw]">
           <img
             src={card.logoSrc}
             alt={`${card.brandName} Logo`}
-            className="h-7 md:h-[2vw] w-auto object-contain"
+            className="h-5 sm:h-7 md:h-[2vw] w-auto object-contain"
           />
-          <div className="h-6 md:h-[2.5vw] w-[2px] bg-[#480ed8] shrink-0" />
-          <span className="text-xl whitespace-nowrap md:text-[1.5vw] font-bold text-[#180336]">
+          <div className="h-4 sm:h-6 md:h-[2.5vw] w-[2px] bg-[#480ed8] shrink-0" />
+          <span className="text-base sm:text-xl whitespace-nowrap md:text-[1.5vw] font-bold text-[#180336]">
             {card.category}
           </span>
         </div>
 
         {/* Category Subheading */}
-        <h3 className="text-2xl md:text-[1.8vw] font-bold text-[#180336] tracking-tight">
+        <h3 className="text-base sm:text-2xl md:text-[1.8vw] font-bold text-[#180336] tracking-tight">
           {card.type}
         </h3>
 
         {/* Main Big Metric Stat */}
         <div>
-          <div className="text-5xl sm:text-6xl md:text-[4vw] font-bold text-[#480ed8] tracking-tight leading-none">
+          <div className="text-3xl sm:text-5xl md:text-[4vw] font-bold text-[#480ed8] tracking-tight leading-none">
             {card.totalLeads}
           </div>
-          <div className="text-xs md:text-[1vw] font-bold uppercase text-[#FF5914] mt-1.5 md:mt-[0.4vw]">
+          <div className="text-[10px] sm:text-xs md:text-[1vw] font-bold uppercase text-[#FF5914] mt-1 md:mt-[0.4vw]">
             TOTAL LEADS
           </div>
         </div>
 
         {/* White Rounded Metrics Pill Container */}
-        <div className="bg-white border border-slate-200/80 rounded-2xl md:rounded-[1.2vw] p-4 md:p-[0.9vw] shadow-sm inline-flex items-center gap-8 md:gap-[2vw]">
+        <div className="bg-slate-50/80 border border-slate-200/80 rounded-xl sm:rounded-2xl md:rounded-[1.2vw] p-3 sm:p-4 md:p-[0.9vw] shadow-sm inline-flex items-center gap-6 sm:gap-8 md:gap-[2vw]">
           <div>
-            <div className="text-2xl md:text-[1.6vw] font-bold text-[#480ed8]">{card.spends}</div>
-            <div className="text-[10px] md:text-[0.6vw] font-bold text-slate-700 uppercase">SPENDS</div>
+            <div className="text-lg sm:text-2xl md:text-[1.6vw] font-bold text-[#480ed8]">{card.spends}</div>
+            <div className="text-[9px] sm:text-[10px] md:text-[0.6vw] font-bold text-slate-700 uppercase">SPENDS</div>
           </div>
           <div>
-            <div className="text-2xl md:text-[1.6vw] font-bold text-[#480ed8] leading-tight">{card.cpl}</div>
-            <div className="text-[10px] md:text-[0.6vw] font-bold text-slate-700 uppercase">CPL</div>
+            <div className="text-lg sm:text-2xl md:text-[1.6vw] font-bold text-[#480ed8] leading-tight">{card.cpl}</div>
+            <div className="text-[9px] sm:text-[10px] md:text-[0.6vw] font-bold text-slate-700 uppercase">CPL</div>
           </div>
         </div>
 
         {/* Multi Channel Platform Logos */}
-        <div className="flex items-center gap-3 pt-1">
+        <div className="flex items-center gap-2.5 pt-0.5">
           {card.channels.map((channel, idx) => (
             <img
               key={idx}
               src={channel.iconSrc}
               alt={channel.name}
-              className="h-6 md:h-[1.8vw] w-auto object-contain"
+              className="h-5 sm:h-6 md:h-[1.8vw] w-auto object-contain"
             />
           ))}
         </div>
@@ -110,29 +110,29 @@ export default function ClientResults() {
       </div>
 
       {/* Right Side Image Only */}
-      <div className="w-full md:w-[12vw] md:mt-[4vw] shrink-0 rounded-2xl md:rounded-[1.2vw] overflow-hidden shadow-md border border-slate-200 group-hover:scale-105 transition-transform duration-300">
+      <div className="w-full max-w-[180px] sm:max-w-[220px] md:max-w-none md:w-[12vw] md:mt-[4vw] shrink-0 rounded-xl sm:rounded-2xl md:rounded-[1.2vw] overflow-hidden shadow-md border border-slate-200 group-hover:scale-105 transition-transform duration-300 mx-auto md:mx-0">
         <img
           src={card.adImageSrc}
           alt={card.adAlt}
-          className="w-full h-auto object-cover"
+          className="w-full h-32 sm:h-40 md:h-auto object-cover"
         />
       </div>
     </div>
   );
 
   return (
-    <section id="proof" className="py-20 md:py-[6vw] bg-[#f5f3ff] text-[#180336] relative overflow-hidden select-none">
+    <section id="proof" className="py-12 sm:py-20 md:py-[6vw] bg-gradient-to-b from-white via-[#f3ecff] to-[#eadfff] text-[#180336] relative overflow-hidden select-none">
       <div className="w-full max-w-7xl md:max-w-[78vw] mx-auto px-6 md:px-[3vw] relative z-10">
 
         {/* Header */}
-        <div className="text-center mx-auto mb-16 md:mb-[4vw]">
+        <div className="text-center mx-auto mb-8 sm:mb-16 md:mb-[4vw]">
           <div className="flex flex-col items-start justify-start">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-4xl sm:text-5xl md:text-[3.5vw] font-semibold text-[#180336] mb-4 md:mb-[1vw] tracking-tight"
+              className="text-3xl sm:text-5xl md:text-[3.5vw] font-semibold text-[#180336] mb-2 sm:mb-4 md:mb-[1vw] tracking-tight"
             >
               Proof, Not Promises
             </motion.h2>
@@ -142,7 +142,7 @@ export default function ClientResults() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-lg sm:text-xl md:text-[1.25vw] text-[#480ed8] font-semibold mb-8 md:mb-[2vw] md:leading-[1.8vw]"
+              className="text-sm sm:text-xl md:text-[1.25vw] text-[#480ed8] font-semibold mb-4 sm:mb-8 md:mb-[2vw] md:leading-[1.8vw]"
             >
               The math behind our marketing. Download the full performance reports to see how we did it.
             </motion.p>
@@ -229,7 +229,7 @@ export default function ClientResults() {
         </div>
 
         {/* Download PDF Button */}
-        <div className="flex items-center w-full md:pt-[5vw] pt-10 justify-center">
+        <div className="flex items-center w-full md:pt-[5vw] pt-6 sm:pt-10 justify-center">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
