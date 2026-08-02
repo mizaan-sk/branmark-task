@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Phone, Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -17,79 +17,64 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "Results", href: "#portfolio" },
+    { name: "Brands", href: "#brands" },
+    { name: "Proof", href: "#proof" },
     { name: "Creative", href: "#creative" },
-    { name: "Partners", href: "#partners" },
-    { name: "Goals", href: "#services" },
+    { name: "Expertise", href: "#expertise" },
+    { name: "Goals", href: "#goals" },
     { name: "FAQ", href: "#faq" },
     { name: "Contact", href: "#contact" },
   ];
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white/95 backdrop-blur-md shadow-sm border-b border-[#E7E1FF] py-3 lg:py-[0.6vw]"
-          : "bg-white/90 backdrop-blur-sm border-b border-[#F8FAFC] py-4 lg:py-[0.9vw]"
-      }`}
-    >
-      <div className="w-full max-w-full md:max-w-[80vw] mx-auto px-4 md:px-[2vw] flex items-center justify-between">
-        
-        {/* Official Rivreach WebP Logo */}
+    <header className="fixed top-4 md:top-[1.2vw] left-0 right-0 z-50 px-4 md:px-[4vw] max-w-7xl md:max-w-[78vw] mx-auto pointer-events-none">
+      <div
+        className={`w-full mx-auto px-5 py-3 md:px-[2vw] md:py-[0.8vw] rounded-full transition-all duration-300 pointer-events-auto flex items-center justify-between shadow-xl ${
+          scrolled
+            ? "bg-[#180336]/90 backdrop-blur-xl border border-white/20 shadow-purple-900/30"
+            : "bg-white/10 backdrop-blur-lg border border-white/25 shadow-black/20"
+        }`}
+      >
+        {/* Official Rivreach Logo */}
         <a href="#hero" className="flex items-center group">
           <img
             src="/assets/Rivreach LOGO 184 x 43 px-08.webp"
             alt="Rivreach Logo"
-            className="h-9 sm:h-10 md:h-[2.4vw] w-auto object-contain group-hover:scale-105 transition-transform duration-300"
+            className="h-7 sm:h-8 md:h-[2.2vw] w-auto object-contain brightness-0 invert group-hover:scale-105 transition-transform duration-300"
           />
         </a>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden lg:flex items-center lg:gap-[2vw]">
+        <nav className="hidden lg:flex items-center md:gap-[1.8vw]">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="text-sm lg:text-[0.9vw] font-bold text-black hover:text-[#0B1B3D] transition-colors relative py-1 lg:py-[0.2vw]"
+              className="text-xs lg:text-[0.9vw] font-semibold text-white/90 hover:text-white transition-colors relative py-1 hover:underline underline-offset-4"
             >
               {link.name}
             </a>
           ))}
         </nav>
 
-        {/* Right Contact & CTA Button */}
-        <div className="hidden lg:flex items-center lg:gap-[1.5vw]">
-          <a
-            href="tel:+917827113855"
-            className="flex items-center lg:gap-[0.4vw] text-xs lg:text-[0.8vw] font-bold text-black hover:text-[#0B1B3D] transition-colors"
-          >
-            <Phone className="w-4 h-4 lg:w-[1vw] lg:h-[1vw] text-[#FF5914]" />
-            <span>+91 7827113855</span>
-          </a>
-
+        {/* Desktop Right Action Buttons */}
+        <div className="hidden lg:flex items-center md:gap-[0.8vw]">
           <a
             href="#contact"
-            className="consult-btn inline-flex items-center justify-center px-6 py-2.5 lg:px-[1.4vw] lg:py-[0.5vw] lg:rounded-[0.3vw] text-sm lg:text-[0.85vw] font-heading font-bold shadow-md cursor-pointer"
+            className="px-5 py-2 md:px-[1.4vw] md:py-[0.55vw] rounded-full text-xs lg:text-[0.85vw] font-bold text-white bg-[#FF5914] hover:bg-[#e04705] transition-all shadow-md hover:shadow-orange-500/30 hover:scale-105 active:scale-95"
           >
-            <span>Let’s Talk Growth</span>
+            Let’s Talk Growth
           </a>
         </div>
 
-        {/* Mobile Hamburger Button */}
+        {/* Hamburger Menu Icon (matching PDF slide top right menu) */}
         <div className="flex items-center gap-3 lg:hidden">
-          <a
-            href="tel:+917827113855"
-            className="p-2 rounded-lg bg-[#E7E1FF] text-[#0B1B3D]"
-            aria-label="Call Us"
-          >
-            <Phone className="w-4 h-4" />
-          </a>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2.5 rounded-lg bg-[#F8FAFC] text-black hover:text-[#0B1B3D] focus:outline-none"
+            className="p-2 rounded-full bg-white/10 text-white hover:bg-white/20 transition-all border border-white/20"
             aria-label="Toggle menu"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
@@ -98,29 +83,29 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white border-b border-[#E7E1FF] overflow-hidden"
+            initial={{ opacity: 0, scale: 0.95, y: -10 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: -10 }}
+            className="lg:hidden mt-3 bg-[#180336]/95 backdrop-blur-2xl border border-white/20 rounded-3xl p-6 shadow-2xl pointer-events-auto"
           >
-            <div className="px-6 py-6 flex flex-col gap-4">
+            <div className="flex flex-col gap-3">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-base font-semibold text-black hover:text-[#0B1B3D] py-2 border-b border-[#F8FAFC] flex items-center justify-between"
+                  className="text-sm font-semibold text-white/90 hover:text-white py-2 border-b border-white/10 flex items-center justify-between"
                 >
                   <span>{link.name}</span>
-                  <ArrowRight className="w-4 h-4 text-slate-400" />
+                  <ArrowRight className="w-4 h-4 text-[#FF5914]" />
                 </a>
               ))}
               <a
                 href="#contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="consult-btn w-full inline-flex items-center justify-center py-3 rounded-[5px] font-bold shadow-md mt-2 cursor-pointer"
+                className="w-full text-center py-3 rounded-full font-bold text-white bg-[#FF5914] shadow-lg mt-2 cursor-pointer"
               >
-                <span>Let’s Talk Growth</span>
+                Let’s Talk Growth
               </a>
             </div>
           </motion.div>
@@ -129,3 +114,4 @@ export default function Navbar() {
     </header>
   );
 }
+

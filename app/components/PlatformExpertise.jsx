@@ -4,59 +4,55 @@ import { motion } from "framer-motion";
 
 export default function PlatformExpertise() {
   const platforms = [
-    { name: "Google Ads", tag: "Paid Search & Display", color: "#4285F4" },
-    { name: "Meta", tag: "Instagram & Facebook Ads", color: "#0668E1" },
-    { name: "SnapChat Ads", tag: "Gen-Z Social Ads", color: "#FFFC00", darkText: true },
-    { name: "YouTube Ads", tag: "High-Impact Video Ads", color: "#FF0000" },
-    { name: "LinkedIn", tag: "B2B Lead Generation", color: "#0A66C2" },
-    { name: "Shopify", tag: "E-Commerce Scaling", color: "#95BF47" },
-    { name: "Amazon", tag: "Marketplace Ads", color: "#FF9900", darkText: true },
-    { name: "ZeptoAds", tag: "Quick-Commerce Ads", color: "#7B2CBF" },
-    { name: "Bing", tag: "Microsoft Search Network", color: "#008373" },
-    { name: "Microsoft", tag: "Enterprise Network", color: "#00A4EF" },
-    { name: "Google", tag: "SEO & Search Engine Ecosystem", color: "#EA4335" },
+    { name: "Meta Ads", subtitle: "Facebook & IG", icon: "♾️", badgeColor: "text-blue-600" },
+    { name: "Google Ads", subtitle: "Search & Display", icon: "🔍", badgeColor: "text-amber-500" },
+    { name: "TikTok Ads", subtitle: "Viral Short Video", icon: "🎵", badgeColor: "text-rose-500" },
+    { name: "LinkedIn Ads", subtitle: "B2B Lead Funnels", icon: "💼", badgeColor: "text-blue-700" },
+    { name: "YouTube Ads", subtitle: "High Impact Video", icon: "▶️", badgeColor: "text-red-600" },
   ];
 
   return (
-    <section id="partners" className="py-16 md:py-[4vw] bg-white border-b border-[#E7E1FF] overflow-hidden select-none">
-      <div className="w-full max-w-full md:max-w-[80vw] mx-auto px-4 md:px-[2vw] mb-8 md:mb-[2vw] text-center">
-        <span className="text-xs md:text-[0.8vw] uppercase tracking-widest text-[#FF5914] font-bold mb-2 block">
-          Platform Mastery
-        </span>
-        <h2 className="font-heading font-semibold text-2xl sm:text-3xl md:text-[2.2vw] md:leading-[2.6vw] text-[#0B1B3D]">
-          Our Partners.
-        </h2>
-      </div>
+    <section id="expertise" className="py-20 md:py-[6vw] bg-gradient-to-r from-[#6b21a8] via-[#480ed8] to-[#7c3aed] text-white select-none border-b border-purple-900/30">
+      <div className="w-full max-w-7xl md:max-w-[78vw] mx-auto px-6 md:px-[3vw] text-center">
+        
+        {/* Title Matching PDF Page 5 */}
+        <motion.h2 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl sm:text-5xl md:text-[3.5vw] font-semibold text-white mb-14 md:mb-[3.5vw] tracking-tight"
+        >
+          Our Expertise
+        </motion.h2>
 
-      {/* Sleek Visual Bar showing Dominated Platforms */}
-      <div className="flex overflow-hidden relative w-full items-center py-4 md:py-[1vw]">
-        {/* Left & Right Gradient Fades */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 md:w-[9vw] bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 md:w-[9vw] bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
-
-        <div className="animate-fast-scroll flex items-center gap-6 md:gap-[1.8vw]">
-          {[...platforms, ...platforms, ...platforms].map((platform, idx) => (
+        {/* 5 White Card Boxes (Matching PDF Page 5 Layout) */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-[1.8vw]">
+          {platforms.map((platform, index) => (
             <motion.div
-              key={`${platform.name}-${idx}`}
-              whileHover={{ scale: 1.05, y: -2 }}
-              className="px-6 py-3 md:px-[1.5vw] md:py-[0.8vw] rounded-xl md:rounded-[0.8vw] bg-[#F8FAFC] border border-[#E7E1FF] shadow-sm flex items-center gap-3 shrink-0 hover:border-[#0B1B3D] hover:shadow-lg transition-all duration-300 group cursor-pointer"
+              key={platform.name}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ y: -8, scale: 1.04 }}
+              className="h-28 md:h-[9vw] rounded-2xl md:rounded-[1.2vw] bg-white text-[#180336] p-6 md:p-[1.5vw] shadow-xl border border-white/40 flex flex-col items-center justify-center gap-2 md:gap-[0.5vw] group cursor-pointer"
             >
-              <div 
-                className="w-3 h-3 md:w-[0.7vw] md:h-[0.7vw] rounded-full shrink-0 shadow-sm" 
-                style={{ backgroundColor: platform.color }}
-              />
-              <div className="flex flex-col">
-                <span className="font-heading font-semibold text-sm md:text-[0.95vw] text-[#0B1B3D] group-hover:text-[#FF5914] transition-colors">
-                  {platform.name}
-                </span>
-                <span className="text-[10px] md:text-[0.65vw] text-black/70 font-semibold uppercase tracking-wider">
-                  {platform.tag}
-                </span>
-              </div>
+              <span className="text-2xl md:text-[2vw] group-hover:scale-110 transition-transform duration-300">
+                {platform.icon}
+              </span>
+              <h3 className="text-base sm:text-lg md:text-[1.1vw] font-bold text-[#180336] tracking-tight">
+                {platform.name}
+              </h3>
+              <p className="text-[11px] md:text-[0.7vw] font-semibold text-slate-500 uppercase tracking-wider">
+                {platform.subtitle}
+              </p>
             </motion.div>
           ))}
         </div>
+
       </div>
     </section>
   );
 }
+

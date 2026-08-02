@@ -29,30 +29,36 @@ export default function TrustedBrands() {
   ];
 
   return (
-    <section id="logos" className="py-12 md:py-[3vw] bg-[#F8FAFC] border-y border-[#E7E1FF] overflow-hidden relative select-none">
-      <div className="w-full max-w-full md:max-w-[80vw] mx-auto px-4 md:px-[2vw] mb-6 md:mb-[1.8vw] text-center">
-        <h2 className="font-heading font-semibold text-xl sm:text-2xl md:text-[2.2vw] md:leading-[2.6vw] text-[#0B1B3D]">
+    <section id="brands" className="py-16 md:py-[4vw] bg-[#ffffff] border-b border-purple-100 overflow-hidden relative select-none">
+      <div className="w-full max-w-7xl md:max-w-[78vw] mx-auto px-4 md:px-[2vw] mb-8 md:mb-[2.5vw] text-center">
+        <motion.h2 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-2xl sm:text-3xl md:text-[2.6vw] font-semibold text-[#180336] tracking-tight"
+        >
           Trusted by brands ready to scale.
-        </h2>
+        </motion.h2>
       </div>
 
-      {/* Fast-Moving Horizontal Scroll of Client Logos in Grayscale */}
-      <div className="flex overflow-hidden relative w-full items-center py-2 md:py-[0.5vw]">
+      {/* Infinite Fast-Moving Horizontal Marquee of Client Logos */}
+      <div className="flex overflow-hidden relative w-full items-center py-4 md:py-[1vw]">
         {/* Left & Right Gradient Fades */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 md:w-[9vw] bg-gradient-to-r from-[#F8FAFC] to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 md:w-[9vw] bg-gradient-to-l from-[#F8FAFC] to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-24 md:w-[8vw] bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 md:w-[8vw] bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
         <div className="animate-fast-scroll flex items-center gap-10 md:gap-[3.5vw]">
           {[...logos, ...logos, ...logos].map((src, idx) => (
             <motion.div
               key={`${src}-${idx}`}
-              whileHover={{ scale: 1.08, opacity: 1 }}
-              className="h-12 w-28 md:h-[3vw] md:w-[9vw] flex items-center justify-center shrink-0"
+              whileHover={{ scale: 1.08 }}
+              className="h-12 w-28 md:h-[3.5vw] md:w-[9vw] flex items-center justify-center shrink-0"
             >
               <img
                 src={src}
                 alt="Client Brand Logo"
-                className="max-h-10 md:max-h-[3vw] w-auto max-w-full object-contain filter grayscale opacity-70 hover:opacity-100 transition-all duration-300"
+                className="max-h-10 md:max-h-[3.2vw] w-auto max-w-full object-contain filter grayscale opacity-75 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
                 onError={(e) => {
                   e.target.style.display = 'none';
                 }}
@@ -64,3 +70,5 @@ export default function TrustedBrands() {
     </section>
   );
 }
+
+

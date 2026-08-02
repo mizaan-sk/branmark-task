@@ -1,131 +1,100 @@
 "use client";
 
-import { useRef, useEffect } from "react";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Hero() {
-  const containerRef = useRef(null);
-
-  // 3D Perspective Tilt on Mouse Move
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [12, -12]), { stiffness: 300, damping: 30 });
-  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-12, 12]), { stiffness: 300, damping: 30 });
-
-  const handleMouseMove = (e) => {
-    if (!containerRef.current) return;
-    const rect = containerRef.current.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    const x = (e.clientX - rect.left) / width - 0.5;
-    const y = (e.clientY - rect.top) / height - 0.5;
-    mouseX.set(x);
-    mouseY.set(y);
-  };
-
-  const handleMouseLeave = () => {
-    mouseX.set(0);
-    mouseY.set(0);
-  };
-
   return (
     <section 
       id="hero" 
-      ref={containerRef}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      className="pt-32 pb-20 md:pt-[9vw] md:pb-[6vw] bg-[#F8FAFC] text-black relative overflow-hidden select-none"
+      className="h-[100vh] pt-36 pb-20 md:pt-[11vw] md:pb-[6vw] bg-[#180336] text-white relative overflow-hidden flex items-center justify-center select-none"
     >
-      {/* Dynamic Floating Glass Ambient Spheres */}
-      <motion.div 
-        animate={{ 
-          scale: [1, 1.15, 1],
-          opacity: [0.12, 0.22, 0.12]
-        }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[380px] bg-gradient-to-tr from-[#0B1B3D]/15 via-[#FF5914]/15 to-[#E7E1FF]/20 blur-[120px] pointer-events-none rounded-full" 
-      />
+      {/* Background Violet Glow & Curved Wave Vector Graphics (Matching PDF Page 1) */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+        {/* Glowing Orbs */}
+        <div className="absolute top-1/4 left-1/4 w-[500px] md:w-[35vw] h-[500px] md:h-[35vw] bg-[#6b21a8]/30 rounded-full blur-[140px]" />
+        <div className="absolute bottom-10 right-10 w-[600px] md:w-[40vw] h-[600px] md:h-[40vw] bg-[#4c1d95]/40 rounded-full blur-[160px]" />
+        <div className="absolute top-10 right-1/3 w-[350px] md:w-[25vw] h-[350px] md:h-[25vw] bg-[#ff5914]/15 rounded-full blur-[120px]" />
 
-      <div className="w-full max-w-full md:max-w-[80vw] mx-auto px-4 md:px-[2vw] relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-12 md:gap-[3vw] items-center">
+        {/* Dynamic Curved Ribbon Waves (Vector SVG matching PDF Page 1) */}
+        <svg 
+          className="absolute right-0 top-0 h-full w-full opacity-35 object-cover" 
+          viewBox="0 0 1440 900" 
+          fill="none" 
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path 
+            d="M900 -100 C 1200 100, 1300 400, 1000 600 C 700 800, 900 1000, 1200 1100" 
+            stroke="url(#gradient-ribbon-1)" 
+            strokeWidth="110" 
+            strokeLinecap="round"
+          />
+          <path 
+            d="M-200 400 C 200 600, 400 800, 100 1000" 
+            stroke="url(#gradient-ribbon-2)" 
+            strokeWidth="90" 
+            strokeLinecap="round"
+          />
+          <defs>
+            <linearGradient id="gradient-ribbon-1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#480ed8" />
+              <stop offset="50%" stopColor="#6d20e0" />
+              <stop offset="100%" stopColor="#1e0242" />
+            </linearGradient>
+            <linearGradient id="gradient-ribbon-2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#3b0764" />
+              <stop offset="100%" stopColor="#581c87" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      <div className="w-full max-w-7xl md:max-w-[78vw] mx-auto px-6 md:px-[3vw] relative z-10">
+        <div className="max-w-3xl md:max-w-[50vw]">
           
-          {/* Left Column Content */}
-          <motion.div
-            initial={{ opacity: 0, y: 35 }}
+          {/* Main Headline (Matching PDF Page 1 Typography) */}
+          <motion.h1 
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="md:col-span-7 flex flex-col items-start"
+            className="text-4xl sm:text-6xl md:text-[4.2vw] font-semibold text-white tracking-tight leading-[1.08] md:leading-[4.6vw] mb-6 md:mb-[1.8vw]"
           >
-            {/* Pill Tag */}
-            <motion.div 
-              whileHover={{ scale: 1.04 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 md:px-[1.1vw] md:py-[0.45vw] rounded-full bg-[#E7E1FF]/80 backdrop-blur-md border border-[#0B1B3D]/20 text-[#0B1B3D] font-bold text-xs md:text-[0.8vw] mb-6 md:mb-[1.2vw] shadow-sm"
+            Stop Blending In.<br />
+            Start Breaking<br />
+            Through.
+          </motion.h1>
+
+          {/* Subtitle Text */}
+          <motion.p 
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="text-lg sm:text-xl md:text-[1.35vw] text-white font-medium mb-10 md:mb-[2.5vw] max-w-2xl md:max-w-[42vw] leading-relaxed md:leading-[2vw]"
+          >
+            Data-driven ads, thumb-stopping visuals, and AI-powered strategies that turn clicks into revenue.
+          </motion.p>
+
+          {/* CTA Buttons (Matching PDF Page 1 Pill Buttons) */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+            className="flex flex-wrap items-center gap-4 md:gap-[1vw]"
+          >
+            {/* Primary Orange Pill Button */}
+            <a
+              href="#proof"
+              className="px-8 py-4 md:px-[2.2vw] md:py-[1vw] rounded-full text-base md:text-[1vw] font-bold text-white bg-[#FF5914] hover:bg-[#e04705] transition-all shadow-lg hover:shadow-orange-500/40 hover:scale-105 active:scale-95 cursor-pointer flex items-center justify-center"
             >
-              <Sparkles className="w-3.5 h-3.5 md:w-[0.9vw] md:h-[0.9vw] text-[#FF5914]" />
-              <span>AI-Powered Digital Growth Agency</span>
-            </motion.div>
+              See Our Work
+            </a>
 
-            {/* Main Headline (Dark Blue Heading) */}
-            <h1 className="font-heading text-4xl sm:text-5xl md:text-[3.8vw] font-semibold text-[#0B1B3D] tracking-tight leading-[1.12] md:leading-[4.2vw] mb-6 md:mb-[1.5vw]">
-              Stop Blending In. <br className="hidden sm:inline" />
-              <span className="text-[#FF5914]">Start Breaking Through.</span>
-            </h1>
-
-            {/* Sub-heading (Black Body Text) */}
-            <p className="text-black text-lg sm:text-xl md:text-[1.15vw] md:leading-[1.7vw] mb-8 md:mb-[2.2vw] max-w-xl md:max-w-[35vw] font-medium">
-              Data-driven ads, thumb-stopping visuals, and AI-powered strategies that turn clicks into revenue.
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-wrap items-center gap-4 md:gap-[1vw] mb-8 md:mb-[2vw]">
-              {/* Primary CTA Button */}
-              <a
-                href="#portfolio"
-                className="consult-btn inline-flex items-center gap-2.5 md:gap-[0.6vw] px-7 py-3 md:px-[1.6vw] md:py-[0.7vw] rounded-[6px] md:rounded-[0.4vw] text-sm sm:text-base md:text-[0.95vw] font-heading font-bold shadow-lg cursor-pointer hover:scale-[1.03] active:scale-[0.98] transition-all"
-              >
-                <span>See Our Work</span>
-                <ArrowRight className="w-4 h-4 md:w-[1vw] md:h-[1vw]" />
-              </a>
-
-              {/* Secondary CTA Button */}
-              <a
-                href="#contact"
-                className="outline-btn inline-flex items-center gap-2 px-7 py-3 md:px-[1.6vw] md:py-[0.7vw] rounded-[6px] md:rounded-[0.4vw] text-sm sm:text-base md:text-[0.95vw] font-heading font-bold shadow-md cursor-pointer hover:scale-[1.03] active:scale-[0.98] transition-all"
-              >
-                <span>Let’s Talk Growth</span>
-              </a>
-            </div>
-
-            {/* Partner Badges Image */}
-            <div className="py-1 md:py-[0.3vw]">
-              <p className="text-[11px] md:text-[0.65vw] uppercase tracking-widest text-slate-600 font-bold mb-2">
-                Certified Partner Ecosystem
-              </p>
-              <img
-                src="/assets/partners.webp"
-                alt="Google Partner, Shopify Partners, Meta Business Partners, Klaviyo Partner"
-                className="h-9 sm:h-11 md:h-[2.4vw] w-auto object-contain"
-              />
-            </div>
-          </motion.div>
-
-          {/* Right Column: 3D Tilt 9-Grid Showcase Container */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.92, y: 40 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.25, ease: "easeOut" }}
-            style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-            className="md:col-span-5 flex justify-center md:justify-end mt-10 md:mt-0 perspective-1000"
-          >
-            <div className="relative max-w-md md:max-w-[29vw] w-full rounded-2xl md:rounded-[1.4vw] overflow-hidden shadow-2xl border border-[#E7E1FF] bg-white p-3 md:p-[0.7vw] group transition-all duration-300 hover:border-[#0B1B3D] hover:shadow-[0_20px_50px_rgba(11,27,61,0.15)]">
-              <img
-                src="/assets/9grid.webp"
-                alt="Rivreach portfolio work grid"
-                className="w-full h-auto object-cover rounded-xl md:rounded-[0.9vw] group-hover:scale-[1.02] transition-transform duration-500 ease-out"
-              />
-            </div>
+            {/* Secondary Translucent Glass Outline Pill Button */}
+            <a
+              href="#contact"
+              className="px-8 py-4 md:px-[2.2vw] md:py-[1vw] rounded-full text-base md:text-[1vw] font-bold text-white bg-white/10 hover:bg-white/20 border border-white/30 backdrop-blur-md transition-all shadow-md hover:scale-105 active:scale-95 cursor-pointer flex items-center justify-center"
+            >
+              Let’s Talk Growth
+            </a>
           </motion.div>
 
         </div>
@@ -133,3 +102,4 @@ export default function Hero() {
     </section>
   );
 }
+

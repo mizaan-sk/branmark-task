@@ -2,14 +2,16 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Phone, Mail, MapPin, ShieldCheck, Calendar } from "lucide-react";
+import { Send, CheckCircle2 } from "lucide-react";
 
 export default function InquiryForm() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    websiteUrl: "",
-    goal: "",
+    phone: "",
+    service: "",
+    budget: "",
+    message: "",
   });
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -24,221 +26,199 @@ export default function InquiryForm() {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-[6vw] bg-[#F8FAFC] border-b border-[#E7E1FF] select-none">
-      <div id="lets-talk-Form" className="w-full max-w-full md:max-w-[80vw] mx-auto px-4 md:px-[2vw]">
-        
-        {/* Section Title */}
-        <div className="text-center max-w-3xl md:max-w-[48vw] mx-auto mb-14 md:mb-[3vw]">
-          <span className="text-xs md:text-[0.8vw] uppercase tracking-widest text-[#FF5914] font-bold mb-2 block">
-            Start Scaling Today
-          </span>
-          <h2 className="font-heading font-semibold text-3xl sm:text-4xl md:text-[2.8vw] md:leading-[3.2vw] text-[#0B1B3D] mb-3 md:mb-[0.8vw]">
-            Let’s Talk Growth.
-          </h2>
-          <p className="text-black text-base sm:text-lg md:text-[1.1vw] md:leading-[1.6vw] font-medium">
-            Drop your details below. No pushy sales, just strategy.
-          </p>
-        </div>
+    <section id="contact" className="py-20 md:py-[6vw] bg-[#180336] text-white select-none relative overflow-hidden">
+      
+      {/* Ambient background glowing orbs */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <div className="absolute bottom-0 right-1/4 w-[600px] md:w-[40vw] h-[600px] md:h-[40vw] bg-[#480ed8]/30 rounded-full blur-[160px]" />
+        <div className="absolute top-1/3 left-10 w-[400px] md:w-[28vw] h-[400px] md:h-[28vw] bg-[#ff5914]/15 rounded-full blur-[140px]" />
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-[3vw] items-start">
+      <div className="w-full max-w-7xl md:max-w-[78vw] mx-auto px-6 md:px-[3vw] relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-[3vw] items-center">
           
-          {/* Left Form Column */}
+          {/* Left Column Content (Matching PDF Page 8 Left Side) */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="md:col-span-6"
+            className="lg:col-span-5 flex flex-col items-start"
           >
-            <div className="p-8 md:p-[2.5vw] rounded-2xl md:rounded-[1.5vw] bg-white border border-[#E7E1FF] shadow-xl hover:shadow-2xl transition-shadow duration-300">
+            <h2 className="text-4xl sm:text-6xl md:text-[4.2vw] font-semibold text-white tracking-tight leading-[1.08] md:leading-[4.6vw] mb-6 md:mb-[1.8vw]">
+              Let’s Talk<br />
+              Growth.
+            </h2>
 
-              {submitted ? (
-                <div className="py-12 md:py-[3vw] text-center flex flex-col items-center justify-center">
-                  <div className="w-16 h-16 md:w-[4vw] md:h-[4vw] rounded-full bg-[#E7E1FF] text-[#0B1B3D] flex items-center justify-center mb-4 md:mb-[1vw]">
-                    <ShieldCheck className="w-8 h-8 md:w-[2vw] md:h-[2vw]" />
-                  </div>
-                  <h3 className="text-xl md:text-[1.3vw] font-semibold text-[#0B1B3D] mb-2 md:mb-[0.5vw]">Strategy Session Requested!</h3>
-                  <p className="text-sm md:text-[0.9vw] text-black max-w-sm md:max-w-[24vw] mb-6 md:mb-[1.5vw] font-medium">
-                    Thank you, {formData.name || "there"}. We will review your website ({formData.websiteUrl || "details"}) and contact you within 24 hours.
-                  </p>
-                  <button
-                    onClick={() => {
-                      setSubmitted(false);
-                      setFormData({ name: "", email: "", websiteUrl: "", goal: "" });
-                    }}
-                    className="text-xs md:text-[0.8vw] text-[#FF5914] underline font-bold cursor-pointer"
-                  >
-                    Book Another Strategy Call
-                  </button>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="flex flex-col gap-5 md:gap-[1.2vw]">
-                  
-                  {/* Name */}
-                  <div>
-                    <label className="block text-xs md:text-[0.8vw] font-bold text-black mb-1.5 md:mb-[0.4vw]">
-                      Name *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="Enter your name"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3 md:px-[1vw] md:py-[0.7vw] rounded-md md:rounded-[0.4vw] bg-white border border-slate-300 text-black text-sm md:text-[0.9vw] focus:outline-none focus:border-[#0B1B3D] focus:ring-2 focus:ring-[#0B1B3D]/10 font-medium transition-all"
-                    />
-                  </div>
+            <p className="text-lg sm:text-xl md:text-[1.3vw] text-purple-200/90 font-medium mb-10 md:mb-[2.5vw] leading-relaxed md:leading-[2vw] max-w-md md:max-w-[30vw]">
+              Drop your details below. No pushy sales, just strategy.
+            </p>
 
-                  {/* Email */}
-                  <div>
-                    <label className="block text-xs md:text-[0.8vw] font-bold text-black mb-1.5 md:mb-[0.4vw]">
-                      Email *
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      placeholder="your.email@company.com"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3 md:px-[1vw] md:py-[0.7vw] rounded-md md:rounded-[0.4vw] bg-white border border-slate-300 text-black text-sm md:text-[0.9vw] focus:outline-none focus:border-[#0B1B3D] focus:ring-2 focus:ring-[#0B1B3D]/10 font-medium transition-all"
-                    />
-                  </div>
-
-                  {/* Website URL */}
-                  <div>
-                    <label className="block text-xs md:text-[0.8vw] font-bold text-black mb-1.5 md:mb-[0.4vw]">
-                      Website URL *
-                    </label>
-                    <input
-                      type="url"
-                      required
-                      placeholder="https://yourbrand.com"
-                      value={formData.websiteUrl}
-                      onChange={(e) => setFormData({ ...formData, websiteUrl: e.target.value })}
-                      className="w-full px-4 py-3 md:px-[1vw] md:py-[0.7vw] rounded-md md:rounded-[0.4vw] bg-white border border-slate-300 text-black text-sm md:text-[0.9vw] focus:outline-none focus:border-[#0B1B3D] focus:ring-2 focus:ring-[#0B1B3D]/10 font-medium transition-all"
-                    />
-                  </div>
-
-                  {/* Dropdown Goal */}
-                  <div>
-                    <label className="block text-xs md:text-[0.8vw] font-bold text-black mb-1.5 md:mb-[0.4vw]">
-                      What is your #1 goal right now? *
-                    </label>
-                    <select
-                      required
-                      value={formData.goal}
-                      onChange={(e) => setFormData({ ...formData, goal: e.target.value })}
-                      className="w-full px-4 py-3 md:px-[1vw] md:py-[0.7vw] rounded-md md:rounded-[0.4vw] bg-white border border-slate-300 text-black text-sm md:text-[0.9vw] focus:outline-none focus:border-[#0B1B3D] focus:ring-2 focus:ring-[#0B1B3D]/10 font-medium cursor-pointer transition-all"
-                    >
-                      <option value="">Select your growth goal</option>
-                      <option value="More Leads">More Leads</option>
-                      <option value="More E-Comm Sales">More E-Comm Sales</option>
-                      <option value="Better Creative">Better Creative</option>
-                      <option value="Brand Awareness">Brand Awareness</option>
-                    </select>
-                  </div>
-
-                  {/* CTA Button */}
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="consult-btn w-full mt-3 md:mt-[0.6vw] py-3.5 px-8 md:py-[0.8vw] md:px-[2vw] rounded-[5px] md:rounded-[0.4vw] font-heading font-bold text-sm md:text-[0.95vw] shadow-md cursor-pointer flex items-center justify-center gap-2.5 md:gap-[0.6vw] hover:scale-[1.02] active:scale-[0.98] transition-all"
-                  >
-                    {loading ? (
-                      <span className="w-5 h-5 md:w-[1.2vw] md:h-[1.2vw] border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                    ) : (
-                      <>
-                        <Calendar className="w-4 h-4 md:w-[1vw] md:h-[1vw]" />
-                        <span>Book A Free Call</span>
-                      </>
-                    )}
-                  </button>
-
-                </form>
-              )}
-            </div>
+            {/* Orange See Our Work Button (Matching PDF Page 8 Button) */}
+            <a
+              href="#proof"
+              className="px-8 py-4 md:px-[2.2vw] md:py-[1vw] rounded-full text-base md:text-[1vw] font-bold text-white bg-[#FF5914] hover:bg-[#e04705] transition-all shadow-lg hover:shadow-orange-500/40 hover:scale-105 active:scale-95 cursor-pointer"
+            >
+              See Our Work
+            </a>
           </motion.div>
 
-          {/* Right Offices & Contact Info Column */}
+          {/* Right Column Form (Matching PDF Page 8 Right Side Box) */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="md:col-span-6 flex flex-col justify-between"
+            className="lg:col-span-7"
           >
-            <div>
-              <h3 className="font-heading text-2xl md:text-[1.8vw] font-semibold text-[#0B1B3D] mb-2 md:mb-[0.5vw]">
-                Global Presence
-              </h3>
-              <p className="text-black text-sm md:text-[0.9vw] mb-8 md:mb-[2vw] font-medium opacity-90">
-                Reach us directly at any of our primary office hubs
-              </p>
-
-              <div className="flex flex-col gap-6 md:gap-[1.5vw] mb-10 md:mb-[2.5vw]">
-                {/* Bangalore */}
-                <motion.div 
-                  whileHover={{ x: 6 }}
-                  className="p-5 md:p-[1.2vw] rounded-xl md:rounded-[0.9vw] bg-white border border-[#E7E1FF] shadow-sm hover:shadow-md hover:border-[#0B1B3D] transition-all duration-300 flex items-start gap-4 md:gap-[1vw]"
-                >
-                  <div className="p-3 md:p-[0.7vw] rounded-lg md:rounded-[0.5vw] bg-[#E7E1FF] text-[#FF5914] shrink-0">
-                    <MapPin className="w-5 h-5 md:w-[1.2vw] md:h-[1.2vw]" />
-                  </div>
-                  <div>
-                    <h4 className="font-heading font-semibold text-[#0B1B3D] text-base md:text-[1.1vw]">Bangalore</h4>
-                    <span className="text-[11px] md:text-[0.65vw] font-bold text-[#FF5914] uppercase">INDIA HUB</span>
-                    <p className="text-xs md:text-[0.8vw] md:leading-[1.2vw] text-black mt-1 md:mt-[0.2vw] font-medium">
-                      Vishala Complex, 1st Floor, Sector 7, HSR Layout, Bangalore, Karnataka 560102
+            {/* Glowing outer purple container matching PDF Page 8 */}
+            <div className="rounded-3xl md:rounded-[1.8vw] bg-gradient-to-tr from-[#480ed8] via-[#6d20e0] to-[#9333ea] p-3 md:p-[0.8vw] shadow-2xl">
+              
+              {/* White Form Card Inner Container */}
+              <div className="bg-white rounded-2xl md:rounded-[1.4vw] p-8 sm:p-10 md:p-[2.2vw] text-[#180336]">
+                {submitted ? (
+                  <div className="py-12 md:py-[3vw] text-center flex flex-col items-center justify-center">
+                    <CheckCircle2 className="w-16 h-16 md:w-[4vw] md:h-[4vw] text-[#FF5914] mb-4 md:mb-[1vw] animate-bounce" />
+                    <h3 className="text-2xl md:text-[1.5vw] font-semibold text-[#180336] mb-2 md:mb-[0.5vw]">Strategy Request Received!</h3>
+                    <p className="text-sm md:text-[0.9vw] text-slate-600 font-medium max-w-sm md:max-w-[24vw] mb-6 md:mb-[1.5vw]">
+                      Thank you, {formData.name || "there"}. Our performance team will analyze your brand and reach out within 24 hours.
                     </p>
+                    <button
+                      onClick={() => {
+                        setSubmitted(false);
+                        setFormData({ name: "", email: "", phone: "", service: "", budget: "", message: "" });
+                      }}
+                      className="text-sm md:text-[0.85vw] text-[#FF5914] font-bold underline cursor-pointer hover:text-[#e04705]"
+                    >
+                      Submit Another Inquiry
+                    </button>
                   </div>
-                </motion.div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="flex flex-col gap-4 md:gap-[1vw]">
+                    <div className="text-center mb-2 md:mb-[0.5vw]">
+                      <h3 className="text-xl md:text-[1.3vw] font-bold text-[#180336]">Request Strategy Proposal</h3>
+                    </div>
 
-                {/* Mumbai */}
-                <motion.div 
-                  whileHover={{ x: 6 }}
-                  className="p-5 md:p-[1.2vw] rounded-xl md:rounded-[0.9vw] bg-white border border-[#E7E1FF] shadow-sm hover:shadow-md hover:border-[#0B1B3D] transition-all duration-300 flex items-start gap-4 md:gap-[1vw]"
-                >
-                  <div className="p-3 md:p-[0.7vw] rounded-lg md:rounded-[0.5vw] bg-[#E7E1FF] text-[#FF5914] shrink-0">
-                    <MapPin className="w-5 h-5 md:w-[1.2vw] md:h-[1.2vw]" />
-                  </div>
-                  <div>
-                    <h4 className="font-heading font-semibold text-[#0B1B3D] text-base md:text-[1.1vw]">Mumbai</h4>
-                    <span className="text-[11px] md:text-[0.65vw] font-bold text-[#FF5914] uppercase">WEST INDIA</span>
-                    <p className="text-xs md:text-[0.8vw] md:leading-[1.2vw] text-black mt-1 md:mt-[0.2vw] font-medium">
-                      10th Floor, RCity Offices, Lal Bahadur Shastri Marg, Ghatkopar West, Mumbai 400086
-                    </p>
-                  </div>
-                </motion.div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-[1vw]">
+                      {/* Full Name */}
+                      <div>
+                        <label className="block text-xs md:text-[0.75vw] font-bold text-slate-700 uppercase tracking-wider mb-1 md:mb-[0.3vw]">
+                          Full Name *
+                        </label>
+                        <input
+                          type="text"
+                          required
+                          placeholder="John Doe"
+                          value={formData.name}
+                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                          className="w-full px-4 py-3 md:px-[1vw] md:py-[0.7vw] rounded-xl md:rounded-[0.6vw] bg-slate-50 border border-slate-200 text-slate-900 text-sm md:text-[0.85vw] focus:outline-none focus:border-[#480ed8] focus:bg-white transition-all font-medium"
+                        />
+                      </div>
 
-                {/* Virginia */}
-                <motion.div 
-                  whileHover={{ x: 6 }}
-                  className="p-5 md:p-[1.2vw] rounded-xl md:rounded-[0.9vw] bg-white border border-[#E7E1FF] shadow-sm hover:shadow-md hover:border-[#0B1B3D] transition-all duration-300 flex items-start gap-4 md:gap-[1vw]"
-                >
-                  <div className="p-3 md:p-[0.7vw] rounded-lg md:rounded-[0.5vw] bg-[#E7E1FF] text-[#FF5914] shrink-0">
-                    <MapPin className="w-5 h-5 md:w-[1.2vw] md:h-[1.2vw]" />
-                  </div>
-                  <div>
-                    <h4 className="font-heading font-semibold text-[#0B1B3D] text-base md:text-[1.1vw]">Virginia</h4>
-                    <span className="text-[11px] md:text-[0.65vw] font-bold text-[#FF5914] uppercase">USA HQ</span>
-                    <p className="text-xs md:text-[0.8vw] md:leading-[1.2vw] text-black mt-1 md:mt-[0.2vw] font-medium">
-                      Arbor Creek Drive, Henrico, Virginia 23233
-                    </p>
-                  </div>
-                </motion.div>
+                      {/* Work Email */}
+                      <div>
+                        <label className="block text-xs md:text-[0.75vw] font-bold text-slate-700 uppercase tracking-wider mb-1 md:mb-[0.3vw]">
+                          Work Email *
+                        </label>
+                        <input
+                          type="email"
+                          required
+                          placeholder="john@company.com"
+                          value={formData.email}
+                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          className="w-full px-4 py-3 md:px-[1vw] md:py-[0.7vw] rounded-xl md:rounded-[0.6vw] bg-slate-50 border border-slate-200 text-slate-900 text-sm md:text-[0.85vw] focus:outline-none focus:border-[#480ed8] focus:bg-white transition-all font-medium"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-[1vw]">
+                      {/* Phone Number */}
+                      <div>
+                        <label className="block text-xs md:text-[0.75vw] font-bold text-slate-700 uppercase tracking-wider mb-1 md:mb-[0.3vw]">
+                          Phone / WhatsApp *
+                        </label>
+                        <input
+                          type="tel"
+                          required
+                          placeholder="+1 (555) 000-0000"
+                          value={formData.phone}
+                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                          className="w-full px-4 py-3 md:px-[1vw] md:py-[0.7vw] rounded-xl md:rounded-[0.6vw] bg-slate-50 border border-slate-200 text-slate-900 text-sm md:text-[0.85vw] focus:outline-none focus:border-[#480ed8] focus:bg-white transition-all font-medium"
+                        />
+                      </div>
+
+                      {/* Service Goal */}
+                      <div>
+                        <label className="block text-xs md:text-[0.75vw] font-bold text-slate-700 uppercase tracking-wider mb-1 md:mb-[0.3vw]">
+                          Primary Goal *
+                        </label>
+                        <select
+                          required
+                          value={formData.service}
+                          onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                          className="w-full px-4 py-3 md:px-[1vw] md:py-[0.7vw] rounded-xl md:rounded-[0.6vw] bg-slate-50 border border-slate-200 text-slate-900 text-sm md:text-[0.85vw] focus:outline-none focus:border-[#480ed8] focus:bg-white transition-all font-medium cursor-pointer"
+                        >
+                          <option value="">Select Service Needed</option>
+                          <option value="Lead Generation">Lead Generation</option>
+                          <option value="E-Commerce Sales">E-Commerce Sales</option>
+                          <option value="Ad Creative & Video">Ad Creative & Video</option>
+                          <option value="Full-Funnel Scaling">Full-Funnel Scaling</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    {/* Monthly Budget */}
+                    <div>
+                      <label className="block text-xs md:text-[0.75vw] font-bold text-slate-700 uppercase tracking-wider mb-1 md:mb-[0.3vw]">
+                        Monthly Ad Budget *
+                      </label>
+                      <select
+                        required
+                        value={formData.budget}
+                        onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
+                        className="w-full px-4 py-3 md:px-[1vw] md:py-[0.7vw] rounded-xl md:rounded-[0.6vw] bg-slate-50 border border-slate-200 text-slate-900 text-sm md:text-[0.85vw] focus:outline-none focus:border-[#480ed8] focus:bg-white transition-all font-medium cursor-pointer"
+                      >
+                        <option value="">Select Monthly Ad Spend</option>
+                        <option value="$3,000 - $5,000">$3,000 - $5,000 / mo</option>
+                        <option value="$5,000 - $15,000">$5,000 - $15,000 / mo</option>
+                        <option value="$15,000 - $50,000+">$15,000 - $50,000+ / mo</option>
+                      </select>
+                    </div>
+
+                    {/* Message / Details */}
+                    <div>
+                      <label className="block text-xs md:text-[0.75vw] font-bold text-slate-700 uppercase tracking-wider mb-1 md:mb-[0.3vw]">
+                        Message / Business Details
+                      </label>
+                      <textarea
+                        rows={3}
+                        placeholder="Tell us about your brand and growth goals..."
+                        value={formData.message}
+                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                        className="w-full px-4 py-3 md:px-[1vw] md:py-[0.7vw] rounded-xl md:rounded-[0.6vw] bg-slate-50 border border-slate-200 text-slate-900 text-sm md:text-[0.85vw] focus:outline-none focus:border-[#480ed8] focus:bg-white transition-all font-medium resize-none"
+                      />
+                    </div>
+
+                    {/* Submit Button */}
+                    <button
+                      type="submit"
+                      disabled={loading}
+                      className="w-full py-4 md:py-[0.9vw] rounded-full font-bold text-white bg-[#FF5914] hover:bg-[#e04705] transition-all shadow-lg hover:shadow-orange-500/30 hover:scale-[1.02] active:scale-[0.98] cursor-pointer flex items-center justify-center gap-2 md:gap-[0.5vw] text-base md:text-[1vw] mt-2 md:mt-[0.5vw]"
+                    >
+                      {loading ? (
+                        <span className="w-5 h-5 md:w-[1.2vw] md:h-[1.2vw] border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      ) : (
+                        <>
+                          <span>Get Growth Strategy</span>
+                          <Send className="w-4 h-4 md:w-[1vw] md:h-[1vw]" />
+                        </>
+                      )}
+                    </button>
+
+                  </form>
+                )}
               </div>
-            </div>
 
-            {/* Direct Contact Bar */}
-            <div className="p-5 md:p-[1.2vw] rounded-xl md:rounded-[0.9vw] bg-[#0B1B3D] text-white flex flex-wrap items-center justify-between gap-4 md:gap-[1vw] shadow-md">
-              <a href="tel:+917827113855" className="flex items-center gap-3 md:gap-[0.6vw] hover:text-[#FF5914] transition-colors">
-                <Phone className="w-4 h-4 md:w-[1vw] md:h-[1vw] text-[#FF5914]" />
-                <span className="text-sm md:text-[0.85vw] font-bold">+91 7827113855</span>
-              </a>
-              <a href="mailto:contact@rivreach.com" className="flex items-center gap-3 md:gap-[0.6vw] hover:text-[#FF5914] transition-colors">
-                <Mail className="w-4 h-4 md:w-[1vw] md:h-[1vw] text-[#FF5914]" />
-                <span className="text-sm md:text-[0.85vw] font-bold">contact@rivreach.com</span>
-              </a>
             </div>
           </motion.div>
 
@@ -247,3 +227,4 @@ export default function InquiryForm() {
     </section>
   );
 }
+
