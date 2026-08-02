@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Volume2, VolumeX, ChevronDown, ChevronUp } from "lucide-react";
 
 export default function ReelShowcase() {
-  const [mutedStates, setMutedStates] = useState({});
+  const [activeAudioId, setActiveAudioId] = useState(null);
   const [showAll, setShowAll] = useState(false);
 
   const reels = [
@@ -96,7 +96,23 @@ export default function ReelShowcase() {
   ];
 
   const toggleMute = (id) => {
-    setMutedStates((prev) => ({ ...prev, [id]: !prev[id] }));
+    const nextActiveId = activeAudioId === id ? null : id;
+    setActiveAudioId(nextActiveId);
+
+    reels.forEach((r) => {
+      const iframeEl = document.getElementById(`vimeo-player-${r.id}`);
+      if (iframeEl && iframeEl.contentWindow) {
+        const shouldMute = r.id !== nextActiveId;
+        iframeEl.contentWindow.postMessage(
+          JSON.stringify({ method: "setMuted", value: shouldMute }),
+          "*"
+        );
+        iframeEl.contentWindow.postMessage(
+          JSON.stringify({ method: "setVolume", value: shouldMute ? 0 : 1 }),
+          "*"
+        );
+      }
+    });
   };
 
   return (
@@ -130,14 +146,12 @@ export default function ReelShowcase() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 md:gap-[1.2vw] mb-8 md:mb-[2vw]">
           <AnimatePresence>
             {reels.map((reel, index) => {
-              const isMuted = mutedStates[reel.id] !== false;
+              const isMuted = activeAudioId !== reel.id;
+              const currentVideoUrl = isMuted
+                ? reel.videoUrl.replace("muted=0", "muted=1")
+                : reel.videoUrl.replace("muted=1", "muted=0");
 
               // Visibility rules:
-              // - If showAll: all items visible.
-              // - If !showAll:
-              //   - Index 0..3 (first 4 reels): visible on all screens (mobile shows 4 reels).
-              //   - Index 4..7 (reels 5-8): hidden on mobile, visible on desktop (md+).
-              //   - Index 8..11 (reels 9-12): hidden on all screens until View More is clicked.
               let visibilityClass = "block";
               if (!showAll) {
                 if (index >= 8) {
@@ -157,7 +171,8 @@ export default function ReelShowcase() {
                   className={`relative rounded-2xl md:rounded-[1vw] overflow-hidden aspect-[9/16] bg-[#1E293B] shadow-md group border border-[#E7E1FF] ${visibilityClass}`}
                 >
                   <iframe
-                    src={reel.videoUrl}
+                    id={`vimeo-player-${reel.id}`}
+                    src={currentVideoUrl}
                     className="w-full h-full object-cover pointer-events-none scale-[1.05]"
                     allow="autoplay; fullscreen"
                     title={reel.handle}

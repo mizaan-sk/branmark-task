@@ -25,7 +25,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-4xl sm:text-6xl md:text-[4.2vw] font-semibold text-white tracking-tight leading-[1.08] md:leading-[4.6vw] mb-6 md:mb-[1.8vw]"
+            className="text-6xl md:text-[4.2vw] font-semibold text-white tracking-tight leading-[1.08] md:leading-[4.6vw] mb-6 md:mb-[1.8vw]"
           >
             Stop Blending In.<br />
             Start Breaking<br />

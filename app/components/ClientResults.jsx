@@ -51,16 +51,16 @@ export default function ClientResults() {
   };
 
   const renderCard = (card) => (
-    <div className="bg-white rounded-2xl sm:rounded-3xl md:rounded-[2vw] p-5 sm:p-8 md:p-[2.2vw] shadow-lg border border-purple-100/80 flex flex-col md:flex-row gap-4 sm:gap-6 md:gap-[2vw] items-center justify-between hover:shadow-2xl transition-all duration-300 group h-full">
+    <div className="bg-white rounded-2xl sm:rounded-3xl md:rounded-[2vw] p-5 sm:p-8 md:p-[2.2vw] shadow-lg border border-purple-100/80 flex flex-col md:flex-row gap-5 sm:gap-6 md:gap-[2vw] items-center justify-between hover:shadow-2xl transition-all duration-300 group h-full">
       {/* Left Metrics & Details */}
-      <div className="flex-1 space-y-3 sm:space-y-5 md:space-y-[1.2vw] w-full">
+      <div className="flex-1 space-y-3.5 sm:space-y-5 md:space-y-[1.2vw] w-full flex flex-col items-center md:items-start text-center md:text-left">
         
         {/* Top Brand Header */}
-        <div className="flex items-center gap-2.5 sm:gap-3 md:gap-[0.8vw]">
+        <div className="flex items-center justify-center md:justify-start gap-2.5 sm:gap-3 md:gap-[0.8vw]">
           <img
             src={card.logoSrc}
             alt={`${card.brandName} Logo`}
-            className="h-5 sm:h-7 md:h-[2vw] w-auto object-contain"
+            className="h-9 sm:h-7 md:h-[2vw] w-auto object-contain"
           />
           <div className="h-4 sm:h-6 md:h-[2.5vw] w-[2px] bg-[#480ed8] shrink-0" />
           <span className="text-base sm:text-xl whitespace-nowrap md:text-[1.5vw] font-bold text-[#180336]">
@@ -69,12 +69,13 @@ export default function ClientResults() {
         </div>
 
         {/* Category Subheading */}
-        <h3 className="text-base sm:text-2xl md:text-[1.8vw] font-bold text-[#180336] tracking-tight">
+        <h3 className="text-base sm:text-2xl md:text-[1.8vw] font-bold text-[#180336] tracking-tight text-center md:text-left">
           {card.type}
         </h3>
 
         {/* Main Big Metric Stat */}
-        <div>
+    <div className="max-md:flex max-md:gap-3 max-md:items-center max-md:justify-center">
+          <div className="flex flex-col items-center md:items-start text-center md:text-left">
           <div className="text-3xl sm:text-5xl md:text-[4vw] font-bold text-[#480ed8] tracking-tight leading-none">
             {card.totalLeads}
           </div>
@@ -84,19 +85,20 @@ export default function ClientResults() {
         </div>
 
         {/* White Rounded Metrics Pill Container */}
-        <div className="bg-slate-50/80 border border-slate-200/80 rounded-xl sm:rounded-2xl md:rounded-[1.2vw] p-3 sm:p-4 md:p-[0.9vw] shadow-sm inline-flex items-center gap-6 sm:gap-8 md:gap-[2vw]">
-          <div>
+        <div className="bg-slate-50/80 border border-slate-200/80 rounded-xl sm:rounded-2xl md:rounded-[1.2vw] p-3 sm:p-4 md:p-[0.9vw] shadow-sm inline-flex items-center justify-center gap-6 sm:gap-8 md:gap-[2vw] text-center">
+          <div className="text-center md:text-left">
             <div className="text-lg sm:text-2xl md:text-[1.6vw] font-bold text-[#480ed8]">{card.spends}</div>
             <div className="text-[9px] sm:text-[10px] md:text-[0.6vw] font-bold text-slate-700 uppercase">SPENDS</div>
           </div>
-          <div>
+          <div className="text-center md:text-left">
             <div className="text-lg sm:text-2xl md:text-[1.6vw] font-bold text-[#480ed8] leading-tight">{card.cpl}</div>
             <div className="text-[9px] sm:text-[10px] md:text-[0.6vw] font-bold text-slate-700 uppercase">CPL</div>
           </div>
         </div>
+    </div>
 
         {/* Multi Channel Platform Logos */}
-        <div className="flex items-center gap-2.5 pt-0.5">
+        <div className="flex items-center justify-center md:justify-start gap-2.5 pt-0.5">
           {card.channels.map((channel, idx) => (
             <img
               key={idx}
@@ -110,11 +112,11 @@ export default function ClientResults() {
       </div>
 
       {/* Right Side Image Only */}
-      <div className="w-full max-w-[180px] sm:max-w-[220px] md:max-w-none md:w-[12vw] md:mt-[4vw] shrink-0 rounded-xl sm:rounded-2xl md:rounded-[1.2vw] overflow-hidden shadow-md border border-slate-200 group-hover:scale-105 transition-transform duration-300 mx-auto md:mx-0">
+      <div className="w-full max-w-[200px] sm:max-w-[220px] md:max-w-none md:w-[12vw] md:mt-[4vw] shrink-0 rounded-xl sm:rounded-2xl md:rounded-[1.2vw] overflow-hidden shadow-md border border-slate-200 group-hover:scale-105 transition-transform duration-300 mx-auto md:mx-0">
         <img
           src={card.adImageSrc}
           alt={card.adAlt}
-          className="w-full h-32 sm:h-40 md:h-auto object-cover"
+          className="w-full h-36 sm:h-40 md:h-auto object-cover"
         />
       </div>
     </div>
@@ -126,7 +128,7 @@ export default function ClientResults() {
 
         {/* Header */}
         <div className="text-center mx-auto mb-8 sm:mb-16 md:mb-[4vw]">
-          <div className="flex flex-col items-start justify-start">
+          <div className="flex flex-col items-center md:items-start text-center md:text-left">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
