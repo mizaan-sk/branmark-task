@@ -33,8 +33,8 @@ export default function InquiryForm() {
         <div className="absolute top-1/3 left-10 w-[400px] md:w-[28vw] h-[400px] md:h-[28vw] bg-[#ff5914]/15 rounded-full blur-[140px]" />
       </div>
 
-      <div className="w-full max-w-7xl md:max-w-[78vw] mx-auto px-6 md:px-[3vw] relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-[3vw] items-center">
+      <div className="w-full max-w-7xl md:max-w-[78vw] mx-auto px-4 sm:px-6 md:px-[3vw] relative z-10">
+        <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 md:gap-[3vw] items-center justify-center">
           
           {/* Left Column Content (Matching PDF Page 8 Left Side) */}
           <motion.div
@@ -42,21 +42,20 @@ export default function InquiryForm() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-5 flex flex-col items-start"
+            className="lg:col-span-5 flex flex-col items-center text-center lg:items-start lg:text-left w-full"
           >
-            <h2 className="text-4xl sm:text-6xl md:text-[4.2vw] font-semibold text-white tracking-tight leading-[1.08] md:leading-[4.6vw] mb-6 md:mb-[1.8vw]">
-              Let’s Talk<br />
-              Growth.
+            <h2 className="text-4xl sm:text-6xl md:text-[4.2vw] font-semibold text-white tracking-tight leading-[1.08] md:leading-[4.6vw] mb-4 md:mb-[1.8vw]">
+              Let’s Talk<br className="hidden sm:inline" /> Growth.
             </h2>
 
-            <p className="text-lg sm:text-xl md:text-[1.3vw] text-purple-200/90 font-medium mb-10 md:mb-[2.5vw] leading-relaxed md:leading-[2vw] max-w-md md:max-w-[30vw]">
+            <p className="text-base sm:text-xl md:text-[1.3vw] text-purple-200/90 font-medium mb-6 md:mb-[2.5vw] leading-relaxed md:leading-[2vw] max-w-md md:max-w-[30vw] mx-auto lg:mx-0">
               Drop your details below. No pushy sales, just strategy.
             </p>
 
             {/* Orange See Our Work Button (Matching PDF Page 8 Button) */}
             <a
               href="#proof"
-              className="px-8 py-4 md:px-[2.2vw] md:py-[1vw] rounded-full text-base md:text-[1vw] font-bold text-white bg-[#FF5914] hover:bg-[#e04705] transition-all shadow-lg hover:shadow-orange-500/40 hover:scale-105 active:scale-95 cursor-pointer"
+              className="px-8 py-3.5 md:px-[2.2vw] md:py-[1vw] rounded-full text-sm sm:text-base md:text-[1vw] font-bold text-white bg-[#FF5914] hover:bg-[#e04705] transition-all shadow-lg hover:shadow-orange-500/40 hover:scale-105 active:scale-95 cursor-pointer mb-2 lg:mb-0"
             >
               See Our Work
             </a>
@@ -64,17 +63,17 @@ export default function InquiryForm() {
 
           {/* Right Column Form (Matching PDF Page 8 Right Side Box) */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-7"
+            className="lg:col-span-7 w-full max-w-lg lg:max-w-none mx-auto"
           >
             {/* Glowing outer purple container matching PDF Page 8 */}
-            <div className="rounded-3xl md:rounded-[1.8vw] bg-gradient-to-tr from-[#480ed8] via-[#6d20e0] to-[#9333ea] p-3 md:p-[0.8vw] shadow-2xl">
+            <div className="rounded-3xl md:rounded-[1.8vw] bg-gradient-to-tr from-[#480ed8] via-[#6d20e0] to-[#9333ea] p-2.5 sm:p-3 md:p-[0.8vw] shadow-2xl">
               
               {/* White Form Card Inner Container */}
-              <div className="bg-white rounded-2xl md:rounded-[1.4vw] p-8 sm:p-10 md:p-[2.2vw] text-[#180336]">
+              <div className="bg-white rounded-2xl md:rounded-[1.4vw] p-6 sm:p-10 md:p-[2.2vw] text-[#180336]">
                 {submitted ? (
                   <div className="py-12 md:py-[3vw] text-center flex flex-col items-center justify-center">
                     <CheckCircle2 className="w-16 h-16 md:w-[4vw] md:h-[4vw] text-[#FF5914] mb-4 md:mb-[1vw] animate-bounce" />

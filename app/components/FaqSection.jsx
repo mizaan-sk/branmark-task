@@ -15,28 +15,38 @@ export default function FaqSection() {
     },
     {
       num: "2.",
-      question: "Do you work with a specific industry?",
-      answer: "We specialize in high-growth B2B, E-Commerce, Real Estate, and Education sectors, but our data-driven growth framework works across any business looking to scale predictably.",
+      question: "How do you actually use AI in your process?",
+      answer: "We don't use AI to get lazy; we use it to get lethal. We use advanced AI tools to analyze data trends faster, split-test creatives aggressively, and optimize your ad budgets in real-time. It’s about working smarter so your money goes further.",
     },
     {
       num: "3.",
-      question: "How do you actually use AI in your process?",
-      answer: "We leverage custom AI models for predictive ad creative testing, audience segment synthesis, copy variant generation, and real-time bid optimization to maximize ROAS.",
+      question: "Do you work with a specific industry?",
+      answer: "We care more about the goal than the industry. Whether you are a local service business needing leads or a DTC brand needing e-commerce sales, the core principles of capturing attention and driving conversions remain the same.",
     },
     {
       num: "4.",
       question: "What platforms do you run ads on?",
-      answer: "We execute full-funnel campaigns across Meta (Facebook & Instagram), Google Ads (Search, Display, YouTube), LinkedIn, TikTok, and programmatic ad networks.",
+      answer: "We run campaigns wherever your customers' attention is underpriced. For most clients, this is a mix of Google, Meta, TikTok, and market-specific ad networks. We audit your audience first, then pick the channels that yield the highest ROI.",
     },
     {
       num: "5.",
       question: "How fast can I expect to see results?",
-      answer: "Initial ad performance data and early lead volume begin flowing within 48 to 72 hours of campaign launch, with full algorithmic optimization kicking in by week 2.",
+      answer: "You’ll see traffic hitting your site within 48 hours of launch. While every brand is unique, give us 3 to 4 weeks to run creative tests, dial in your target audiences, and lock down a consistent, profitable ROI.",
     },
     {
       num: "6.",
       question: "What should my monthly ad spend budget be?",
-      answer: "We work best with brands spending at least $3,000 to $50,000+ per month on ad channels to ensure sufficient testing volume and rapid scaling.",
+      answer: "We usually recommend starting at around ₹60,000/month in ad spend (which goes straight to Google or Meta, not us). That’s the sweet spot where the algorithms get enough real data to optimize quickly without wasting a single rupee of your cash.",
+    },
+    {
+      num: "7.",
+      question: "Is there a minimum contract period?",
+      answer: "We recommend at least a 3-month commitment for ads to show real, compounding results, but we'll always be upfront with you if we think something isn't working.",
+    },
+    {
+      num: "8.",
+      question: "How do I track what's working?",
+      answer: "You'll get regular performance reports and full transparency on ad spend, results, and what we're optimizing next. No black boxes.",
     },
   ];
 
@@ -76,7 +86,7 @@ export default function FaqSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.06 }}
-                className="bg-white text-[#180336] rounded-full sm:rounded-3xl md:rounded-[1.5vw] shadow-lg border border-purple-100 overflow-hidden transition-all duration-300"
+                className="bg-white text-[#180336] rounded-2xl sm:rounded-3xl md:rounded-[1.5vw] shadow-lg border border-purple-100 overflow-hidden transition-all duration-300"
               >
                 <button
                   onClick={() => toggleFaq(idx)}
