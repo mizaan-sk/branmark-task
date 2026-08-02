@@ -99,14 +99,12 @@ export default function ReelShowcase() {
     setMutedStates((prev) => ({ ...prev, [id]: !prev[id] }));
   };
 
-  const visibleReels = showAll ? reels : reels.slice(0, 8);
-
   return (
-    <section id="creative" className="py-20 md:py-[5vw] bg-[#F8FAFC] border-b border-[#E7E1FF]">
+    <section id="creative" className="py-20 md:py-[5vw] bg-gradient-to-b from-[#eadfff] via-[#cfb3f9] to-[#6d20e0]">
       <div className="w-full max-w-full md:max-w-[80vw] mx-auto px-4 md:px-[2vw]">
-        
+
         {/* Section Header */}
-        <div className="flex flex-col items-start justify-start">
+        <div className="flex flex-col items-center md:pb-[3vw] pb-3 justify-center ">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -131,8 +129,23 @@ export default function ReelShowcase() {
         {/* Clean Auto-Playing Video Snippet Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 md:gap-[1.2vw] mb-8 md:mb-[2vw]">
           <AnimatePresence>
-            {visibleReels.map((reel, index) => {
+            {reels.map((reel, index) => {
               const isMuted = mutedStates[reel.id] !== false;
+
+              // Visibility rules:
+              // - If showAll: all items visible.
+              // - If !showAll:
+              //   - Index 0..3 (first 4 reels): visible on all screens (mobile shows 4 reels).
+              //   - Index 4..7 (reels 5-8): hidden on mobile, visible on desktop (md+).
+              //   - Index 8..11 (reels 9-12): hidden on all screens until View More is clicked.
+              let visibilityClass = "block";
+              if (!showAll) {
+                if (index >= 8) {
+                  visibilityClass = "hidden";
+                } else if (index >= 4) {
+                  visibilityClass = "hidden md:block";
+                }
+              }
 
               return (
                 <motion.div
@@ -141,7 +154,7 @@ export default function ReelShowcase() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.3, delay: (index % 4) * 0.05 }}
-                  className="relative rounded-2xl md:rounded-[1vw] overflow-hidden aspect-[9/16] bg-[#1E293B] shadow-md group border border-[#E7E1FF]"
+                  className={`relative rounded-2xl md:rounded-[1vw] overflow-hidden aspect-[9/16] bg-[#1E293B] shadow-md group border border-[#E7E1FF] ${visibilityClass}`}
                 >
                   <iframe
                     src={reel.videoUrl}
@@ -188,7 +201,7 @@ export default function ReelShowcase() {
         <div className="flex items-center justify-center">
           <button
             onClick={() => setShowAll(!showAll)}
-            className="inline-flex items-center gap-2 text-[#480ED8] hover:text-[#370aa9] font-heading font-bold text-sm sm:text-base md:text-[0.95vw] transition-colors cursor-pointer"
+            className="inline-flex items-center gap-2 text-white  hover:text-[#370aa9] font-heading font-medium text-sm sm:text-base md:text-[0.95vw] transition-colors cursor-pointer"
           >
             <span>{showAll ? "View Less" : "View More"}</span>
             {showAll ? (

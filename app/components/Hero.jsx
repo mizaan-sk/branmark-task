@@ -8,44 +8,13 @@ export default function Hero() {
       id="hero" 
       className="h-[100vh] pt-36 pb-20 md:pt-[11vw] md:pb-[6vw] bg-[#180336] text-white relative overflow-hidden flex items-center justify-center select-none"
     >
-      {/* Background Violet Glow & Curved Wave Vector Graphics (Matching PDF Page 1) */}
+      {/* Background Banner Image */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-        {/* Glowing Orbs */}
-        <div className="absolute top-1/4 left-1/4 w-[500px] md:w-[35vw] h-[500px] md:h-[35vw] bg-[#6b21a8]/30 rounded-full blur-[140px]" />
-        <div className="absolute bottom-10 right-10 w-[600px] md:w-[40vw] h-[600px] md:h-[40vw] bg-[#4c1d95]/40 rounded-full blur-[160px]" />
-        <div className="absolute top-10 right-1/3 w-[350px] md:w-[25vw] h-[350px] md:h-[25vw] bg-[#ff5914]/15 rounded-full blur-[120px]" />
-
-        {/* Dynamic Curved Ribbon Waves (Vector SVG matching PDF Page 1) */}
-        <svg 
-          className="absolute right-0 top-0 h-full w-full opacity-35 object-cover" 
-          viewBox="0 0 1440 900" 
-          fill="none" 
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path 
-            d="M900 -100 C 1200 100, 1300 400, 1000 600 C 700 800, 900 1000, 1200 1100" 
-            stroke="url(#gradient-ribbon-1)" 
-            strokeWidth="110" 
-            strokeLinecap="round"
-          />
-          <path 
-            d="M-200 400 C 200 600, 400 800, 100 1000" 
-            stroke="url(#gradient-ribbon-2)" 
-            strokeWidth="90" 
-            strokeLinecap="round"
-          />
-          <defs>
-            <linearGradient id="gradient-ribbon-1" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#480ed8" />
-              <stop offset="50%" stopColor="#6d20e0" />
-              <stop offset="100%" stopColor="#1e0242" />
-            </linearGradient>
-            <linearGradient id="gradient-ribbon-2" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#3b0764" />
-              <stop offset="100%" stopColor="#581c87" />
-            </linearGradient>
-          </defs>
-        </svg>
+        <img
+          src="/assets/Rivreach - Hero Banner-01.png"
+          alt="Hero Background Banner"
+          className="w-full h-full object-cover"
+        />
       </div>
 
       <div className="w-full max-w-7xl md:max-w-[78vw] mx-auto px-6 md:px-[3vw] relative z-10">

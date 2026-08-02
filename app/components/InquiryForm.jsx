@@ -10,7 +10,6 @@ export default function InquiryForm() {
     email: "",
     phone: "",
     service: "",
-    budget: "",
     message: "",
   });
   const [loading, setLoading] = useState(false);
@@ -86,7 +85,7 @@ export default function InquiryForm() {
                     <button
                       onClick={() => {
                         setSubmitted(false);
-                        setFormData({ name: "", email: "", phone: "", service: "", budget: "", message: "" });
+                        setFormData({ name: "", email: "", phone: "", service: "", message: "" });
                       }}
                       className="text-sm md:text-[0.85vw] text-[#FF5914] font-bold underline cursor-pointer hover:text-[#e04705]"
                     >
@@ -108,7 +107,7 @@ export default function InquiryForm() {
                         <input
                           type="text"
                           required
-                          placeholder="John Doe"
+                          placeholder="Your Name"
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                           className="w-full px-4 py-3 md:px-[1vw] md:py-[0.7vw] rounded-xl md:rounded-[0.6vw] bg-slate-50 border border-slate-200 text-slate-900 text-sm md:text-[0.85vw] focus:outline-none focus:border-[#480ed8] focus:bg-white transition-all font-medium"
@@ -123,7 +122,7 @@ export default function InquiryForm() {
                         <input
                           type="email"
                           required
-                          placeholder="john@company.com"
+                          placeholder="yourname@company.com"
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           className="w-full px-4 py-3 md:px-[1vw] md:py-[0.7vw] rounded-xl md:rounded-[0.6vw] bg-slate-50 border border-slate-200 text-slate-900 text-sm md:text-[0.85vw] focus:outline-none focus:border-[#480ed8] focus:bg-white transition-all font-medium"
@@ -140,7 +139,7 @@ export default function InquiryForm() {
                         <input
                           type="tel"
                           required
-                          placeholder="+1 (555) 000-0000"
+                          placeholder="+91 98765 43210"
                           value={formData.phone}
                           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                           className="w-full px-4 py-3 md:px-[1vw] md:py-[0.7vw] rounded-xl md:rounded-[0.6vw] bg-slate-50 border border-slate-200 text-slate-900 text-sm md:text-[0.85vw] focus:outline-none focus:border-[#480ed8] focus:bg-white transition-all font-medium"
@@ -158,31 +157,14 @@ export default function InquiryForm() {
                           onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                           className="w-full px-4 py-3 md:px-[1vw] md:py-[0.7vw] rounded-xl md:rounded-[0.6vw] bg-slate-50 border border-slate-200 text-slate-900 text-sm md:text-[0.85vw] focus:outline-none focus:border-[#480ed8] focus:bg-white transition-all font-medium cursor-pointer"
                         >
-                          <option value="">Select Service Needed</option>
+                          <option value="">Select Growth Goal</option>
                           <option value="Lead Generation">Lead Generation</option>
                           <option value="E-Commerce Sales">E-Commerce Sales</option>
                           <option value="Ad Creative & Video">Ad Creative & Video</option>
+                          <option value="Brand Awareness">Brand Awareness</option>
                           <option value="Full-Funnel Scaling">Full-Funnel Scaling</option>
                         </select>
                       </div>
-                    </div>
-
-                    {/* Monthly Budget */}
-                    <div>
-                      <label className="block text-xs md:text-[0.75vw] font-bold text-slate-700 uppercase tracking-wider mb-1 md:mb-[0.3vw]">
-                        Monthly Ad Budget *
-                      </label>
-                      <select
-                        required
-                        value={formData.budget}
-                        onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                        className="w-full px-4 py-3 md:px-[1vw] md:py-[0.7vw] rounded-xl md:rounded-[0.6vw] bg-slate-50 border border-slate-200 text-slate-900 text-sm md:text-[0.85vw] focus:outline-none focus:border-[#480ed8] focus:bg-white transition-all font-medium cursor-pointer"
-                      >
-                        <option value="">Select Monthly Ad Spend</option>
-                        <option value="$3,000 - $5,000">$3,000 - $5,000 / mo</option>
-                        <option value="$5,000 - $15,000">$5,000 - $15,000 / mo</option>
-                        <option value="$15,000 - $50,000+">$15,000 - $50,000+ / mo</option>
-                      </select>
                     </div>
 
                     {/* Message / Details */}

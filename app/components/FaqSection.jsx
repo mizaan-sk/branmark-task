@@ -45,7 +45,7 @@ export default function FaqSection() {
   };
 
   return (
-    <section id="faq" className="py-20 md:py-[6vw] bg-gradient-to-br from-[#2e0556] via-[#480ed8] to-[#581c87] text-white select-none relative overflow-hidden border-b border-purple-900/30">
+    <section id="faq" className="py-20 md:py-[6vw] bg-gradient-to-b from-[#310599] to-[#180336] text-white select-none relative overflow-hidden">
       <div className="w-full max-w-4xl md:max-w-[60vw] mx-auto px-6 md:px-[3vw] relative z-10">
         
         {/* Header Matching PDF Page 7 */}
@@ -106,7 +106,7 @@ export default function FaqSection() {
                       exit={{ opacity: 0, height: 0 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <div className="px-8 pb-6 text-sm sm:text-base md:text-[0.95vw] text-black font-medium leading-relaxed md:leading-[1.4vw] border-t border-slate-100 pt-4 md:px-[2vw] md:pb-[1.5vw] md:pt-[0vw]">
+                      <div className="px-8 pb-6 text-sm sm:text-base md:pt-[1vw] pt-2  md:text-[0.95vw] text-black font-medium leading-relaxed md:leading-[1.4vw] border-t border-slate-100 pt-4 md:px-[2vw] md:pb-[1.5vw] md:pt-[0vw]">
                         {faq.answer}
                       </div>
                     </motion.div>

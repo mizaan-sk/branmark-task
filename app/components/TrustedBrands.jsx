@@ -53,7 +53,7 @@ export default function TrustedBrands() {
               <img
                 src={src}
                 alt="Client Brand Logo"
-                className="max-h-10 md:max-h-[3.2vw] w-auto max-w-full object-contain filter grayscale opacity-75 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                className="max-h-10 md:max-h-[3.2vw] w-auto max-w-full object-contain transition-all duration-300"
                 onError={(e) => {
                   e.target.style.display = 'none';
                 }}
