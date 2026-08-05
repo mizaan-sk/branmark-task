@@ -42,50 +42,101 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-heading font-semibold text-white text-sm md:text-[1vw] mb-4 md:mb-[1vw]">
+            <h4 className="font-heading font-semibold text-white text-sm md:text-[1vw] mb-4 md:mb-[1vw] flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#FF5914] shadow-[0_0_10px_#FF5914] shrink-0" />
               Quick Links
             </h4>
-            <ul className="flex flex-col gap-2.5 md:gap-[0.6vw] text-xs md:text-[0.8vw]">
-              <li><a href="#portfolio" className="hover:text-[#FF5914] transition-colors">Client Results</a></li>
-              <li><a href="#creative" className="hover:text-[#FF5914] transition-colors">Creative Showcase</a></li>
-              <li><a href="#partners" className="hover:text-[#FF5914] transition-colors">Our Partners</a></li>
-              <li><a href="#services" className="hover:text-[#FF5914] transition-colors">Growth Goals</a></li>
-              <li><a href="#faq" className="hover:text-[#FF5914] transition-colors">FAQ</a></li>
-              <li><a href="#contact" className="hover:text-[#FF5914] transition-colors">Book Strategy Call</a></li>
+            <ul className="flex flex-col gap-2.5 md:gap-[0.6vw] text-xs md:text-[0.85vw]">
+              <li><a href="#portfolio" className="inline-block hover:text-[#FF5914] hover:translate-x-1 transition-all duration-200">Client Results</a></li>
+              <li><a href="#creative" className="inline-block hover:text-[#FF5914] hover:translate-x-1 transition-all duration-200">Creative Showcase</a></li>
+              <li><a href="#partners" className="inline-block hover:text-[#FF5914] hover:translate-x-1 transition-all duration-200">Our Partners</a></li>
+              <li><a href="#services" className="inline-block hover:text-[#FF5914] hover:translate-x-1 transition-all duration-200">Growth Goals</a></li>
+              <li><a href="#faq" className="inline-block hover:text-[#FF5914] hover:translate-x-1 transition-all duration-200">FAQ</a></li>
+              <li><a href="#contact" className="inline-block hover:text-[#FF5914] hover:translate-x-1 transition-all duration-200">Book Strategy Call</a></li>
             </ul>
           </div>
 
           {/* Growth Goals */}
           <div>
-            <h4 className="font-heading font-semibold text-white text-sm md:text-[1vw] mb-4 md:mb-[1vw]">
+            <h4 className="font-heading font-semibold text-white text-sm md:text-[1vw] mb-4 md:mb-[1vw] flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#FF5914] shadow-[0_0_10px_#FF5914] shrink-0" />
               Growth Goals
             </h4>
-            <ul className="flex flex-col gap-2.5 md:gap-[0.6vw] text-xs md:text-[0.8vw]">
-              <li><a href="#services" className="hover:text-[#FF5914] transition-colors">Lead Generation</a></li>
-              <li><a href="#services" className="hover:text-[#FF5914] transition-colors">E-Commerce Sales</a></li>
-              <li><a href="#services" className="hover:text-[#FF5914] transition-colors">Brand Awareness</a></li>
-              <li><a href="#services" className="hover:text-[#FF5914] transition-colors">High-Converting Creative</a></li>
-              <li><a href="#services" className="hover:text-[#FF5914] transition-colors">Landing Pages That Convert</a></li>
+            <ul className="flex flex-col gap-2.5 md:gap-[0.6vw] text-xs md:text-[0.85vw]">
+              <li><a href="#services" className="inline-block hover:text-[#FF5914] hover:translate-x-1 transition-all duration-200">Lead Generation</a></li>
+              <li><a href="#services" className="inline-block hover:text-[#FF5914] hover:translate-x-1 transition-all duration-200">E-Commerce Sales</a></li>
+              <li><a href="#services" className="inline-block hover:text-[#FF5914] hover:translate-x-1 transition-all duration-200">Brand Awareness</a></li>
+              <li><a href="#services" className="inline-block hover:text-[#FF5914] hover:translate-x-1 transition-all duration-200">High-Converting Creative</a></li>
+              <li><a href="#services" className="inline-block hover:text-[#FF5914] hover:translate-x-1 transition-all duration-200">Landing Pages That Convert</a></li>
             </ul>
           </div>
 
           {/* Contact Details */}
           <div>
-            <h4 className="font-heading font-semibold text-white text-sm md:text-[1vw] mb-4 md:mb-[1vw]">
+            <h4 className="font-heading font-semibold text-white text-sm md:text-[1vw] mb-4 md:mb-[1vw] flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#FF5914] shadow-[0_0_10px_#FF5914] shrink-0" />
               Contact Info
             </h4>
-            <ul className="flex flex-col gap-3 md:gap-[0.8vw] text-xs md:text-[0.8vw]">
-              <li className="flex items-start gap-2.5 md:gap-[0.5vw]">
-                <MapPin className="w-4 h-4 md:w-[1vw] md:h-[1vw] text-[#FF5914] shrink-0 mt-0.5" />
-                <span>Sector 7, HSR Layout, Bangalore 560102</span>
+            <ul className="flex flex-col gap-3 md:gap-[0.8vw] text-xs md:text-[0.85vw]">
+              <li>
+                <div className="group flex items-center gap-2.5 md:gap-[0.6vw]">
+                  <div className="w-7 h-7 md:w-[1.6vw] md:h-[1.6vw] rounded-lg bg-[#FF5914]/10 border border-[#FF5914]/25 flex items-center justify-center text-[#FF5914] group-hover:bg-[#FF5914] group-hover:text-white transition-all duration-300 shrink-0 shadow-sm">
+                    <MapPin className="w-3.5 h-3.5 md:w-[0.85vw] md:h-[0.85vw]" />
+                  </div>
+                  <span className="text-slate-300 font-medium group-hover:text-white transition-colors">Navi Mumbai</span>
+                </div>
               </li>
-              <li className="flex items-center gap-2.5 md:gap-[0.5vw]">
-                <Phone className="w-4 h-4 md:w-[1vw] md:h-[1vw] text-[#FF5914] shrink-0" />
-                <span>+91 7827113855</span>
+              <li>
+                <a
+                  href="tel:+918689842513"
+                  className="group flex items-center gap-2.5 md:gap-[0.6vw] hover:translate-x-0.5 transition-all duration-200"
+                >
+                  <div className="w-7 h-7 md:w-[1.6vw] md:h-[1.6vw] rounded-lg bg-[#FF5914]/10 border border-[#FF5914]/25 flex items-center justify-center text-[#FF5914] group-hover:bg-[#FF5914] group-hover:text-white transition-all duration-300 shrink-0 shadow-sm">
+                    <Phone className="w-3.5 h-3.5 md:w-[0.85vw] md:h-[0.85vw]" />
+                  </div>
+                  <span className="text-slate-300 font-medium group-hover:text-[#FF5914] transition-colors">
+                    +91 8689842513
+                  </span>
+                </a>
               </li>
-              <li className="flex items-center gap-2.5 md:gap-[0.5vw]">
-                <Mail className="w-4 h-4 md:w-[1vw] md:h-[1vw] text-[#FF5914] shrink-0" />
-                <span>contact@rivreach.com</span>
+              <li>
+                <a
+                  href="tel:+918767525433"
+                  className="group flex items-center gap-2.5 md:gap-[0.6vw] hover:translate-x-0.5 transition-all duration-200"
+                >
+                  <div className="w-7 h-7 md:w-[1.6vw] md:h-[1.6vw] rounded-lg bg-[#FF5914]/10 border border-[#FF5914]/25 flex items-center justify-center text-[#FF5914] group-hover:bg-[#FF5914] group-hover:text-white transition-all duration-300 shrink-0 shadow-sm">
+                    <Phone className="w-3.5 h-3.5 md:w-[0.85vw] md:h-[0.85vw]" />
+                  </div>
+                  <span className="text-slate-300 font-medium group-hover:text-[#FF5914] transition-colors">
+                    +91 8767525433
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="mailto:vinayak@rivreach.com"
+                  className="group flex items-center gap-2.5 md:gap-[0.6vw] hover:translate-x-0.5 transition-all duration-200"
+                >
+                  <div className="w-7 h-7 md:w-[1.6vw] md:h-[1.6vw] rounded-lg bg-[#FF5914]/10 border border-[#FF5914]/25 flex items-center justify-center text-[#FF5914] group-hover:bg-[#FF5914] group-hover:text-white transition-all duration-300 shrink-0 shadow-sm">
+                    <Mail className="w-3.5 h-3.5 md:w-[0.85vw] md:h-[0.85vw]" />
+                  </div>
+                  <span className="text-slate-300 font-medium group-hover:text-[#FF5914] transition-colors break-all">
+                    vinayak@rivreach.com
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="mailto:siddhant@rivreach.com"
+                  className="group flex items-center gap-2.5 md:gap-[0.6vw] hover:translate-x-0.5 transition-all duration-200"
+                >
+                  <div className="w-7 h-7 md:w-[1.6vw] md:h-[1.6vw] rounded-lg bg-[#FF5914]/10 border border-[#FF5914]/25 flex items-center justify-center text-[#FF5914] group-hover:bg-[#FF5914] group-hover:text-white transition-all duration-300 shrink-0 shadow-sm">
+                    <Mail className="w-3.5 h-3.5 md:w-[0.85vw] md:h-[0.85vw]" />
+                  </div>
+                  <span className="text-slate-300 font-medium group-hover:text-[#FF5914] transition-colors break-all">
+                    siddhant@rivreach.com
+                  </span>
+                </a>
               </li>
             </ul>
           </div>

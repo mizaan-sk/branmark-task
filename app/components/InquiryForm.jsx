@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, CheckCircle2 } from "lucide-react";
+import { Send, CheckCircle2, AlertCircle } from "lucide-react";
 
 export default function InquiryForm() {
   const [formData, setFormData] = useState({
@@ -14,19 +14,48 @@ export default function InquiryForm() {
   });
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (formData.phone.length !== 10) {
+      setErrorMessage("Please enter a valid 10-digit phone number.");
+      return;
+    }
+
     setLoading(true);
-    setTimeout(() => {
+    setErrorMessage("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (res.ok && data.success && data.data?.result !== "error") {
+        setSubmitted(true);
+      } else {
+        setErrorMessage(
+          data.message || (data.data && data.data.error) || "Unable to send inquiry. Please check your Google Apps Script Web App permissions."
+        );
+      }
+    } catch (err) {
+      console.error("Submission error:", err);
+      setErrorMessage("Network error occurred. Please try submitting again.");
+    } finally {
       setLoading(false);
-      setSubmitted(true);
-    }, 800);
+    }
   };
 
   return (
     <section id="contact" className="py-20 md:py-[6vw] bg-[#180336] text-white select-none relative overflow-hidden">
-      
+
       {/* Ambient background glowing orbs */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <div className="absolute bottom-0 right-1/4 w-[600px] md:w-[40vw] h-[600px] md:h-[40vw] bg-[#480ed8]/30 rounded-full blur-[160px]" />
@@ -35,7 +64,7 @@ export default function InquiryForm() {
 
       <div className="w-full max-w-7xl md:max-w-[78vw] mx-auto px-4 sm:px-6 md:px-[3vw] relative z-10">
         <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 md:gap-[3vw] items-center justify-center">
-          
+
           {/* Left Column Content (Matching PDF Page 8 Left Side) */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -71,7 +100,7 @@ export default function InquiryForm() {
           >
             {/* Glowing outer purple container matching PDF Page 8 */}
             <div className="rounded-3xl md:rounded-[1.8vw] bg-gradient-to-tr from-[#480ed8] via-[#6d20e0] to-[#9333ea] p-2.5 sm:p-3 md:p-[0.8vw] shadow-2xl">
-              
+
               {/* White Form Card Inner Container */}
               <div className="bg-white rounded-2xl md:rounded-[1.4vw] p-6 sm:p-10 md:p-[2.2vw] text-[#180336]">
                 {submitted ? (
@@ -96,6 +125,13 @@ export default function InquiryForm() {
                     <div className="text-center mb-2 md:mb-[0.5vw]">
                       <h3 className="text-xl md:text-[1.3vw] font-bold text-[#180336]">Request Strategy Proposal</h3>
                     </div>
+
+                    {errorMessage && (
+                      <div className="p-3 md:p-[0.7vw] rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs md:text-[0.8vw] flex items-center gap-2">
+                        <AlertCircle className="w-4 h-4 text-red-500 shrink-0" />
+                        <span>{errorMessage}</span>
+                      </div>
+                    )}
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-[1vw]">
                       {/* Full Name */}
@@ -138,9 +174,15 @@ export default function InquiryForm() {
                         <input
                           type="tel"
                           required
-                          placeholder="+91 98765 43210"
+                          maxLength={10}
+                          pattern="[0-9]{10}"
+                          title="Please enter a 10-digit mobile number"
+                          placeholder="10-digit Mobile Number"
                           value={formData.phone}
-                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                          onChange={(e) => {
+                            const numericVal = e.target.value.replace(/\D/g, "").slice(0, 10);
+                            setFormData({ ...formData, phone: numericVal });
+                          }}
                           className="w-full px-4 py-3 md:px-[1vw] md:py-[0.7vw] rounded-xl md:rounded-[0.6vw] bg-slate-50 border border-slate-200 text-slate-900 text-sm md:text-[0.85vw] focus:outline-none focus:border-[#480ed8] focus:bg-white transition-all font-medium"
                         />
                       </div>
