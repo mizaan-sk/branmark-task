@@ -116,7 +116,7 @@ export default function ClientResults() {
         <img
           src={card.adImageSrc}
           alt={card.adAlt}
-          className="w-full h-36 sm:h-40 md:h-auto object-cover"
+          className="w-full h-auto sm:h-40 md:h-auto object-cover"
         />
       </div>
     </div>

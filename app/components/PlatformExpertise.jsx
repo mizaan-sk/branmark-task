@@ -25,16 +25,16 @@ export default function PlatformExpertise() {
   ];
 
   return (
-    <section id="expertise" className="py-16 sm:py-20 md:py-[6vw] bg-gradient-to-b from-[#6d20e0] via-[#5c1ce6] to-[#480ed8] text-white select-none relative overflow-hidden">
+    <section id="expertise" className="py-3 sm:py-20 md:py-[6vw] bg-gradient-to-b from-[#6d20e0] via-[#5c1ce6] to-[#480ed8] text-white select-none relative overflow-hidden">
       {/* Background Subtle Ambient Glow */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0 opacity-40">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[45vw] h-[300px] md:h-[20vw] bg-[#6d20e0]/40 rounded-full blur-[150px]" />
       </div>
 
       <div className="w-full max-w-7xl md:max-w-[78vw] mx-auto px-6 md:px-[3vw] text-center relative z-10">
-        
+
         {/* Title */}
-        <motion.h2 
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

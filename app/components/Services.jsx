@@ -7,7 +7,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 export default function Services() {
   const targetRef = useRef(null);
   const [mobileIndex, setMobileIndex] = useState(0);
-  
+
   const { scrollYProgress } = useScroll({
     target: targetRef,
     offset: ["start start", "end end"],
@@ -63,17 +63,17 @@ export default function Services() {
   };
 
   return (
-    <section 
+    <section
       ref={targetRef}
-      id="goals" 
+      id="goals"
       className="relative md:h-[250vh] py-16 md:py-0 bg-gradient-to-b from-[#480ed8] via-[#3c09b8] to-[#310599] text-white select-none"
     >
       {/* Desktop View: Sticky Scroll-Driven Horizontal Track */}
       <div className="hidden md:flex sticky top-0 h-screen flex-col justify-center overflow-hidden">
-        
+
         {/* Desktop Header */}
         <div className="w-full max-w-7xl md:max-w-[82vw] mx-auto px-6 md:px-[2.5vw] mb-10 md:mb-[2.5vw] z-10 shrink-0">
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -82,7 +82,7 @@ export default function Services() {
           >
             Choose Your Growth Goal.
           </motion.h2>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -168,9 +168,19 @@ export default function Services() {
             {/* Left Content */}
             <div className="flex flex-col justify-between flex-1 pr-1">
               <div>
-                <h3 className="text-2xl font-black text-[#480ed8] leading-tight mb-2">
-                  {goals[mobileIndex].title}
-                </h3>
+                <div className="flex items-center justify-between">
+                  <h3 className="text-2xl font-black text-[#480ed8] leading-tight mb-2">
+                    {goals[mobileIndex].title}
+                  </h3>
+                  <div className="  max-md:block hidden self-stretch max-md:my-7 max-md:p-6 max-md:rounded-br-3xl rounded-t-3xl max-md:rounded-bl-none rounded-bl-3xl rounded-br-xl bg-[#EAE4FF] flex items-center justify-center shrink-0 p-3">
+                    <img
+                      src={goals[mobileIndex].iconSrc}
+                      alt={goals[mobileIndex].title}
+                      className="w-10 h-10 object-contain"
+                    />
+                  </div>
+
+                </div>
                 <p className="text-xs font-bold text-[#FF5914] italic mb-2">
                   {goals[mobileIndex].question}
                 </p>
@@ -189,7 +199,7 @@ export default function Services() {
             </div>
 
             {/* Right Arch Icon */}
-            <div className="w-24 self-stretch max-md:my-7 rounded-t-3xl rounded-bl-3xl rounded-br-xl bg-[#EAE4FF] flex items-center justify-center shrink-0 p-3">
+            <div className="w-24 max-md:hidden self-stretch max-md:my-7 rounded-t-3xl rounded-bl-3xl rounded-br-xl bg-[#EAE4FF] flex items-center justify-center shrink-0 p-3">
               <img
                 src={goals[mobileIndex].iconSrc}
                 alt={goals[mobileIndex].title}
@@ -215,9 +225,8 @@ export default function Services() {
               <button
                 key={i}
                 onClick={() => setMobileIndex(i)}
-                className={`h-2.5 rounded-full transition-all duration-300 ${
-                  i === mobileIndex ? "w-7 bg-[#FF5914]" : "w-2.5 bg-white/40"
-                }`}
+                className={`h-2.5 rounded-full transition-all duration-300 ${i === mobileIndex ? "w-7 bg-[#FF5914]" : "w-2.5 bg-white/40"
+                  }`}
                 aria-label={`Go to slide ${i + 1}`}
               />
             ))}
