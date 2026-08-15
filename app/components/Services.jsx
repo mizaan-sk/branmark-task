@@ -163,16 +163,16 @@ export default function Services() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -40 }}
             transition={{ duration: 0.3 }}
-            className="w-full bg-white text-[#180336] rounded-3xl p-6 shadow-2xl flex items-stretch justify-between gap-4 border border-white/20"
+            className="w-full bg-white text-[#180336] rounded-3xl max-md:rounded-[75px] p-10 shadow-2xl flex items-stretch justify-between gap-4 border border-white/20"
           >
             {/* Left Content */}
             <div className="flex flex-col justify-between flex-1 pr-1">
               <div>
                 <div className="flex items-center justify-between">
-                  <h3 className="text-2xl font-black text-[#480ed8] leading-tight mb-2">
+                  <h3 className="text-2xl font-black max-md:font-semibold text-[#480ed8] leading-tight mb-2">
                     {goals[mobileIndex].title}
                   </h3>
-                  <div className="  max-md:block hidden self-stretch max-md:my-7 max-md:p-6 max-md:rounded-br-3xl rounded-t-3xl max-md:rounded-bl-none rounded-bl-3xl rounded-br-xl bg-[#EAE4FF] flex items-center justify-center shrink-0 p-3">
+                  <div className="  max-md:block hidden self-stretch max-md:my-0  max-md:p-6 max-md:rounded-br-3xl rounded-t-3xl max-md:rounded-bl-none rounded-bl-3xl rounded-br-xl bg-[#EAE4FF] flex items-center justify-center shrink-0 p-3">
                     <img
                       src={goals[mobileIndex].iconSrc}
                       alt={goals[mobileIndex].title}
@@ -181,10 +181,10 @@ export default function Services() {
                   </div>
 
                 </div>
-                <p className="text-xs font-bold text-[#FF5914] italic mb-2">
+                <p className="text-xs max-md:font-semibold max-md:pt-[30px] font-bold max-md:text-[17px] text-[#FF5914] italic mb-2">
                   {goals[mobileIndex].question}
                 </p>
-                <p className="text-xs text-[#180336] font-medium leading-relaxed mb-4">
+                <p className="text-xs text-[#180336] max-md:text-[18px] font-medium leading-relaxed mb-4">
                   {goals[mobileIndex].description}
                 </p>
               </div>

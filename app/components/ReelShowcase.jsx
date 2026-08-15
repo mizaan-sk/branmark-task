@@ -19,6 +19,39 @@ import {
 
 // Full catalog of 17 videos from /public/videos
 const REEL_VIDEOS = [
+   {
+    id: "v1-showcase",
+    videoSrc: "/videos/V1.mp4",
+    title: "Dynamic Product Showcase",
+    handle: "@VelocityBrands",
+    category: "E-Commerce & Brands",
+    tag: "UGC Reel",
+    avatarLetter: "V",
+    bg: "bg-[#480ED8]",
+    accentColor: "#480ED8",
+  },
+    {
+    id: "video-2026-08-11-a",
+    videoSrc: "/videos/Video%202026-08-11%20A.mp4",
+    title: "Urban Motion Cinematic",
+    handle: "@AeroDynamic",
+    category: "Cinematic & Ads",
+    tag: "Short Form",
+    avatarLetter: "A",
+    bg: "bg-[#480ED8]",
+    accentColor: "#480ED8",
+  },
+   {
+    id: "jal",
+    videoSrc: "/videos/Jal.mp4",
+    title: "Purity In Every Drop",
+    handle: "@JalHydration",
+    category: "Food & Dining",
+    tag: "Commercial",
+    avatarLetter: "J",
+    bg: "bg-[#480ED8]",
+    accentColor: "#480ED8",
+  },
   {
     id: "chicken-loaded-fries",
     videoSrc: "/videos/Chicken%20Loaded%20Fries.mp4",
@@ -118,17 +151,7 @@ const REEL_VIDEOS = [
     bg: "bg-[#FF5914]",
     accentColor: "#FF5914",
   },
-  {
-    id: "v1-showcase",
-    videoSrc: "/videos/V1.mp4",
-    title: "Dynamic Product Showcase",
-    handle: "@VelocityBrands",
-    category: "E-Commerce & Brands",
-    tag: "UGC Reel",
-    avatarLetter: "V",
-    bg: "bg-[#480ED8]",
-    accentColor: "#480ED8",
-  },
+ 
   {
     id: "v6-edit",
     videoSrc: "/videos/V6.mp4",
@@ -162,17 +185,7 @@ const REEL_VIDEOS = [
     bg: "bg-[#FF5914]",
     accentColor: "#FF5914",
   },
-  {
-    id: "video-2026-08-11-a",
-    videoSrc: "/videos/Video%202026-08-11%20A.mp4",
-    title: "Urban Motion Cinematic",
-    handle: "@AeroDynamic",
-    category: "Cinematic & Ads",
-    tag: "Short Form",
-    avatarLetter: "A",
-    bg: "bg-[#480ED8]",
-    accentColor: "#480ED8",
-  },
+
   {
     id: "video-2026-08-11",
     videoSrc: "/videos/Video%202026-08-11.mp4",
@@ -300,9 +313,10 @@ function ReelCard({
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.4 }}
+      onClick={togglePlayPause}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`group relative rounded-2xl md:rounded-[1.3vw] overflow-hidden aspect-[9/16] bg-[#0F0728] shadow-xl border border-purple-200/30 hover:border-[#FF5914]/80 transition-all duration-300 select-none flex flex-col justify-between ${visibilityClass}`}
+      className={`group relative rounded-2xl md:rounded-[1.3vw] overflow-hidden aspect-[9/16] bg-[#0F0728] shadow-xl border border-purple-200/30 hover:border-[#FF5914]/80 transition-all duration-300 select-none cursor-pointer ${visibilityClass}`}
     >
       {/* Background Video */}
       <video
@@ -320,17 +334,9 @@ function ReelCard({
       {/* Top Gradient Overlay */}
       <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/80 via-black/30 to-transparent pointer-events-none z-10" />
 
-      {/* Bottom Gradient Overlay */}
-      <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-black/95 via-black/60 to-transparent pointer-events-none z-10" />
-
       {/* Top Controls Bar */}
-      <div className="relative z-20 p-3 sm:p-4 md:p-[0.9vw] flex items-center justify-between gap-2">
-        {/* Category Pill Tag */}
-        <span className="inline-flex items-center px-2.5 py-1 rounded-full text-[10px] sm:text-xs md:text-[0.65vw] font-medium bg-black/40 backdrop-blur-md text-white/90 border border-white/15 tracking-tight truncate max-w-[130px] sm:max-w-none">
-          {reel.tag}
-        </span>
-
-        <div className="flex items-center gap-1.5 sm:gap-2">
+      <div className="absolute top-0 inset-x-0 z-30 p-3 sm:p-4 md:p-[0.9vw] flex items-center justify-end gap-2 pointer-events-none">
+        <div className="flex items-center gap-1.5 sm:gap-2 pointer-events-auto">
           {/* Audio Toggle Button */}
           <button
             onClick={(e) => {
@@ -353,7 +359,10 @@ function ReelCard({
 
           {/* Fullscreen / Expand Button */}
           <button
-            onClick={() => onOpenModal(reel)}
+            onClick={(e) => {
+              e.stopPropagation();
+              onOpenModal(reel);
+            }}
             className="p-2 md:p-[0.55vw] rounded-full bg-black/50 text-white/90 hover:bg-[#480ED8] hover:text-white border border-white/20 backdrop-blur-md transition-all duration-200 cursor-pointer shadow-md"
             aria-label="Open Fullscreen Reel"
           >
@@ -362,11 +371,8 @@ function ReelCard({
         </div>
       </div>
 
-      {/* Middle Center Play/Pause Overlay on Click / Hover */}
-      <div
-        onClick={togglePlayPause}
-        className="relative z-20 flex-1 flex items-center justify-center cursor-pointer"
-      >
+      {/* Perfectly Dead-Centered Play/Pause Button Indicator */}
+      <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
         <AnimatePresence>
           {(!isPlaying || isHovered) && (
             <motion.div
@@ -390,42 +396,12 @@ function ReelCard({
         </AnimatePresence>
       </div>
 
-      {/* Bottom Creator & Title Info */}
-      <div className="relative z-20 p-3.5 sm:p-4 md:p-[1vw] space-y-2">
-        {/* Reel Title */}
-        <p className="text-white font-bold text-sm sm:text-base md:text-[0.95vw] leading-snug line-clamp-1 drop-shadow-md">
-          {reel.title}
-        </p>
-
-        {/* Creator Handle Pill */}
-        <div className="flex items-center justify-between gap-2">
-          <div className="flex items-center gap-2 md:gap-[0.5vw] min-w-0">
-            <div
-              className={`w-6 h-6 sm:w-7 sm:h-7 md:w-[1.6vw] md:h-[1.6vw] rounded-full ${reel.bg} text-white font-extrabold text-[11px] sm:text-xs md:text-[0.7vw] flex items-center justify-center border border-white/30 shrink-0 shadow-md`}
-            >
-              {reel.avatarLetter}
-            </div>
-            <span className="text-white/90 font-medium text-xs sm:text-sm md:text-[0.78vw] tracking-tight truncate">
-              {reel.handle}
-            </span>
-          </div>
-
-          <button
-            onClick={() => onOpenModal(reel)}
-            className="text-[11px] sm:text-xs md:text-[0.7vw] font-bold text-[#FF5914] hover:text-white flex items-center gap-1 shrink-0 transition-colors"
-          >
-            <span>Watch</span>
-            <ArrowRight className="w-3 h-3 md:w-[0.7vw] md:h-[0.7vw]" />
-          </button>
-        </div>
-
-        {/* Live Bottom Playback Progress Bar */}
-        <div className="w-full bg-white/20 h-1 rounded-full overflow-hidden mt-1">
-          <div
-            className="h-full bg-gradient-to-r from-[#FF5914] to-[#cfb3f9] transition-all duration-100 ease-linear rounded-full"
-            style={{ width: `${progress}%` }}
-          />
-        </div>
+      {/* Live Bottom Playback Progress Bar */}
+      <div className="absolute bottom-0 inset-x-0 z-20 bg-white/20 h-1 overflow-hidden pointer-events-none">
+        <div
+          className="h-full bg-gradient-to-r from-[#FF5914] to-[#cfb3f9] transition-all duration-100 ease-linear"
+          style={{ width: `${progress}%` }}
+        />
       </div>
     </motion.div>
   );
@@ -543,16 +519,7 @@ export default function ReelShowcase() {
       <div className="w-full max-w-7xl md:max-w-[82vw] mx-auto px-4 sm:px-6 md:px-[2.5vw] relative z-10">
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-8 sm:mb-12 md:mb-[3vw]">
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/60 backdrop-blur-md border border-purple-300/60 shadow-sm text-[#480ed8] text-xs sm:text-sm md:text-[0.85vw] font-bold uppercase tracking-wider mb-3 md:mb-[0.8vw]"
-          >
-            <Sparkles className="w-4 h-4 text-[#FF5914]" />
-            <span>Short-Form Video Production</span>
-          </motion.div>
+
 
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
