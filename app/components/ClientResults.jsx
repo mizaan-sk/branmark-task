@@ -6,36 +6,58 @@ import { Download, ChevronLeft, ChevronRight } from "lucide-react";
 
 const clientResultsData = [
   {
-    id: "kotak",
-    brandName: "kotak",
-    category: "Home Loan",
-    logoSrc: "/assets/5.png",
-    type: "Lead Generation",
-    totalLeads: "4225",
-    spends: "6.9L",
-    cpl: "164",
-    channels: [
-      { name: "Meta Logo", iconSrc: "/assets/3.png" },
-    ],
-    adImageSrc: "/assets/2.png",
-    adAlt: "Kotak Home Loan Ad Creative",
-  },
-  {
-    id: "radcliffe",
-    brandName: "Radcliffe",
-    category: "Education",
-    logoSrc: "/assets/6.png",
-    type: "Lead Generation",
-    totalLeads: "16,172",
-    spends: "1.50cr",
-    cpl: "925",
+    id: "stoxbox",
+    brandName: "StoxBox",
+    category: "Financial Service",
+    logoSrc: "/assets/stoxbox_logo.svg",
+    type: "App Installs",
+    totalLeads: "3.99L Installs",
+    metricLabel: "TOTAL INSTALLS",
+    spends: "11.9L",
+    cpl: "3",
+    costLabel: "CPI",
     channels: [
       { name: "Google Ads", iconSrc: "/assets/8.png" },
       { name: "Meta Logo", iconSrc: "/assets/3.png" },
-      { name: "Microsoft Logo", iconSrc: "/assets/7.png" },
     ],
-    adImageSrc: "/assets/4.png",
-    adAlt: "Radcliffe Education Ad Creative",
+    adImageSrc: "/cs/cd3.png",
+    adAlt: "StoxBox Financial Service Ad Creative",
+  },
+  {
+    id: "classic-paramount",
+    brandName: "Classic Paramount Real Estate",
+    category: "Real Estate",
+    logoSrc: "/assets/paramount_logo.svg",
+    type: "Lead Generation",
+    totalLeads: "2972 Leads",
+    metricLabel: "TOTAL LEADS",
+    spends: "179.8K",
+    cpl: "60.5",
+    costLabel: "CPL",
+    channels: [
+      { name: "Google Ads", iconSrc: "/assets/8.png" },
+      { name: "Meta Logo", iconSrc: "/assets/3.png" },
+    ],
+    adImageSrc: "/cs/cd2.png",
+    adAlt: "Classic Paramount Real Estate Ad Creative",
+  },
+  {
+    id: "beshak",
+    brandName: "Beshak",
+    category: "Insurance",
+    logoSrc: "/assets/beshak_logo.svg",
+    type: "Lead Generation",
+    totalLeads: "1476 Leads",
+    metricLabel: "TOTAL LEADS",
+    spends: "4.84L",
+    cpl: "304",
+    costLabel: "CPL",
+    channels: [
+      { name: "Google Ads", iconSrc: "/assets/8.png" },
+      { name: "Meta Logo", iconSrc: "/assets/3.png" },
+    ],
+    adImageSrc: "/cs/c5.png",
+    adAlt: "Beshak Insurance Ad Creative",
   },
 ];
 
@@ -51,72 +73,72 @@ export default function ClientResults() {
   };
 
   const renderCard = (card) => (
-    <div className="bg-white rounded-2xl sm:rounded-3xl md:rounded-[2vw] p-5 sm:p-8 md:p-[2.2vw] shadow-lg border border-purple-100/80 flex flex-col md:flex-row gap-5 sm:gap-6 md:gap-[2vw] items-center justify-between hover:shadow-2xl transition-all duration-300 group h-full">
-      {/* Left Metrics & Details */}
-      <div className="flex-1 space-y-3.5 sm:space-y-5 md:space-y-[1.2vw] w-full flex flex-col items-center md:items-start text-center md:text-left">
+    <div className="bg-white rounded-3xl p-6 sm:p-8 md:p-8 shadow-xl hover:shadow-2xl border border-purple-100/80 flex flex-col sm:flex-row gap-6 items-center justify-between transition-all duration-300 group h-full relative overflow-hidden">
+      {/* Left Details & Metrics */}
+      <div className="flex-1 space-y-4 w-full flex flex-col items-center sm:items-start text-center sm:text-left">
         
         {/* Top Brand Header */}
-        <div className="flex items-center justify-center md:justify-start gap-2.5 sm:gap-3 md:gap-[0.8vw]">
+        <div className="flex items-center justify-center sm:justify-start gap-3 flex-wrap">
           <img
             src={card.logoSrc}
             alt={`${card.brandName} Logo`}
-            className="h-9 sm:h-7 md:h-[2vw] w-auto object-contain"
+            className="h-8 sm:h-9 max-w-[140px] object-contain"
           />
-          <div className="h-4 sm:h-6 md:h-[2.5vw] w-[2px] bg-[#480ed8] shrink-0" />
-          <span className="text-base sm:text-xl whitespace-nowrap md:text-[1.5vw] font-bold text-[#180336]">
+          <div className="h-5 w-[2px] bg-[#480ed8] shrink-0" />
+          <span className="text-xs sm:text-sm font-bold text-[#480ed8] bg-purple-50/90 px-3 py-1 rounded-full border border-purple-100 uppercase tracking-wider">
             {card.category}
           </span>
         </div>
 
-        {/* Category Subheading */}
-        <h3 className="text-base sm:text-2xl md:text-[1.8vw] font-bold text-[#180336] tracking-tight text-center md:text-left">
+        {/* Campaign Service Subheading */}
+        <h3 className="text-lg sm:text-2xl font-extrabold text-[#180336] tracking-tight">
           {card.type}
         </h3>
 
-        {/* Main Big Metric Stat */}
-    <div className="max-md:flex max-md:gap-3 max-md:items-center max-md:justify-center">
-          <div className="flex flex-col items-center md:items-start text-center md:text-left">
-          <div className="text-3xl sm:text-5xl md:text-[4vw] font-bold text-[#480ed8] tracking-tight leading-none">
+        {/* Main Big Result Stat */}
+        <div className="flex flex-col items-center sm:items-start my-1">
+          <div className="text-3xl sm:text-4xl md:text-5xl font-semibold text-[#480ed8] tracking-tight leading-none">
             {card.totalLeads}
           </div>
-          <div className="text-[10px] sm:text-xs md:text-[1vw] font-bold uppercase text-[#FF5914] mt-1 md:mt-[0.4vw]">
-            TOTAL LEADS
+          <div className="text-xs font-bold uppercase text-[#FF5914] mt-1.5 tracking-wider">
+            {card.metricLabel}
           </div>
         </div>
 
-        {/* White Rounded Metrics Pill Container */}
-        <div className="bg-slate-50/80 border border-slate-200/80 rounded-xl sm:rounded-2xl md:rounded-[1.2vw] p-3 sm:p-4 md:p-[0.9vw] shadow-sm inline-flex items-center justify-center gap-6 sm:gap-8 md:gap-[2vw] text-center">
-          <div className="text-center md:text-left">
-            <div className="text-lg sm:text-2xl md:text-[1.6vw] font-bold text-[#480ed8]">{card.spends}</div>
-            <div className="text-[9px] sm:text-[10px] md:text-[0.6vw] font-bold text-slate-700 uppercase">SPENDS</div>
+        {/* Metrics Pill (Spend & CPI/CPL) */}
+        <div className="bg-slate-50/90 border border-slate-200/80 rounded-2xl p-3 sm:p-4 shadow-sm inline-flex items-center justify-center gap-6 sm:gap-8 text-center w-full max-w-[280px] sm:max-w-none">
+          <div className="text-center sm:text-left">
+            <div className="text-lg sm:text-2xl font-bold text-[#480ed8]">{card.spends}</div>
+            <div className="text-[10px] sm:text-xs font-bold text-slate-500 uppercase tracking-wider">SPEND</div>
           </div>
-          <div className="text-center md:text-left">
-            <div className="text-lg sm:text-2xl md:text-[1.6vw] font-bold text-[#480ed8] leading-tight">{card.cpl}</div>
-            <div className="text-[9px] sm:text-[10px] md:text-[0.6vw] font-bold text-slate-700 uppercase">CPL</div>
+          <div className="h-7 w-[1px] bg-slate-200" />
+          <div className="text-center sm:text-left">
+            <div className="text-lg sm:text-2xl font-bold text-[#480ed8] leading-tight">{card.cpl}</div>
+            <div className="text-[10px] sm:text-xs font-bold text-slate-500 uppercase tracking-wider">{card.costLabel}</div>
           </div>
         </div>
-    </div>
 
         {/* Multi Channel Platform Logos */}
-        <div className="flex items-center justify-center md:justify-start gap-2.5 pt-0.5">
+        <div className="flex items-center justify-center sm:justify-start gap-3 pt-1">
+          <span className="text-xs font-semibold text-slate-400">Platforms:</span>
           {card.channels.map((channel, idx) => (
             <img
               key={idx}
               src={channel.iconSrc}
               alt={channel.name}
-              className="h-5 sm:h-6 md:h-[1.8vw] w-auto object-contain"
+              className="h-5 sm:h-6 w-auto object-contain transition-transform group-hover:scale-110"
             />
           ))}
         </div>
 
       </div>
 
-      {/* Right Side Image Only */}
-      <div className="w-full max-w-[200px] sm:max-w-[220px] md:max-w-none md:w-[12vw] md:mt-[4vw] shrink-0 rounded-xl sm:rounded-2xl md:rounded-[1.2vw] overflow-hidden shadow-md border border-slate-200 group-hover:scale-105 transition-transform duration-300 mx-auto md:mx-0">
+      {/* Right Side Real Ad Creative Image */}
+      <div className="w-full sm:w-[180px] md:w-[200px] shrink-0 rounded-2xl overflow-hidden shadow-lg border border-purple-100 bg-slate-50 group-hover:scale-105 transition-transform duration-300 mx-auto sm:mx-0 flex items-center justify-center p-1.5">
         <img
           src={card.adImageSrc}
           alt={card.adAlt}
-          className="w-full h-auto sm:h-40 md:h-auto object-cover"
+          className="w-full h-auto max-h-[260px] object-contain rounded-xl"
         />
       </div>
     </div>
@@ -124,7 +146,7 @@ export default function ClientResults() {
 
   return (
     <section id="proof" className="py-12 sm:py-20 md:py-[6vw] bg-gradient-to-b from-white via-[#f3ecff] to-[#eadfff] text-[#180336] relative overflow-hidden select-none">
-      <div className="w-full max-w-7xl md:max-w-[78vw] mx-auto px-6 md:px-[3vw] relative z-10">
+      <div className="w-full max-w-7xl md:max-w-[85vw] mx-auto px-6 md:px-[3vw] relative z-10">
 
         {/* Header */}
         <div className="text-center mx-auto mb-8 sm:mb-16 md:mb-[4vw]">
@@ -151,8 +173,8 @@ export default function ClientResults() {
           </div>
         </div>
 
-        {/* Desktop Grid View */}
-        <div className="hidden lg:grid lg:grid-cols-2 gap-8 md:gap-12">
+        {/* Desktop Grid View (2 Cards per Row) */}
+        <div className="hidden lg:grid lg:grid-cols-2 gap-8">
           {clientResultsData.map((card, idx) => (
             <motion.div
               key={card.id}
@@ -160,6 +182,7 @@ export default function ClientResults() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.15 }}
+              className={idx === 2 ? "lg:col-span-2 lg:max-w-[calc(50%-1rem)] lg:mx-auto w-full" : "w-full"}
             >
               {renderCard(card)}
             </motion.div>
@@ -252,4 +275,3 @@ export default function ClientResults() {
     </section>
   );
 }
-

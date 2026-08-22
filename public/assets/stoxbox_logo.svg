@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" width="240" height="60">
+  <g transform="translate(5, 5)">
+    <circle cx="25" cy="25" r="23" fill="#311B92" />
+    <path d="M 25,12 L 31,23 C 33,26 33,29 31,32 L 27,37 L 23,37 L 19,32 C 17,29 17,26 19,23 Z" fill="#FFFFFF" />
+    <polygon points="17,32 12,35 15,27" fill="#FF5914" />
+    <polygon points="33,32 38,35 35,27" fill="#FF5914" />
+    <circle cx="25" cy="23" r="3" fill="#311B92" />
+  </g>
+  <text x="62" y="38" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="26" fill="#180336" letter-spacing="-0.5">StoxBox</text>
+</svg>

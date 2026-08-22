@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 60" width="220" height="60">
+  <g transform="translate(5, 5)">
+    <rect x="2" y="2" width="46" height="46" rx="12" fill="#0D9488" />
+    <path d="M 25,12 C 34,12 37,16 37,25 C 37,34 29,40 25,42 C 21,40 13,34 13,25 C 13,16 16,12 25,12 Z" fill="#0F766E" />
+    <path d="M 19,25 L 23,29 L 31,19" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+  </g>
+  <text x="62" y="38" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="26" fill="#0F172A" letter-spacing="-0.5">Beshak</text>
+</svg>

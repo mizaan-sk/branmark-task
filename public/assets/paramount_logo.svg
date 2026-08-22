@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 60" width="280" height="60">
+  <g transform="translate(5, 5)">
+    <rect x="2" y="2" width="46" height="46" rx="10" fill="#0F172A" />
+    <path d="M 25,10 L 37,22 L 32,22 L 32,38 L 18,38 L 18,22 L 13,22 Z" fill="#D97706" />
+    <path d="M 25,14 L 33,22 L 29,22 L 29,35 L 21,35 L 21,22 L 17,22 Z" fill="#F59E0B" />
+  </g>
+  <text x="62" y="28" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="18" fill="#0F172A" letter-spacing="-0.3">CLASSIC PARAMOUNT</text>
+  <text x="62" y="44" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="11" fill="#D97706" letter-spacing="1.5">REAL ESTATE</text>
+</svg>
