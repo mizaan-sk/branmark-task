@@ -14,6 +14,14 @@ const poppins = Poppins({
 export const metadata = {
   title: "Rivreach | Data-Driven Ads & High-Converting Growth Agency",
   description: "Data-driven ads, thumb-stopping visuals, and AI-powered strategies that turn clicks into revenue.",
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico" },
+    ],
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -23,6 +31,10 @@ export default function RootLayout({ children }) {
       className={`${poppins.variable} h-full antialiased scroll-smooth`}
     >
       <head>
+        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+        <link rel="alternate icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/icon.svg" />
+
         {/* GSAP & ScrollTrigger CDN Libraries */}
         <Script
           src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"

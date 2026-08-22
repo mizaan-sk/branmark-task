@@ -120,23 +120,7 @@ export default function PlatformExpertise() {
             </button>
           </div>
 
-          {/* Centered Slider Control Buttons (Mobile & Tablet) */}
-          <div className="flex md:hidden items-center justify-center gap-4 mt-2">
-            <button
-              onClick={() => swiperRef.current?.slidePrev()}
-              aria-label="Previous partner logo"
-              className="w-11 h-11 rounded-full bg-white/15 hover:bg-white/25 active:scale-90 border border-white/20 backdrop-blur-md flex items-center justify-center text-white transition-all duration-200 shadow-lg"
-            >
-              <ChevronLeft className="w-5 h-5 stroke-[2.5]" />
-            </button>
-            <button
-              onClick={() => swiperRef.current?.slideNext()}
-              aria-label="Next partner logo"
-              className="w-11 h-11 rounded-full bg-white/15 hover:bg-white/25 active:scale-90 border border-white/20 backdrop-blur-md flex items-center justify-center text-white transition-all duration-200 shadow-lg"
-            >
-              <ChevronRight className="w-5 h-5 stroke-[2.5]" />
-            </button>
-          </div>
+
         </div>
 
       </div>
