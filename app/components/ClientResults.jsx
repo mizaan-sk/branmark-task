@@ -134,7 +134,7 @@ export default function ClientResults() {
       </div>
 
       {/* Right Side Real Ad Creative Image */}
-      <div className="w-full sm:w-[180px] md:w-[200px] shrink-0 rounded-2xl overflow-hidden shadow-lg border border-purple-100 bg-slate-50 group-hover:scale-105 transition-transform duration-300 mx-auto sm:mx-0 flex items-center justify-center p-1.5">
+      <div className="max-md:hidden w-full sm:w-[180px] md:w-[200px] shrink-0 rounded-2xl overflow-hidden shadow-lg border border-purple-100 bg-slate-50 group-hover:scale-105 transition-transform duration-300 mx-auto sm:mx-0 flex items-center justify-center p-1.5">
         <img
           src={card.adImageSrc}
           alt={card.adAlt}

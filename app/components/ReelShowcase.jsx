@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect, useMemo } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Volume2,
@@ -221,14 +221,6 @@ const REEL_VIDEOS = [
   },
 ];
 
-const CATEGORIES = [
-  "All",
-  "Food & Dining",
-  "Fashion & Apparel",
-  "Cinematic & Ads",
-  "E-Commerce & Brands",
-];
-
 // Single Reel Video Card Component
 function ReelCard({
   reel,
@@ -408,7 +400,6 @@ function ReelCard({
 }
 
 export default function ReelShowcase() {
-  const [selectedCategory, setSelectedCategory] = useState("All");
   const [activeAudioId, setActiveAudioId] = useState(null);
   const [showAll, setShowAll] = useState(false);
   const [modalReel, setModalReel] = useState(null);
@@ -417,13 +408,7 @@ export default function ReelShowcase() {
   const [modalProgress, setModalProgress] = useState(0);
   const [modalMuted, setModalMuted] = useState(false);
 
-  // Filter reels according to active category
-  const filteredReels = useMemo(() => {
-    if (selectedCategory === "All") {
-      return REEL_VIDEOS;
-    }
-    return REEL_VIDEOS.filter((reel) => reel.category === selectedCategory);
-  }, [selectedCategory]);
+  const filteredReels = REEL_VIDEOS;
 
   // Audio mute/unmute toggle across the grid
   const toggleAudio = (id) => {
@@ -540,43 +525,6 @@ export default function ReelShowcase() {
           >
             We produce high-impact vertical reels and performance video ads that capture attention in the first 3 seconds and drive real conversions.
           </motion.p>
-        </div>
-
-        {/* Interactive Category Filter Tabs */}
-        <div className="flex items-center justify-center gap-2 sm:gap-3 md:gap-[0.8vw] flex-wrap mb-8 sm:mb-12 md:mb-[2.5vw]">
-          {CATEGORIES.map((cat) => {
-            const isSelected = selectedCategory === cat;
-            const count =
-              cat === "All"
-                ? REEL_VIDEOS.length
-                : REEL_VIDEOS.filter((r) => r.category === cat).length;
-
-            return (
-              <button
-                key={cat}
-                onClick={() => {
-                  setSelectedCategory(cat);
-                  setShowAll(false);
-                }}
-                className={`px-4 py-2 sm:px-5 sm:py-2.5 md:px-[1.2vw] md:py-[0.55vw] rounded-full text-xs sm:text-sm md:text-[0.85vw] font-bold transition-all duration-200 cursor-pointer shadow-sm flex items-center gap-2 ${
-                  isSelected
-                    ? "bg-[#480ED8] text-white shadow-lg shadow-purple-900/30 scale-105"
-                    : "bg-white/80 text-[#180336] hover:bg-white border border-purple-200/60 hover:text-[#480ED8]"
-                }`}
-              >
-                <span>{cat}</span>
-                <span
-                  className={`text-[10px] sm:text-xs md:text-[0.65vw] px-2 py-0.5 rounded-full font-semibold ${
-                    isSelected
-                      ? "bg-white/20 text-white"
-                      : "bg-purple-100 text-[#480ED8]"
-                  }`}
-                >
-                  {count}
-                </span>
-              </button>
-            );
-          })}
         </div>
 
         {/* Video Reels Responsive Grid */}

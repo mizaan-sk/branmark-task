@@ -6,6 +6,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function Services() {
   const targetRef = useRef(null);
+  const scrollRef = useRef(null);
   const [mobileIndex, setMobileIndex] = useState(0);
 
   const { scrollYProgress } = useScroll({
@@ -54,12 +55,38 @@ export default function Services() {
     },
   ];
 
+  const handleMobileScroll = () => {
+    if (!scrollRef.current) return;
+    const container = scrollRef.current;
+    const scrollLeft = container.scrollLeft;
+    const cardWidth = container.firstElementChild?.offsetWidth || 1;
+    const gap = 16;
+    const index = Math.round(scrollLeft / (cardWidth + gap));
+    if (index >= 0 && index < goals.length && index !== mobileIndex) {
+      setMobileIndex(index);
+    }
+  };
+
+  const scrollToMobileIndex = (index) => {
+    if (!scrollRef.current) return;
+    const container = scrollRef.current;
+    const cardWidth = container.firstElementChild?.offsetWidth || 1;
+    const gap = 16;
+    container.scrollTo({
+      left: index * (cardWidth + gap),
+      behavior: "smooth",
+    });
+    setMobileIndex(index);
+  };
+
   const prevSlide = () => {
-    setMobileIndex((prev) => (prev === 0 ? goals.length - 1 : prev - 1));
+    const newIdx = mobileIndex === 0 ? goals.length - 1 : mobileIndex - 1;
+    scrollToMobileIndex(newIdx);
   };
 
   const nextSlide = () => {
-    setMobileIndex((prev) => (prev === goals.length - 1 ? 0 : prev + 1));
+    const newIdx = mobileIndex === goals.length - 1 ? 0 : mobileIndex + 1;
+    scrollToMobileIndex(newIdx);
   };
 
   return (
@@ -143,7 +170,7 @@ export default function Services() {
 
       </div>
 
-      {/* Mobile View: Swiper-style Touch & Button Slider */}
+      {/* Mobile View: Hand-Scrollable Horizontal Track */}
       <div className="block md:hidden px-4">
         {/* Mobile Header */}
         <div className="text-center mb-6">
@@ -155,58 +182,50 @@ export default function Services() {
           </p>
         </div>
 
-        {/* Mobile Swiper Card */}
-        <div className="relative overflow-hidden w-full py-2">
-          <motion.div
-            key={mobileIndex}
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -40 }}
-            transition={{ duration: 0.3 }}
-            className="w-full bg-white text-[#180336] rounded-3xl max-md:rounded-[75px] p-10 shadow-2xl flex items-stretch justify-between gap-4 border border-white/20"
-          >
-            {/* Left Content */}
-            <div className="flex flex-col justify-between flex-1 pr-1">
+        {/* Mobile Scrollable Cards Track */}
+        <div
+          ref={scrollRef}
+          onScroll={handleMobileScroll}
+          className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar py-3 w-full touch-pan-x"
+        >
+          {goals.map((goal) => (
+            <div
+              key={goal.title}
+              className="w-full shrink-0 snap-center bg-white text-[#180336] rounded-[40px] sm:rounded-[55px] p-6 sm:p-8 shadow-2xl flex flex-col justify-between border border-white/20"
+            >
               <div>
-                <div className="flex items-center justify-between">
-                  <h3 className="text-2xl font-black max-md:font-semibold text-[#480ed8] leading-tight mb-2">
-                    {goals[mobileIndex].title}
+                <div className="flex items-center justify-between gap-3 mb-2">
+                  <h3 className="text-2xl font-black max-md:font-semibold text-[#480ed8] leading-tight">
+                    {goal.title}
                   </h3>
-                  <div className="  max-md:block hidden self-stretch max-md:my-0  max-md:p-6 max-md:rounded-br-3xl rounded-t-3xl max-md:rounded-bl-none rounded-bl-3xl rounded-br-xl bg-[#EAE4FF] flex items-center justify-center shrink-0 p-3">
+                  <div className="p-4 rounded-t-3xl rounded-bl-3xl rounded-br-3xl bg-[#EAE4FF] flex items-center justify-center shrink-0">
                     <img
-                      src={goals[mobileIndex].iconSrc}
-                      alt={goals[mobileIndex].title}
+                      src={goal.iconSrc}
+                      alt={goal.title}
                       className="w-10 h-10 object-contain"
                     />
                   </div>
-
                 </div>
-                <p className="text-xs max-md:font-semibold max-md:pt-[30px] font-bold max-md:text-[17px] text-[#FF5914] italic mb-2">
-                  {goals[mobileIndex].question}
+
+                <p className="text-xs max-md:font-semibold max-md:pt-[15px] font-bold max-md:text-[17px] text-[#FF5914] italic mb-2">
+                  {goal.question}
                 </p>
-                <p className="text-xs text-[#180336] max-md:text-[18px] font-medium leading-relaxed mb-4">
-                  {goals[mobileIndex].description}
+
+                <p className="text-xs text-[#180336] max-md:text-[18px] font-medium leading-relaxed mb-6">
+                  {goal.description}
                 </p>
               </div>
+
               <div>
                 <a
                   href="#contact"
-                  className="px-6 py-2 rounded-full text-xs font-bold text-white bg-[#FF5914] hover:bg-[#e04705] transition-all shadow-md inline-block"
+                  className="max-md:text-[18px] px-6 py-2 rounded-full text-xs font-semibold text-white bg-[#FF5914] hover:bg-[#e04705] transition-all shadow-md inline-block"
                 >
                   Choose
                 </a>
               </div>
             </div>
-
-            {/* Right Arch Icon */}
-            <div className="w-24 max-md:hidden self-stretch max-md:my-7 rounded-t-3xl rounded-bl-3xl rounded-br-xl bg-[#EAE4FF] flex items-center justify-center shrink-0 p-3">
-              <img
-                src={goals[mobileIndex].iconSrc}
-                alt={goals[mobileIndex].title}
-                className="w-10 h-10 object-contain"
-              />
-            </div>
-          </motion.div>
+          ))}
         </div>
 
         {/* Mobile Controls: Left / Right Arrows + Dots */}
@@ -224,9 +243,10 @@ export default function Services() {
             {goals.map((_, i) => (
               <button
                 key={i}
-                onClick={() => setMobileIndex(i)}
-                className={`h-2.5 rounded-full transition-all duration-300 ${i === mobileIndex ? "w-7 bg-[#FF5914]" : "w-2.5 bg-white/40"
-                  }`}
+                onClick={() => scrollToMobileIndex(i)}
+                className={`h-2.5 rounded-full transition-all duration-300 ${
+                  i === mobileIndex ? "w-7 bg-[#FF5914]" : "w-2.5 bg-white/40"
+                }`}
                 aria-label={`Go to slide ${i + 1}`}
               />
             ))}

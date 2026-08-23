@@ -89,6 +89,15 @@
   animation-play-state: paused;
 }
 
+/* Hide scrollbar utility for clean hand horizontal scrolling */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* Theme card styles */
 .brand-card {
   background: #ffffff;
