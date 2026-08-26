@@ -9,7 +9,8 @@ const clientResultsData = [
     id: "stoxbox",
     brandName: "StoxBox",
     category: "Financial Service",
-    logoSrc: "/assets/stoxbox_logo.svg",
+    logoSrc: "/logos/stox.png",
+    logoClass: "h-14 sm:h-14 w-auto max-w-[140px] object-contain",
     type: "App Installs",
     totalLeads: "3.99L Installs",
     metricLabel: "TOTAL INSTALLS",
@@ -27,7 +28,8 @@ const clientResultsData = [
     id: "classic-paramount",
     brandName: "Classic Paramount Real Estate",
     category: "Real Estate",
-    logoSrc: "/assets/paramount_logo.svg",
+    logoSrc: "/logos/cp.jpg",
+    logoClass: "h-29 sm:h-22 w-auto max-w-[190px] object-contain",
     type: "Lead Generation",
     totalLeads: "2972 Leads",
     metricLabel: "TOTAL LEADS",
@@ -45,7 +47,8 @@ const clientResultsData = [
     id: "beshak",
     brandName: "Beshak",
     category: "Insurance",
-    logoSrc: "/assets/beshak_logo.svg",
+    logoSrc: "/logos/beshak.svg",
+    logoClass: "h-5 sm:h-6 w-auto max-w-[130px] object-contain",
     type: "Lead Generation",
     totalLeads: "1476 Leads",
     metricLabel: "TOTAL LEADS",
@@ -78,14 +81,14 @@ export default function ClientResults() {
       <div className="flex-1 space-y-4 w-full flex flex-col items-center sm:items-start text-center sm:text-left">
         
         {/* Top Brand Header */}
-        <div className="flex items-center justify-center sm:justify-start gap-3 flex-wrap">
+        <div className="flex items-center justify-center sm:justify-start gap-3 flex-nowrap">
           <img
             src={card.logoSrc}
             alt={`${card.brandName} Logo`}
-            className="h-8 sm:h-9 max-w-[140px] object-contain"
+            className={`${card.logoClass || "h-8 sm:h-9 max-w-[140px] object-contain"} shrink-0`}
           />
           <div className="h-5 w-[2px] bg-[#480ed8] shrink-0" />
-          <span className="text-xs sm:text-sm font-bold text-[#480ed8] bg-purple-50/90 px-3 py-1 rounded-full border border-purple-100 uppercase tracking-wider">
+          <span className="text-xs sm:text-sm font-bold text-[#480ed8] bg-purple-50/90 px-3 py-1 rounded-full border border-purple-100 uppercase tracking-wider whitespace-nowrap shrink-0">
             {card.category}
           </span>
         </div>
