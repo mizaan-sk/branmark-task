@@ -94,7 +94,7 @@ export default function ClientResults() {
         </div>
 
         {/* Campaign Service Subheading */}
-        <h3 className="text-lg sm:text-2xl font-extrabold text-[#180336] tracking-tight">
+        <h3 className="text-[24px] sm:text-2xl font-semibold text-[#180336] tracking-tight">
           {card.type}
         </h3>
 
@@ -103,7 +103,7 @@ export default function ClientResults() {
           <div className="text-3xl sm:text-4xl md:text-5xl font-semibold text-[#480ed8] tracking-tight leading-none">
             {card.totalLeads}
           </div>
-          <div className="text-xs font-bold uppercase text-[#FF5914] mt-1.5 tracking-wider">
+          <div className="text-[14px] font-medium uppercase text-[#FF5914] mt-1.5 tracking-wider">
             {card.metricLabel}
           </div>
         </div>
