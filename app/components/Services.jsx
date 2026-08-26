@@ -93,19 +93,19 @@ export default function Services() {
     <section
       ref={targetRef}
       id="goals"
-      className="relative md:h-[250vh] py-16 md:py-0 bg-gradient-to-b from-[#480ed8] via-[#3c09b8] to-[#310599] text-white select-none"
+      className="relative md:h-[250vh] py-16 md:py-0 bg-gradient-to-b from-[#480ed8] via-[#3c09b8] to-[#310599] text-white select-none font-sans"
     >
       {/* Desktop View: Sticky Scroll-Driven Horizontal Track */}
-      <div className="hidden md:flex sticky top-0 h-screen flex-col justify-center overflow-hidden">
+      <div className="hidden md:flex sticky top-0 h-screen flex-col justify-center overflow-hidden font-sans">
 
         {/* Desktop Header */}
-        <div className="w-full max-w-7xl md:max-w-[82vw] mx-auto px-6 md:px-[2.5vw] mb-10 md:mb-[2.5vw] z-10 shrink-0">
+        <div className="w-full max-w-7xl md:max-w-[82vw] mx-auto px-6 md:px-[2.5vw] mb-10 md:mb-[2.5vw] z-10 shrink-0 font-sans">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-4xl sm:text-5xl md:text-[3.5vw] font-semibold text-white mb-3 md:mb-[0.8vw] tracking-tight"
+            className="text-4xl sm:text-5xl md:text-[3.5vw] font-semibold text-white mb-3 md:mb-[0.8vw] tracking-tight font-sans"
           >
             Choose Your Growth Goal.
           </motion.h2>
@@ -114,33 +114,33 @@ export default function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-lg sm:text-xl md:text-[1.25vw] text-white font-medium"
+            className="text-lg sm:text-xl md:text-[1.25vw] text-white font-medium font-sans"
           >
             Tell us the result you want. We’ll build the engine to get you there.
           </motion.p>
         </div>
 
         {/* Scroll-Driven Horizontal Cards Track */}
-        <div className="w-full pl-6 md:pl-[9vw] z-10 overflow-visible py-6 md:py-[1.8vw]">
-          <motion.div style={{ x }} className="flex gap-6 md:gap-[2vw] w-max pr-12 md:pr-[9vw] items-stretch">
+        <div className="w-full pl-6 md:pl-[9vw] z-10 overflow-visible py-6 md:py-[1.8vw] font-sans">
+          <motion.div style={{ x }} className="flex gap-6 md:gap-[2vw] w-max pr-12 md:pr-[9vw] items-stretch font-sans">
             {goals.map((goal) => {
               return (
                 <motion.div
                   key={goal.title}
                   whileHover={{ y: -10, scale: 1.02 }}
-                  className="w-[85vw] sm:w-[460px] md:w-[30vw] bg-white text-[#180336] rounded-[2.2rem] md:rounded-[2.4vw] p-6 sm:p-8 md:p-[3vw] shadow-2xl flex items-stretch justify-between gap-6 md:gap-[1.5vw] shrink-0 border border-white/20 cursor-pointer group"
+                  className="w-[85vw] sm:w-[460px] md:w-[30vw] bg-white text-[#180336] rounded-[2.2rem] md:rounded-[2.4vw] p-6 sm:p-8 md:p-[3vw] shadow-2xl flex items-stretch justify-between gap-6 md:gap-[1.5vw] shrink-0 border border-white/20 cursor-pointer group font-sans"
                 >
-                  <div className="flex flex-col justify-between flex-1 pr-2">
+                  <div className="flex flex-col justify-between flex-1 pr-2 font-sans">
                     <div>
-                      <h3 className="text-3xl sm:text-4xl md:text-[1.8vw] font-bold text-[#480ed8] leading-[1.05] mb-3 md:mb-[0.8vw] tracking-tight max-w-[10ch] md:max-w-[12vw]">
+                      <h3 className="text-3xl sm:text-4xl md:text-[1.8vw] font-bold text-[#480ed8] leading-[1.05] mb-3 md:mb-[0.8vw] tracking-tight max-w-[10ch] md:max-w-[12vw] font-sans">
                         {goal.title}
                       </h3>
 
-                      <p className="text-sm sm:text-base md:text-[0.95vw] font-bold text-[#FF5914] italic mb-2 md:mb-[0.4vw]">
+                      <p className="text-sm sm:text-base md:text-[0.95vw] font-bold text-[#FF5914] italic mb-2 md:mb-[0.4vw] font-sans">
                         {goal.question}
                       </p>
 
-                      <p className="text-xs sm:text-sm md:text-[0.85vw] text-[#180336] font-medium leading-snug md:leading-[1.25vw] mb-6 md:mb-[1.5vw]">
+                      <p className="text-xs sm:text-sm md:text-[0.85vw] text-[#180336] font-medium leading-snug md:leading-[1.25vw] mb-6 md:mb-[1.5vw] font-sans">
                         {goal.description}
                       </p>
                     </div>
@@ -148,7 +148,7 @@ export default function Services() {
                     <div>
                       <a
                         href="#contact"
-                        className="px-7 py-2.5 md:px-[1.8vw] md:py-[0.55vw] rounded-full text-sm md:text-[0.9vw] font-bold text-white bg-[#FF5914] hover:bg-[#e04705] transition-all shadow-md hover:shadow-orange-500/30 hover:scale-105 active:scale-95 inline-block"
+                        className="px-7 py-2.5 md:px-[1.8vw] md:py-[0.55vw] rounded-full text-sm md:text-[0.9vw] font-bold text-white bg-[#FF5914] hover:bg-[#e04705] transition-all shadow-md hover:shadow-orange-500/30 hover:scale-105 active:scale-95 inline-block font-sans"
                       >
                         Choose
                       </a>
@@ -171,13 +171,13 @@ export default function Services() {
       </div>
 
       {/* Mobile View: Hand-Scrollable Horizontal Track */}
-      <div className="block md:hidden px-4">
+      <div className="block md:hidden px-4 font-sans">
         {/* Mobile Header */}
-        <div className="text-center mb-6">
-          <h2 className="text-3xl font-bold text-white mb-2 tracking-tight">
+        <div className="text-center mb-6 font-sans">
+          <h2 className="text-3xl font-bold text-white mb-2 tracking-tight font-sans">
             Choose Your Growth Goal.
           </h2>
-          <p className="text-sm text-white/90 font-medium">
+          <p className="text-sm text-white/90 font-medium font-sans">
             Tell us the result you want. We’ll build the engine to get you there.
           </p>
         </div>
@@ -186,16 +186,16 @@ export default function Services() {
         <div
           ref={scrollRef}
           onScroll={handleMobileScroll}
-          className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar py-3 w-full touch-pan-x"
+          className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar py-3 w-full touch-pan-x font-sans"
         >
           {goals.map((goal) => (
             <div
               key={goal.title}
-              className="w-full shrink-0 snap-center bg-white text-[#180336] rounded-[40px] sm:rounded-[55px] p-6 sm:p-8 shadow-2xl flex flex-col justify-between border border-white/20"
+              className="w-full shrink-0 snap-center bg-white text-[#180336] rounded-[40px] sm:rounded-[55px] p-6 sm:p-8 shadow-2xl flex flex-col justify-between border border-white/20 font-sans"
             >
               <div>
-                <div className="flex items-center justify-between gap-3 mb-2">
-                  <h3 className="text-2xl font-black max-md:font-semibold text-[#480ed8] leading-tight">
+                <div className="flex items-center justify-between gap-3 mb-2 font-sans">
+                  <h3 className="text-2xl font-black max-md:font-semibold text-[#480ed8] leading-tight font-sans">
                     {goal.title}
                   </h3>
                   <div className="p-4 rounded-t-3xl rounded-bl-3xl rounded-br-3xl bg-[#EAE4FF] flex items-center justify-center shrink-0">
@@ -207,11 +207,11 @@ export default function Services() {
                   </div>
                 </div>
 
-                <p className="text-xs max-md:font-semibold max-md:pt-[15px] font-bold max-md:text-[17px] text-[#FF5914] italic mb-2">
+                <p className="text-xs max-md:font-semibold max-md:pt-[15px] font-bold max-md:text-[17px] text-[#FF5914] italic mb-2 font-sans">
                   {goal.question}
                 </p>
 
-                <p className="text-xs text-[#180336] max-md:text-[18px] font-medium leading-relaxed mb-6">
+                <p className="text-xs text-[#180336] max-md:text-[18px] font-medium leading-relaxed mb-6 font-sans">
                   {goal.description}
                 </p>
               </div>
@@ -219,7 +219,7 @@ export default function Services() {
               <div>
                 <a
                   href="#contact"
-                  className="max-md:text-[18px] px-6 py-2 rounded-full text-xs font-semibold text-white bg-[#FF5914] hover:bg-[#e04705] transition-all shadow-md inline-block"
+                  className="max-md:text-[18px] px-6 py-2 rounded-full text-xs font-semibold text-white bg-[#FF5914] hover:bg-[#e04705] transition-all shadow-md inline-block font-sans"
                 >
                   Choose
                 </a>
@@ -229,10 +229,10 @@ export default function Services() {
         </div>
 
         {/* Mobile Controls: Left / Right Arrows + Dots */}
-        <div className="flex items-center justify-between mt-6 px-2">
+        <div className="flex items-center justify-between mt-6 px-2 font-sans">
           <button
             onClick={prevSlide}
-            className="w-10 h-10 rounded-full bg-white/20 text-white flex items-center justify-center hover:bg-white/30 backdrop-blur-md transition-all shadow-lg active:scale-95"
+            className="w-10 h-10 rounded-full bg-white/20 text-white flex items-center justify-center hover:bg-white/30 backdrop-blur-md transition-all shadow-lg active:scale-95 font-sans"
             aria-label="Previous Goal"
           >
             <ChevronLeft className="w-5 h-5 stroke-[2.5]" />
@@ -254,7 +254,7 @@ export default function Services() {
 
           <button
             onClick={nextSlide}
-            className="w-10 h-10 rounded-full bg-white/20 text-white flex items-center justify-center hover:bg-white/30 backdrop-blur-md transition-all shadow-lg active:scale-95"
+            className="w-10 h-10 rounded-full bg-white/20 text-white flex items-center justify-center hover:bg-white/30 backdrop-blur-md transition-all shadow-lg active:scale-95 font-sans"
             aria-label="Next Goal"
           >
             <ChevronRight className="w-5 h-5 stroke-[2.5]" />
