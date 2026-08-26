@@ -18,8 +18,9 @@ const clientResultsData = [
     cpl: "3", 
     costLabel: "CPI",
     channels: [
-      { name: "Google Ads", iconSrc: "/assets/8.png" },
+           { name: "Google Ads", iconSrc: "/assets/8.png" },
       { name: "Meta Logo", iconSrc: "/assets/3.png" },
+      { name: "Microsoft Logo", iconSrc: "/assets/7.png" },
     ],
     adImageSrc: "/cs/cd3.png",
     adAlt: "StoxBox Financial Service Ad Creative",
@@ -37,8 +38,9 @@ const clientResultsData = [
     cpl: "304",
     costLabel: "CPL",
     channels: [
-      { name: "Google Ads", iconSrc: "/assets/8.png" },
+        { name: "Google Ads", iconSrc: "/assets/8.png" },
       { name: "Meta Logo", iconSrc: "/assets/3.png" },
+      { name: "Microsoft Logo", iconSrc: "/assets/7.png" },
     ],
     adImageSrc: "/cs/c5.png",
     adAlt: "Beshak Insurance Ad Creative",
@@ -56,11 +58,52 @@ const clientResultsData = [
     cpl: "60.5",
     costLabel: "CPL",
     channels: [
-      { name: "Google Ads", iconSrc: "/assets/8.png" },
+        { name: "Google Ads", iconSrc: "/assets/8.png" },
       { name: "Meta Logo", iconSrc: "/assets/3.png" },
+      { name: "Microsoft Logo", iconSrc: "/assets/7.png" },
     ],
     adImageSrc: "/cs/cd2.png",
     adAlt: "Classic Paramount Real Estate Ad Creative",
+  },
+  {
+    id: "kotak-home-loan",
+    brandName: "Kotak Home Loan",
+    category: "Home Loan",
+    logoSrc: "/logos/kotak logo.webp",
+    logoClass: "h-7 sm:h-8 w-auto max-w-[130px] object-contain",
+    type: "Lead Generation",
+    totalLeads: "4225 Leads",
+    metricLabel: "TOTAL LEADS",
+    spends: "6.9L",
+    cpl: "164",
+    costLabel: "CPL",
+    channels: [
+      { name: "Google Ads", iconSrc: "/assets/8.png" },
+      { name: "Meta Logo", iconSrc: "/assets/3.png" },
+      { name: "Microsoft Logo", iconSrc: "/assets/7.png" },
+    ],
+    adImageSrc: "/assets/2.png",
+    adAlt: "Kotak Home Loan Ad Creative",
+  },
+  {
+    id: "radcliffe-education",
+    brandName: "Radcliffe Education",
+    category: "Education",
+    logoSrc: "/logos/radcliffe logo.webp",
+    logoClass: "h-14 sm:h-12 w-auto max-w-[170px] object-contain",
+    type: "Lead Generation",
+    totalLeads: "16,172 LEADS",
+    metricLabel: "TOTAL LEADS",
+    spends: "1.50cr",
+    cpl: "925",
+    costLabel: "CPL",
+    channels: [
+      { name: "Google Ads", iconSrc: "/assets/8.png" },
+      { name: "Meta Logo", iconSrc: "/assets/3.png" },
+      { name: "Microsoft Logo", iconSrc: "/assets/7.png" },
+    ],
+    adImageSrc: "/assets/4.png",
+    adAlt: "Radcliffe Education Ad Creative",
   },
 ];
 
@@ -185,7 +228,7 @@ export default function ClientResults() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: idx * 0.15 }}
-              className={idx === 2 ? "lg:col-span-2 lg:max-w-[calc(50%-1rem)] lg:mx-auto w-full font-sans" : "w-full font-sans"}
+              className={idx === clientResultsData.length - 1 && clientResultsData.length % 2 !== 0 ? "lg:col-span-2 lg:max-w-[calc(50%-1rem)] lg:mx-auto w-full font-sans" : "w-full font-sans"}
             >
               {renderCard(card)}
             </motion.div>
