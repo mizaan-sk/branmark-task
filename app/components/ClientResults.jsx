@@ -109,14 +109,74 @@ export default function ClientResults() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const renderCard = (card) => (
-    <div className="bg-white rounded-3xl p-6 sm:p-8  border border-purple-100/90 flex flex-col justify-between transition-all duration-300 group w-full h-full min-h-[360px] relative overflow-hidden font-sans">
+    <div className="bg-white rounded-3xl p-6 md:p-8 border border-purple-100/90 flex flex-col justify-between transition-all duration-300 group w-full h-full min-h-[340px] md:min-h-[380px] relative overflow-hidden font-sans">
       {/* Subtle background decorative gradient blur */}
-      <div className="absolute top-0 right-0 w-36 h-36 bg-gradient-to-br from-purple-100/50 to-transparent rounded-bl-full pointer-events-none group-hover:scale-110 transition-transform duration-500" />
+      <div className="absolute top-0 right-0 w-36 h-36 bg-gradient-to-br from-purple-100/40 to-transparent rounded-bl-full pointer-events-none group-hover:scale-110 transition-transform duration-500" />
 
-      <div>
-        {/* Top Brand Header */}
-        <div className="flex items-center justify-between gap-3 flex-wrap mb-5">
-          <div className="flex items-center gap-3">
+      {/* MOBILE LAYOUT (< 768px) */}
+      <div className="w-full flex flex-col items-center text-center md:hidden">
+        {/* Top Brand Header: Logo | Category */}
+        <div className="flex items-center justify-center gap-3 mb-3 flex-wrap">
+          <img
+            src={card.logoSrc}
+            alt={`${card.brandName} Logo`}
+            className={card.logoClass || "h-9 w-auto max-w-[130px] object-contain shrink-0"}
+          />
+          <div className="h-6 w-[2px] bg-purple-200 shrink-0" />
+          <span className="text-base font-bold text-[#180336] font-sans">
+            {card.category}
+          </span>
+        </div>
+
+        {/* Campaign Service Subheading */}
+        <h3 className="text-[19px] font-semibold text-[#180336] tracking-tight font-sans mb-4">
+          {card.type}
+        </h3>
+
+        {/* Main Stat & Metrics Row (Side by side stat and spend pill on mobile) */}
+        <div className="flex items-center justify-center gap-4 flex-wrap w-full my-2">
+          {/* Left: Total Leads / Installs Stat */}
+          <div className="flex flex-col items-center text-center">
+            <div className="text-3xl font-extrabold text-[#480ed8] tracking-tight leading-none font-sans">
+              {card.totalLeads}
+            </div>
+            <div className="text-xs font-bold uppercase text-[#FF5914] mt-1.5 tracking-wider font-sans">
+              {card.metricLabel}
+            </div>
+          </div>
+
+          {/* Right: Spend & CPL/CPI Pill */}
+          <div className="bg-slate-50/90 border border-slate-200/80 rounded-2xl px-4 py-2.5 shadow-sm inline-flex items-center gap-4 text-center">
+            <div>
+              <div className="text-[20px] font-bold text-[#480ed8] font-sans leading-snug">{card.spends}</div>
+              <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider font-sans">SPENDS</div>
+            </div>
+            <div className="h-7 w-[1px] bg-slate-200" />
+            <div>
+              <div className="text-lg font-bold text-[#480ed8] leading-snug font-sans">{card.cpl}</div>
+              <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider font-sans">{card.costLabel}</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Channel Platform Logos Centered */}
+        <div className="flex items-center justify-center gap-3 mt-4 pt-1">
+          {card.channels.map((channel, idx) => (
+            <img
+              key={idx}
+              src={channel.iconSrc}
+              alt={channel.name}
+              className="h-5 w-auto object-contain"
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* DESKTOP LAYOUT (>= 768px) */}
+      <div className="hidden md:flex md:flex-col md:justify-between w-full h-full">
+        <div>
+          {/* Top Brand Header */}
+          <div className="flex items-center justify-start gap-3 mb-5">
             <img
               src={card.logoSrc}
               alt={`${card.brandName} Logo`}
@@ -127,49 +187,49 @@ export default function ClientResults() {
               {card.category}
             </span>
           </div>
+
+          {/* Campaign Service Subheading */}
+          <h3 className="text-2xl font-bold text-[#180336] tracking-tight font-sans mb-3 text-left">
+            {card.type}
+          </h3>
+
+          {/* Main Big Result Stat */}
+          <div className="flex flex-col items-start my-3 text-left">
+            <div className="text-4xl md:text-5xl font-extrabold text-[#480ed8] tracking-tight leading-none font-sans">
+              {card.totalLeads}
+            </div>
+            <div className="text-xs sm:text-sm font-bold uppercase text-[#FF5914] mt-2 tracking-wider font-sans">
+              {card.metricLabel}
+            </div>
+          </div>
+
+          {/* Metrics Pill (Spend & CPI/CPL) */}
+          <div className="bg-slate-50/90 border border-slate-200/80 rounded-2xl p-4 shadow-sm flex items-center justify-around text-center w-full my-4">
+            <div className="text-left">
+              <div className="text-2xl font-bold text-[#480ed8] font-sans">{card.spends}</div>
+              <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider font-sans">SPEND</div>
+            </div>
+            <div className="h-8 w-[1px] bg-slate-200" />
+            <div className="text-left">
+              <div className="text-2xl font-bold text-[#480ed8] leading-tight font-sans">{card.cpl}</div>
+              <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider font-sans">{card.costLabel}</div>
+            </div>
+          </div>
         </div>
 
-        {/* Campaign Service Subheading */}
-        <h3 className="text-xl sm:text-2xl font-bold text-[#180336] tracking-tight font-sans mb-3">
-          {card.type}
-        </h3>
-
-        {/* Main Big Result Stat */}
-        <div className="flex flex-col items-start my-3">
-          <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#480ed8] tracking-tight leading-none font-sans">
-            {card.totalLeads}
+        {/* Multi Channel Platform Logos */}
+        <div className="flex items-center justify-between pt-4 border-t border-slate-100 mt-auto w-full">
+          <span className="text-xs font-semibold text-slate-400 font-sans">Platforms:</span>
+          <div className="flex items-center gap-2.5">
+            {card.channels.map((channel, idx) => (
+              <img
+                key={idx}
+                src={channel.iconSrc}
+                alt={channel.name}
+                className="h-6 w-auto object-contain transition-transform group-hover:scale-110"
+              />
+            ))}
           </div>
-          <div className="text-xs sm:text-sm font-bold uppercase text-[#FF5914] mt-2 tracking-wider font-sans">
-            {card.metricLabel}
-          </div>
-        </div>
-
-        {/* Metrics Pill (Spend & CPI/CPL) */}
-        <div className="bg-slate-50/90 border border-slate-200/80 rounded-2xl p-3.5 sm:p-4 shadow-sm flex items-center justify-around text-center w-full my-4">
-          <div className="text-center sm:text-left">
-            <div className="text-xl sm:text-2xl font-bold text-[#480ed8] font-sans">{card.spends}</div>
-            <div className="text-[11px] sm:text-xs font-semibold text-slate-500 uppercase tracking-wider font-sans">SPEND</div>
-          </div>
-          <div className="h-8 w-[1px] bg-slate-200" />
-          <div className="text-center sm:text-left">
-            <div className="text-xl sm:text-2xl font-bold text-[#480ed8] leading-tight font-sans">{card.cpl}</div>
-            <div className="text-[11px] sm:text-xs font-semibold text-slate-500 uppercase tracking-wider font-sans">{card.costLabel}</div>
-          </div>
-        </div>
-      </div>
-
-      {/* Multi Channel Platform Logos */}
-      <div className="flex items-center justify-between pt-4 border-t border-slate-100 mt-auto">
-        <span className="text-xs font-semibold text-slate-400 font-sans">Platforms:</span>
-        <div className="flex items-center gap-2.5">
-          {card.channels.map((channel, idx) => (
-            <img
-              key={idx}
-              src={channel.iconSrc}
-              alt={channel.name}
-              className="h-5 sm:h-6 w-auto object-contain transition-transform group-hover:scale-110"
-            />
-          ))}
         </div>
       </div>
     </div>
