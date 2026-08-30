@@ -253,3 +253,17 @@ html.lenis body {
 .lenis.lenis-smooth iframe {
   pointer-events: none;
 }
+
+/* Swiper custom overrides for smooth equal-height cards */
+.swiper {
+  width: 100%;
+}
+
+.swiper-wrapper {
+  display: flex !important;
+}
+
+.swiper-slide {
+  height: auto !important;
+  display: flex !important;
+}

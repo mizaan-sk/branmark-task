@@ -1,16 +1,23 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useRef } from "react";
+import { motion } from "framer-motion";
 import { Download, ChevronLeft, ChevronRight } from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 const clientResultsData = [
   {
     id: "stoxbox",
     brandName: "StoxBox",
     category: "Financial Service",
-    logoSrc: "/logos/stox.png",
-    logoClass: "h-18 sm:h-14 w-auto max-w-[140px] object-contain",
+    logoSrc: "/assets/Clients/Web LOGOS-05.png",
+    logoClass: "h-10 sm:h-12 w-auto max-w-[140px] object-contain shrink-0",
     type: "App Installs",
     totalLeads: "3.99L Installs",
     metricLabel: "TOTAL INSTALLS",
@@ -18,19 +25,17 @@ const clientResultsData = [
     cpl: "3", 
     costLabel: "CPI",
     channels: [
-           { name: "Google Ads", iconSrc: "/assets/8.png" },
+      { name: "Google Ads", iconSrc: "/assets/8.png" },
       { name: "Meta Logo", iconSrc: "/assets/3.png" },
       { name: "Microsoft Logo", iconSrc: "/assets/7.png" },
     ],
-    adImageSrc: "/cs/cd3.png",
-    adAlt: "StoxBox Financial Service Ad Creative",
   },
   {
     id: "beshak",
     brandName: "Beshak",
     category: "Insurance",
-    logoSrc: "/logos/beshak.svg",
-    logoClass: "h-9 sm:h-6 w-auto max-w-[130px] object-contain",
+    logoSrc: "/assets/Clients/Web LOGOS-04.png",
+    logoClass: "h-10 sm:h-12 w-auto max-w-[140px] object-contain shrink-0",
     type: "Lead Generation",
     totalLeads: "1476 Leads",
     metricLabel: "TOTAL LEADS",
@@ -38,19 +43,17 @@ const clientResultsData = [
     cpl: "304",
     costLabel: "CPL",
     channels: [
-        { name: "Google Ads", iconSrc: "/assets/8.png" },
+      { name: "Google Ads", iconSrc: "/assets/8.png" },
       { name: "Meta Logo", iconSrc: "/assets/3.png" },
       { name: "Microsoft Logo", iconSrc: "/assets/7.png" },
     ],
-    adImageSrc: "/cs/c5.png",
-    adAlt: "Beshak Insurance Ad Creative",
   },
   {
     id: "classic-paramount",
     brandName: "Classic Paramount Real Estate",
     category: "Real Estate",
-    logoSrc: "/logos/cp.jpg",
-    logoClass: "h-24 sm:h-22 w-auto max-w-[190px] object-contain",
+    logoSrc: "/assets/Clients/Web LOGOS-01.png",
+    logoClass: "h-10 sm:h-12 w-auto max-w-[140px] object-contain shrink-0",
     type: "Lead Generation",
     totalLeads: "2972 Leads",
     metricLabel: "TOTAL LEADS",
@@ -58,19 +61,17 @@ const clientResultsData = [
     cpl: "60.5",
     costLabel: "CPL",
     channels: [
-        { name: "Google Ads", iconSrc: "/assets/8.png" },
+      { name: "Google Ads", iconSrc: "/assets/8.png" },
       { name: "Meta Logo", iconSrc: "/assets/3.png" },
       { name: "Microsoft Logo", iconSrc: "/assets/7.png" },
     ],
-    adImageSrc: "/cs/cd2.png",
-    adAlt: "Classic Paramount Real Estate Ad Creative",
   },
   {
     id: "kotak-home-loan",
     brandName: "Kotak Home Loan",
     category: "Home Loan",
-    logoSrc: "/logos/kotak logo.webp",
-    logoClass: "h-7 sm:h-8 w-auto max-w-[130px] object-contain",
+    logoSrc: "/assets/Clients/Web LOGOS-03.png",
+    logoClass: "h-10 sm:h-12 w-auto max-w-[140px] object-contain shrink-0",
     type: "Lead Generation",
     totalLeads: "4225 Leads",
     metricLabel: "TOTAL LEADS",
@@ -82,15 +83,13 @@ const clientResultsData = [
       { name: "Meta Logo", iconSrc: "/assets/3.png" },
       { name: "Microsoft Logo", iconSrc: "/assets/7.png" },
     ],
-    adImageSrc: "/assets/2.png",
-    adAlt: "Kotak Home Loan Ad Creative",
   },
   {
     id: "radcliffe-education",
     brandName: "Radcliffe Education",
     category: "Education",
-    logoSrc: "/logos/radcliffe logo.webp",
-    logoClass: "h-14 sm:h-12 w-auto max-w-[170px] object-contain",
+    logoSrc: "/assets/Clients/Web LOGOS-02.png",
+    logoClass: "h-10 sm:h-12 w-auto max-w-[140px] object-contain shrink-0",
     type: "Lead Generation",
     totalLeads: "16,172 LEADS",
     metricLabel: "TOTAL LEADS",
@@ -102,71 +101,67 @@ const clientResultsData = [
       { name: "Meta Logo", iconSrc: "/assets/3.png" },
       { name: "Microsoft Logo", iconSrc: "/assets/7.png" },
     ],
-    adImageSrc: "/assets/4.png",
-    adAlt: "Radcliffe Education Ad Creative",
   },
 ];
 
 export default function ClientResults() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % clientResultsData.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + clientResultsData.length) % clientResultsData.length);
-  };
+  const swiperRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const renderCard = (card) => (
-    <div className="bg-white rounded-3xl p-6 sm:p-8 md:p-8 shadow-xl hover:shadow-2xl border border-purple-100/80 flex flex-col sm:flex-row gap-6 items-center justify-between transition-all duration-300 group h-full min-h-[440px] sm:min-h-0 relative overflow-hidden font-sans">
-      {/* Left Details & Metrics */}
-      <div className="flex-1 space-y-4 w-full flex flex-col items-center sm:items-start text-center sm:text-left justify-between h-full">
-        
+    <div className="bg-white rounded-3xl p-6 sm:p-8  border border-purple-100/90 flex flex-col justify-between transition-all duration-300 group w-full h-full min-h-[360px] relative overflow-hidden font-sans">
+      {/* Subtle background decorative gradient blur */}
+      <div className="absolute top-0 right-0 w-36 h-36 bg-gradient-to-br from-purple-100/50 to-transparent rounded-bl-full pointer-events-none group-hover:scale-110 transition-transform duration-500" />
+
+      <div>
         {/* Top Brand Header */}
-        <div className="flex items-center justify-center sm:justify-start gap-3 flex-nowrap">
-          <img
-            src={card.logoSrc}
-            alt={`${card.brandName} Logo`}
-            className={`${card.logoClass || "h-8 sm:h-9 max-w-[140px] object-contain"} shrink-0`}
-          />
-          <div className="h-5 w-[2px] bg-[#480ed8] shrink-0" />
-          <span className="text-xs sm:text-sm font-bold text-[#480ed8] bg-purple-50/90 px-3 py-1 rounded-full border border-purple-100 uppercase tracking-wider whitespace-nowrap shrink-0 font-sans">
-            {card.category}
-          </span>
+        <div className="flex items-center justify-between gap-3 flex-wrap mb-5">
+          <div className="flex items-center gap-3">
+            <img
+              src={card.logoSrc}
+              alt={`${card.brandName} Logo`}
+              className={card.logoClass || "h-10 sm:h-12 w-auto max-w-[140px] object-contain shrink-0"}
+            />
+            <div className="h-5 w-[2px] bg-[#480ed8]/20 shrink-0" />
+            <span className="text-xs sm:text-sm font-bold text-[#480ed8] bg-purple-50/90 px-3 py-1 rounded-full border border-purple-100 uppercase tracking-wider whitespace-nowrap shrink-0 font-sans">
+              {card.category}
+            </span>
+          </div>
         </div>
 
         {/* Campaign Service Subheading */}
-        <h3 className="text-[24px] sm:text-2xl font-semibold text-[#180336] tracking-tight font-sans">
+        <h3 className="text-xl sm:text-2xl font-bold text-[#180336] tracking-tight font-sans mb-3">
           {card.type}
         </h3>
 
         {/* Main Big Result Stat */}
-        <div className="flex flex-col items-center sm:items-start my-1">
-          <div className="text-3xl sm:text-4xl md:text-5xl font-semibold text-[#480ed8] tracking-tight leading-none font-sans">
+        <div className="flex flex-col items-start my-3">
+          <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#480ed8] tracking-tight leading-none font-sans">
             {card.totalLeads}
           </div>
-          <div className="text-[14px] font-medium uppercase text-[#FF5914] mt-1.5 tracking-wider font-sans">
+          <div className="text-xs sm:text-sm font-bold uppercase text-[#FF5914] mt-2 tracking-wider font-sans">
             {card.metricLabel}
           </div>
         </div>
 
         {/* Metrics Pill (Spend & CPI/CPL) */}
-        <div className="bg-slate-50/90 border border-slate-200/80 rounded-2xl p-3 sm:p-4 shadow-sm inline-flex items-center justify-center gap-6 sm:gap-8 text-center w-full max-w-[280px] sm:max-w-none">
+        <div className="bg-slate-50/90 border border-slate-200/80 rounded-2xl p-3.5 sm:p-4 shadow-sm flex items-center justify-around text-center w-full my-4">
           <div className="text-center sm:text-left">
-            <div className="text-[19px] sm:text-2xl font-semibold text-[#480ed8] font-sans">{card.spends}</div>
-            <div className="text-[12px] sm:text-xs font-medium text-slate-500 uppercase tracking-wider font-sans">SPEND</div>
+            <div className="text-xl sm:text-2xl font-bold text-[#480ed8] font-sans">{card.spends}</div>
+            <div className="text-[11px] sm:text-xs font-semibold text-slate-500 uppercase tracking-wider font-sans">SPEND</div>
           </div>
-          <div className="h-7 w-[1px] bg-slate-200" />
+          <div className="h-8 w-[1px] bg-slate-200" />
           <div className="text-center sm:text-left">
-            <div className="text-[19px] sm:text-2xl font-semibold text-[#480ed8] leading-tight font-sans">{card.cpl}</div>
-            <div className="text-[12px] sm:text-xs font-medium text-slate-500 uppercase tracking-wider font-sans">{card.costLabel}</div>
+            <div className="text-xl sm:text-2xl font-bold text-[#480ed8] leading-tight font-sans">{card.cpl}</div>
+            <div className="text-[11px] sm:text-xs font-semibold text-slate-500 uppercase tracking-wider font-sans">{card.costLabel}</div>
           </div>
         </div>
+      </div>
 
-        {/* Multi Channel Platform Logos */}
-        <div className="flex items-center justify-center sm:justify-start gap-3 pt-1">
-          <span className="text-xs font-semibold text-slate-400 font-sans">Platforms:</span>
+      {/* Multi Channel Platform Logos */}
+      <div className="flex items-center justify-between pt-4 border-t border-slate-100 mt-auto">
+        <span className="text-xs font-semibold text-slate-400 font-sans">Platforms:</span>
+        <div className="flex items-center gap-2.5">
           {card.channels.map((channel, idx) => (
             <img
               key={idx}
@@ -176,16 +171,6 @@ export default function ClientResults() {
             />
           ))}
         </div>
-
-      </div>
-
-      {/* Right Side Real Ad Creative Image */}
-      <div className="max-md:hidden w-full sm:w-[180px] md:w-[200px] shrink-0 rounded-2xl overflow-hidden shadow-lg border border-purple-100 bg-slate-50 group-hover:scale-105 transition-transform duration-300 mx-auto sm:mx-0 flex items-center justify-center p-1.5">
-        <img
-          src={card.adImageSrc}
-          alt={card.adAlt}
-          className="w-full h-auto max-h-[260px] object-contain rounded-xl"
-        />
       </div>
     </div>
   );
@@ -195,7 +180,7 @@ export default function ClientResults() {
       <div className="w-full max-w-7xl md:max-w-[85vw] mx-auto px-6 md:px-[3vw] relative z-10">
 
         {/* Header */}
-        <div className="text-center mx-auto mb-8 sm:mb-16 md:mb-[4vw]">
+        <div className="text-center mx-auto mb-8 sm:mb-12 md:mb-[3vw]">
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
@@ -219,58 +204,45 @@ export default function ClientResults() {
           </div>
         </div>
 
-        {/* Desktop Grid View (2 Cards per Row) */}
-        <div className="hidden lg:grid lg:grid-cols-2 gap-8 font-sans">
-          {clientResultsData.map((card, idx) => (
-            <motion.div
-              key={card.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: idx * 0.15 }}
-              className={idx === clientResultsData.length - 1 && clientResultsData.length % 2 !== 0 ? "lg:col-span-2 lg:max-w-[calc(50%-1rem)] lg:mx-auto w-full font-sans" : "w-full font-sans"}
-            >
-              {renderCard(card)}
-            </motion.div>
-          ))}
-        </div>
+        {/* Swiper Cards Carousel */}
+        <div className="relative w-full py-2">
+          <Swiper
+            onSwiper={(swiper) => (swiperRef.current = swiper)}
+            onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+            modules={[Autoplay, Pagination, Navigation]}
+            loop={true}
+            speed={800}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+            }}
+            grabCursor={true}
+            slidesPerView={1}
+            slidesPerGroup={1}
+            spaceBetween={24}
+            breakpoints={{
+              0: { slidesPerView: 1, slidesPerGroup: 1, spaceBetween: 16 },
+              768: { slidesPerView: 2, slidesPerGroup: 1, spaceBetween: 24 },
+              1024: { slidesPerView: 2, slidesPerGroup: 1, spaceBetween: 28 },
+            }}
+            className="w-full !py-4 flex items-stretch"
+          >
+            {clientResultsData.map((card) => (
+              <SwiperSlide key={card.id} className="!h-auto flex w-full">
+                {renderCard(card)}
+              </SwiperSlide>
+            ))}
+          </Swiper>
 
-        {/* Mobile Swiper Slider View */}
-        <div className="block lg:hidden relative w-full px-2 font-sans">
-          <div className="overflow-hidden relative rounded-3xl min-h-[440px]">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentIndex}
-                initial={{ opacity: 0, x: 40 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -40 }}
-                transition={{ duration: 0.35, ease: "easeInOut" }}
-                drag="x"
-                dragConstraints={{ left: 0, right: 0 }}
-                dragElastic={0.2}
-                onDragEnd={(e, { offset }) => {
-                  const swipe = offset.x;
-                  if (swipe < -40) {
-                    nextSlide();
-                  } else if (swipe > 40) {
-                    prevSlide();
-                  }
-                }}
-                className="w-full h-full touch-pan-y"
-              >
-                {renderCard(clientResultsData[currentIndex])}
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
-          {/* Swiper Controls: Prev & Next Loop Buttons + Indicators */}
-          <div className="flex items-center justify-between mt-6 px-4">
+          {/* Controls: Prev / Next Buttons & Pagination Indicators */}
+          <div className="flex items-center justify-between mt-6 px-2 max-w-md mx-auto sm:max-w-none">
             <button
-              onClick={prevSlide}
-              aria-label="Previous Card"
-              className="p-3 rounded-full bg-white border border-purple-200 text-[#480ed8] shadow-md hover:bg-purple-50 active:scale-95 transition-all cursor-pointer font-sans"
+              onClick={() => swiperRef.current?.slidePrev()}
+              aria-label="Previous Slide"
+              className="p-3.5 rounded-full bg-white border border-purple-200 text-[#480ed8] shadow-md hover:bg-[#480ed8] hover:text-white active:scale-95 transition-all cursor-pointer font-sans group"
             >
-              <ChevronLeft className="w-5 h-5" />
+              <ChevronLeft className="w-5 h-5 transition-transform group-hover:-translate-x-0.5" />
             </button>
 
             {/* Pagination Dots */}
@@ -278,29 +250,29 @@ export default function ClientResults() {
               {clientResultsData.map((_, idx) => (
                 <button
                   key={idx}
-                  onClick={() => setCurrentIndex(idx)}
-                  className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
-                    idx === currentIndex
+                  onClick={() => swiperRef.current?.slideToLoop(idx)}
+                  className={`h-2.5 rounded-full transition-all duration-500 cursor-pointer ${
+                    idx === activeIndex
                       ? "w-8 bg-[#480ed8]"
                       : "w-2.5 bg-purple-300 hover:bg-purple-400"
                   }`}
-                  aria-label={`Go to card ${idx + 1}`}
+                  aria-label={`Go to slide ${idx + 1}`}
                 />
               ))}
             </div>
 
             <button
-              onClick={nextSlide}
-              aria-label="Next Card"
-              className="p-3 rounded-full bg-white border border-purple-200 text-[#480ed8] shadow-md hover:bg-purple-50 active:scale-95 transition-all cursor-pointer font-sans"
+              onClick={() => swiperRef.current?.slideNext()}
+              aria-label="Next Slide"
+              className="p-3.5 rounded-full bg-white border border-purple-200 text-[#480ed8] shadow-md hover:bg-[#480ed8] hover:text-white active:scale-95 transition-all cursor-pointer font-sans group"
             >
-              <ChevronRight className="w-5 h-5" />
+              <ChevronRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5" />
             </button>
           </div>
         </div>
 
         {/* Download PDF Button */}
-        <div className="flex items-center w-full md:pt-[5vw] pt-6 sm:pt-10 justify-center font-sans">
+        <div className="flex items-center w-full md:pt-[4vw] pt-8 justify-center font-sans">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -321,3 +293,4 @@ export default function ClientResults() {
     </section>
   );
 }
+
