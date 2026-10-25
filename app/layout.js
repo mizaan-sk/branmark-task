@@ -12,8 +12,23 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: "Rivreach | Data-Driven Ads & High-Converting Growth Agency",
-  description: "Data-driven ads, thumb-stopping visuals, and AI-powered strategies that turn clicks into revenue.",
+  title: "Rivreach | Performance Marketing & Digital Growth Agency",
+  description: "Rivreach helps brands grow with performance marketing, paid media, lead generation, e-commerce campaigns, SEO, and conversion-focused creative.",
+  keywords: [
+    "performance marketing agency",
+    "digital advertising agency",
+    "paid media management",
+    "Google Ads management",
+    "Meta Ads management",
+    "lead generation agency",
+    "e-commerce marketing agency",
+    "DTC growth marketing",
+    "SEO services",
+    "landing page optimization",
+    "ad creative and video production",
+    "Amazon Ads management",
+    "brand awareness campaigns",
+  ],
   icons: {
     icon: [
       { url: "/icon.svg", type: "image/svg+xml" },
