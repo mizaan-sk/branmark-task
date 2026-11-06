@@ -1,8 +1,32 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { Send, CheckCircle2, AlertCircle } from "lucide-react";
+import { Send, CheckCircle2, AlertCircle, MessageCircle } from "lucide-react";
+import { trackEvent } from "../lib/analytics";
+import { WHATSAPP_URL } from "../lib/site";
+
+const GENERIC_ERROR = "We couldn't send your details. Please try again, or message us on WhatsApp.";
+const SCRIPT_URL = process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL;
+
+// The live site is a static export, so there is no /api/contact there and the
+// browser posts straight to the Google Apps Script web app. text/plain keeps it
+// a simple CORS request. /api/contact is the fallback when a server is running.
+async function sendLead(lead) {
+  const res = await fetch(SCRIPT_URL || "/api/contact/", {
+    method: "POST",
+    headers: SCRIPT_URL
+      ? { "Content-Type": "text/plain;charset=utf-8" }
+      : { "Content-Type": "application/json" },
+    body: JSON.stringify(lead),
+  });
+  const data = await res.json();
+  const result = SCRIPT_URL ? data : data.data;
+  if (!res.ok || result?.result === "error" || (!SCRIPT_URL && !data.success)) {
+    throw new Error("Lead not accepted");
+  }
+}
 
 export default function InquiryForm() {
   const [formData, setFormData] = useState({
@@ -15,6 +39,8 @@ export default function InquiryForm() {
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  // Honeypot: hidden from people, so only bots fill it in.
+  const [website, setWebsite] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,30 +50,21 @@ export default function InquiryForm() {
       return;
     }
 
+    if (website) {
+      setSubmitted(true);
+      return;
+    }
+
     setLoading(true);
     setErrorMessage("");
 
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await res.json();
-
-      if (res.ok && data.success && data.data?.result !== "error") {
-        setSubmitted(true);
-      } else {
-        setErrorMessage(
-          data.message || (data.data && data.data.error) || "Unable to send inquiry. Please check your Google Apps Script Web App permissions."
-        );
-      }
+      await sendLead(formData);
+      trackEvent("generate_lead", { service: formData.service });
+      setSubmitted(true);
     } catch (err) {
       console.error("Submission error:", err);
-      setErrorMessage("Network error occurred. Please try submitting again.");
+      setErrorMessage(GENERIC_ERROR);
     } finally {
       setLoading(false);
     }
@@ -81,13 +98,24 @@ export default function InquiryForm() {
               Drop your details below. No pushy sales, just strategy.
             </p>
 
-            {/* Orange See Our Work Button (Matching PDF Page 8 Button) */}
-            <a
-              href="#proof"
-              className="px-8 py-3.5 md:px-[2.2vw] md:py-[1vw] rounded-full text-sm sm:text-base md:text-[1vw] font-bold text-white bg-[#FF5914] hover:bg-[#e04705] transition-all shadow-lg hover:shadow-orange-500/40 hover:scale-105 active:scale-95 cursor-pointer mb-2 lg:mb-0"
-            >
-              See Our Work
-            </a>
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 md:gap-[0.8vw] mb-2 lg:mb-0">
+              {/* Orange See Our Work Button (Matching PDF Page 8 Button) */}
+              <a
+                href="#proof"
+                className="px-8 py-3.5 md:px-[2.2vw] md:py-[1vw] rounded-full text-sm sm:text-base md:text-[1vw] font-bold text-white bg-[#FF5914] hover:bg-[#e04705] transition-all shadow-lg hover:shadow-orange-500/40 hover:scale-105 active:scale-95 cursor-pointer"
+              >
+                See Our Work
+              </a>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 md:gap-[0.5vw] px-8 py-3.5 md:px-[2.2vw] md:py-[1vw] rounded-full text-sm sm:text-base md:text-[1vw] font-bold text-white bg-white/10 hover:bg-white/20 border border-white/30 transition-all hover:scale-105 active:scale-95 cursor-pointer"
+              >
+                <MessageCircle className="w-4 h-4 md:w-[1.1vw] md:h-[1.1vw]" />
+                Chat on WhatsApp
+              </a>
+            </div>
           </motion.div>
 
           {/* Right Column Form (Matching PDF Page 8 Right Side Box) */}
@@ -104,7 +132,7 @@ export default function InquiryForm() {
               {/* White Form Card Inner Container */}
               <div className="bg-white rounded-2xl md:rounded-[1.4vw] p-6 sm:p-10 md:p-[2.2vw] text-[#180336]">
                 {submitted ? (
-                  <div className="py-12 md:py-[3vw] text-center flex flex-col items-center justify-center">
+                  <div role="status" className="py-12 md:py-[3vw] text-center flex flex-col items-center justify-center">
                     <CheckCircle2 className="w-16 h-16 md:w-[4vw] md:h-[4vw] text-[#FF5914] mb-4 md:mb-[1vw] animate-bounce" />
                     <h3 className="text-2xl md:text-[1.5vw] font-semibold text-[#180336] mb-2 md:mb-[0.5vw]">Strategy Request Received!</h3>
                     <p className="text-sm md:text-[0.9vw] text-slate-600 font-medium max-w-sm md:max-w-[24vw] mb-6 md:mb-[1.5vw]">
@@ -122,12 +150,24 @@ export default function InquiryForm() {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="flex flex-col gap-4 md:gap-[1vw]">
+                    <div className="absolute -left-[9999px]" aria-hidden="true">
+                      <label htmlFor="inquiry-website">Website</label>
+                      <input
+                        id="inquiry-website"
+                        type="text"
+                        tabIndex={-1}
+                        autoComplete="off"
+                        value={website}
+                        onChange={(e) => setWebsite(e.target.value)}
+                      />
+                    </div>
+
                     <div className="text-center mb-2 md:mb-[0.5vw]">
                       <h3 className="text-xl md:text-[1.3vw] font-bold text-[#180336]">Request Strategy Proposal</h3>
                     </div>
 
                     {errorMessage && (
-                      <div className="p-3 md:p-[0.7vw] rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs md:text-[0.8vw] flex items-center gap-2">
+                      <div role="alert" className="p-3 md:p-[0.7vw] rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs md:text-[0.8vw] flex items-center gap-2">
                         <AlertCircle className="w-4 h-4 text-red-500 shrink-0" />
                         <span>{errorMessage}</span>
                       </div>
@@ -136,10 +176,11 @@ export default function InquiryForm() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-[1vw]">
                       {/* Full Name */}
                       <div>
-                        <label className="block text-xs md:text-[0.75vw] font-bold text-slate-700 uppercase tracking-wider mb-1 md:mb-[0.3vw]">
+                        <label htmlFor="inquiry-name" className="block text-xs md:text-[0.75vw] font-bold text-slate-700 uppercase tracking-wider mb-1 md:mb-[0.3vw]">
                           Full Name *
                         </label>
                         <input
+                          id="inquiry-name"
                           type="text"
                           required
                           placeholder="Your Name"
@@ -151,10 +192,11 @@ export default function InquiryForm() {
 
                       {/* Work Email */}
                       <div>
-                        <label className="block text-xs md:text-[0.75vw] font-bold text-slate-700 uppercase tracking-wider mb-1 md:mb-[0.3vw]">
+                        <label htmlFor="inquiry-email" className="block text-xs md:text-[0.75vw] font-bold text-slate-700 uppercase tracking-wider mb-1 md:mb-[0.3vw]">
                           Work Email *
                         </label>
                         <input
+                          id="inquiry-email"
                           type="email"
                           required
                           placeholder="yourname@company.com"
@@ -168,10 +210,11 @@ export default function InquiryForm() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-[1vw]">
                       {/* Phone Number */}
                       <div>
-                        <label className="block text-xs md:text-[0.75vw] font-bold text-slate-700 uppercase tracking-wider mb-1 md:mb-[0.3vw]">
+                        <label htmlFor="inquiry-phone" className="block text-xs md:text-[0.75vw] font-bold text-slate-700 uppercase tracking-wider mb-1 md:mb-[0.3vw]">
                           Phone / WhatsApp *
                         </label>
                         <input
+                          id="inquiry-phone"
                           type="tel"
                           required
                           maxLength={10}
@@ -189,10 +232,11 @@ export default function InquiryForm() {
 
                       {/* Service Goal */}
                       <div>
-                        <label className="block text-xs md:text-[0.75vw] font-bold text-slate-700 uppercase tracking-wider mb-1 md:mb-[0.3vw]">
+                        <label htmlFor="inquiry-goal" className="block text-xs md:text-[0.75vw] font-bold text-slate-700 uppercase tracking-wider mb-1 md:mb-[0.3vw]">
                           Primary Goal *
                         </label>
                         <select
+                          id="inquiry-goal"
                           required
                           value={formData.service}
                           onChange={(e) => setFormData({ ...formData, service: e.target.value })}
@@ -210,10 +254,11 @@ export default function InquiryForm() {
 
                     {/* Message / Details */}
                     <div>
-                      <label className="block text-xs md:text-[0.75vw] font-bold text-slate-700 uppercase tracking-wider mb-1 md:mb-[0.3vw]">
+                      <label htmlFor="inquiry-message" className="block text-xs md:text-[0.75vw] font-bold text-slate-700 uppercase tracking-wider mb-1 md:mb-[0.3vw]">
                         Message / Business Details
                       </label>
                       <textarea
+                          id="inquiry-message"
                         rows={3}
                         placeholder="Tell us about your brand and growth goals..."
                         value={formData.message}
@@ -221,6 +266,11 @@ export default function InquiryForm() {
                         className="w-full px-4 py-3 md:px-[1vw] md:py-[0.7vw] rounded-xl md:rounded-[0.6vw] bg-slate-50 border border-slate-200 text-slate-900 text-sm md:text-[0.85vw] focus:outline-none focus:border-[#480ed8] focus:bg-white transition-all font-medium resize-none"
                       />
                     </div>
+
+                    <p className="text-xs md:text-[0.75vw] text-slate-600 font-medium">
+                      By submitting, you agree that we may contact you about your enquiry. See our{" "}
+                      <Link href="/privacy/" className="text-[#480ed8] underline">Privacy Policy</Link>.
+                    </p>
 
                     {/* Submit Button */}
                     <button

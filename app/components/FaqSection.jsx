@@ -1,54 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
+import { faqs } from "../data/faqs";
 
 export default function FaqSection() {
   const [openIndex, setOpenIndex] = useState(0);
-
-  const faqs = [
-    {
-      num: "1.",
-      question: "How is Rivreach different from other agencies?",
-      answer: "Most agencies are strictly media buyers or strictly creative designers. We are both. By combining high-converting video and graphics with AI-driven ad strategies, we remove the friction and get you better results, faster.",
-    },
-    {
-      num: "2.",
-      question: "How do you actually use AI in your process?",
-      answer: "We don't use AI to get lazy; we use it to get lethal. We use advanced AI tools to analyze data trends faster, split-test creatives aggressively, and optimize your ad budgets in real-time. It’s about working smarter so your money goes further.",
-    },
-    {
-      num: "3.",
-      question: "Do you work with a specific industry?",
-      answer: "We care more about the goal than the industry. Whether you are a local service business needing leads or a DTC brand needing e-commerce sales, the core principles of capturing attention and driving conversions remain the same.",
-    },
-    {
-      num: "4.",
-      question: "What platforms do you run ads on?",
-      answer: "We run campaigns wherever your customers' attention is underpriced. For most clients, this is a mix of Google, Meta, TikTok, and market-specific ad networks. We audit your audience first, then pick the channels that yield the highest ROI.",
-    },
-    {
-      num: "5.",
-      question: "How fast can I expect to see results?",
-      answer: "You’ll see traffic hitting your site within 48 hours of launch. While every brand is unique, give us 3 to 4 weeks to run creative tests, dial in your target audiences, and lock down a consistent, profitable ROI.",
-    },
-    {
-      num: "6.",
-      question: "What should my monthly ad spend budget be?",
-      answer: "We usually recommend starting at around ₹60,000/month in ad spend (which goes straight to Google or Meta, not us). That’s the sweet spot where the algorithms get enough real data to optimize quickly without wasting a single rupee of your cash.",
-    },
-    {
-      num: "7.",
-      question: "Is there a minimum contract period?",
-      answer: "We recommend at least a 3-month commitment for ads to show real, compounding results, but we'll always be upfront with you if we think something isn't working.",
-    },
-    {
-      num: "8.",
-      question: "How do I track what's working?",
-      answer: "You'll get regular performance reports and full transparency on ad spend, results, and what we're optimizing next. No black boxes.",
-    },
-  ];
 
   const toggleFaq = (idx) => {
     setOpenIndex(openIndex === idx ? null : idx);
@@ -74,7 +32,7 @@ export default function FaqSection() {
           </motion.h2>
         </div>
 
-        {/* 6 White Pill Accordion Items (Matching PDF Page 7) */}
+        {/* All answers stay in the HTML; closed ones are only collapsed visually */}
         <div className="flex flex-col gap-4 md:gap-[1.2vw]">
           {faqs.map((faq, idx) => {
             const isOpen = openIndex === idx;
@@ -89,11 +47,14 @@ export default function FaqSection() {
                 className="bg-white text-[#180336] rounded-2xl sm:rounded-3xl md:rounded-[1.5vw] shadow-lg border border-purple-100 overflow-hidden transition-all duration-300"
               >
                 <button
+                  type="button"
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-answer-${idx}`}
                   onClick={() => toggleFaq(idx)}
                   className="w-full px-6 py-4 sm:px-8 sm:py-5 md:px-[2vw] md:py-[1.2vw] flex items-center justify-between gap-4 md:gap-[1vw] text-left font-bold text-base sm:text-xl md:text-[1.15vw] text-[#480ed8] hover:text-[#FF5914] transition-colors"
                 >
                   <div className="flex items-center gap-3 sm:gap-4 md:gap-[1vw]">
-                    <span className="text-base sm:text-xl md:text-[1.25vw] font-semibold text-[#480ed8]">{faq.num}</span>
+                    <span className="text-base sm:text-xl md:text-[1.25vw] font-semibold text-[#480ed8]">{idx + 1}.</span>
                     <span className="font-medium md:text-[1.5vw] text-[#480ed8]">{faq.question}</span>
                   </div>
 
@@ -107,21 +68,17 @@ export default function FaqSection() {
                   </div>
                 </button>
 
-                {/* Expanded Answer Content */}
-                <AnimatePresence>
-                  {isOpen && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.3 }}
-                    >
-                      <div className="px-8 pb-6 text-sm sm:text-base md:pt-[1vw] pt-2  md:text-[0.95vw] text-black font-medium leading-relaxed md:leading-[1.4vw] border-t border-slate-100 pt-4 md:px-[2vw] md:pb-[1.5vw] md:pt-[0vw]">
-                        {faq.answer}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                {/* Answer */}
+                <div
+                  id={`faq-answer-${idx}`}
+                  className={`grid transition-all duration-300 ${isOpen ? "grid-rows-[1fr] opacity-100 visible" : "grid-rows-[0fr] opacity-0 invisible"}`}
+                >
+                  <div className="overflow-hidden">
+                    <div className="px-8 pb-6 pt-4 text-sm sm:text-base md:text-[0.95vw] text-black font-medium leading-relaxed md:leading-[1.4vw] border-t border-slate-100 md:px-[2vw] md:pb-[1.5vw] md:pt-[1vw]">
+                      {faq.answer}
+                    </div>
+                  </div>
+                </div>
               </motion.div>
             );
           })}

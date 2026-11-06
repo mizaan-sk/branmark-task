@@ -17,11 +17,12 @@ import {
   ArrowRight,
 } from "lucide-react";
 
-// Full catalog of 17 videos from /public/videos
+// Full-quality files play in the fullscreen modal; the grid uses the small
+// previews and posters generated from them in /videos/previews and /videos/posters.
 const REEL_VIDEOS = [
    {
     id: "v1-showcase",
-    videoSrc: "/videos/V1.mp4",
+    videoSrc: "/videos/dynamic-product-showcase.mp4",
     title: "Dynamic Product Showcase",
     handle: "@VelocityBrands",
     category: "E-Commerce & Brands",
@@ -32,7 +33,7 @@ const REEL_VIDEOS = [
   },
     {
     id: "video-2026-08-11-a",
-    videoSrc: "/videos/Video%202026-08-11%20A.mp4",
+    videoSrc: "/videos/urban-motion-cinematic.mp4",
     title: "Urban Motion Cinematic",
     handle: "@AeroDynamic",
     category: "Cinematic & Ads",
@@ -42,19 +43,8 @@ const REEL_VIDEOS = [
     accentColor: "#480ED8",
   },
    {
-    id: "jal",
-    videoSrc: "/videos/Jal.mp4",
-    title: "Purity In Every Drop",
-    handle: "@JalHydration",
-    category: "Food & Dining",
-    tag: "Commercial",
-    avatarLetter: "J",
-    bg: "bg-[#480ED8]",
-    accentColor: "#480ED8",
-  },
-  {
     id: "chicken-loaded-fries",
-    videoSrc: "/videos/Chicken%20Loaded%20Fries.mp4",
+    videoSrc: "/videos/chicken-loaded-fries.mp4",
     title: "Chicken Loaded Fries Promo",
     handle: "@LoadedBites",
     category: "Food & Dining",
@@ -65,7 +55,7 @@ const REEL_VIDEOS = [
   },
   {
     id: "doriana-reel",
-    videoSrc: "/videos/Doriana%20Reel.mp4",
+    videoSrc: "/videos/doriaana-fashion-reel.mp4",
     title: "Doriana Fashion Spotlight",
     handle: "@DorianaOfficial",
     category: "Fashion & Apparel",
@@ -76,7 +66,7 @@ const REEL_VIDEOS = [
   },
   {
     id: "red-thai-curry",
-    videoSrc: "/videos/Red%20Thai%20Curry.mp4",
+    videoSrc: "/videos/red-thai-curry.mp4",
     title: "Authentic Red Thai Curry",
     handle: "@CurryCraze",
     category: "Food & Dining",
@@ -87,7 +77,7 @@ const REEL_VIDEOS = [
   },
   {
     id: "esah-rakhi-cinematic",
-    videoSrc: "/videos/Esah%20Rakhi%20Cinematic%20Reel%2025_.mp4",
+    videoSrc: "/videos/esah-rakhi-cinematic-reel.mp4",
     title: "Cinematic Festive Collection",
     handle: "@EsahCouture",
     category: "Fashion & Apparel",
@@ -98,7 +88,7 @@ const REEL_VIDEOS = [
   },
   {
     id: "esah-rakhi-reel",
-    videoSrc: "/videos/Esah%20Rakhi%20Reel%2025_.mp4",
+    videoSrc: "/videos/esah-rakhi-lookbook-reel.mp4",
     title: "Rakhi Heritage Lookbook",
     handle: "@EsahEthnic",
     category: "Fashion & Apparel",
@@ -109,7 +99,7 @@ const REEL_VIDEOS = [
   },
   {
     id: "forever-chasing-light",
-    videoSrc: "/videos/Forever%20chasing%20light.mp4",
+    videoSrc: "/videos/forever-chasing-light.mp4",
     title: "Forever Chasing Light",
     handle: "@ChasingLightStudio",
     category: "Cinematic & Ads",
@@ -120,7 +110,7 @@ const REEL_VIDEOS = [
   },
   {
     id: "goggle",
-    videoSrc: "/videos/Goggle.mp4",
+    videoSrc: "/videos/urban-eyewear-launch.mp4",
     title: "Urban Eyewear Launch",
     handle: "@SpectraEyewear",
     category: "E-Commerce & Brands",
@@ -131,7 +121,7 @@ const REEL_VIDEOS = [
   },
   {
     id: "jal",
-    videoSrc: "/videos/Jal.mp4",
+    videoSrc: "/videos/jal-purity-in-every-drop.mp4",
     title: "Purity In Every Drop",
     handle: "@JalHydration",
     category: "Food & Dining",
@@ -142,7 +132,7 @@ const REEL_VIDEOS = [
   },
   {
     id: "script-6",
-    videoSrc: "/videos/Script%206.mp4",
+    videoSrc: "/videos/high-converting-ad-hook.mp4",
     title: "High-Converting Ad Hook",
     handle: "@RivreachCreatives",
     category: "E-Commerce & Brands",
@@ -154,7 +144,7 @@ const REEL_VIDEOS = [
  
   {
     id: "v6-edit",
-    videoSrc: "/videos/V6.mp4",
+    videoSrc: "/videos/trendsetter-beat-edit.mp4",
     title: "Trendsetter Beat Edit",
     handle: "@PulseMedia",
     category: "Cinematic & Ads",
@@ -165,7 +155,7 @@ const REEL_VIDEOS = [
   },
   {
     id: "video-2026-cut",
-    videoSrc: "/videos/Video%202026-.mp4",
+    videoSrc: "/videos/visual-brand-identity.mp4",
     title: "Visual Brand Identity",
     handle: "@VisionaryLab",
     category: "Cinematic & Ads",
@@ -176,7 +166,7 @@ const REEL_VIDEOS = [
   },
   {
     id: "video-2026-07-27",
-    videoSrc: "/videos/Video%202026-07-27.mp4",
+    videoSrc: "/videos/summer-collection-drop.mp4",
     title: "Summer Collection Drop",
     handle: "@LuxeAesthetic",
     category: "Fashion & Apparel",
@@ -188,7 +178,7 @@ const REEL_VIDEOS = [
 
   {
     id: "video-2026-08-11",
-    videoSrc: "/videos/Video%202026-08-11.mp4",
+    videoSrc: "/videos/engagement-powerhouse.mp4",
     title: "Engagement Powerhouse",
     handle: "@PrimeReels",
     category: "E-Commerce & Brands",
@@ -199,7 +189,7 @@ const REEL_VIDEOS = [
   },
   {
     id: "video-retail-rush",
-    videoSrc: "/videos/2026-07-27.mp4",
+    videoSrc: "/videos/retail-rush-flash-feature.mp4",
     title: "Retail Rush Flash Feature",
     handle: "@NovaDrop",
     category: "E-Commerce & Brands",
@@ -210,7 +200,7 @@ const REEL_VIDEOS = [
   },
   {
     id: "video-apex-visuals",
-    videoSrc: "/videos/2026-08-111.24.52%20Pm.mp4",
+    videoSrc: "/videos/next-gen-commercial-cut.mp4",
     title: "Next-Gen Commercial Cut",
     handle: "@ApexVisuals",
     category: "Cinematic & Ads",
@@ -231,7 +221,7 @@ function ReelCard({
 }) {
   const videoRef = useRef(null);
   const cardRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const isMuted = activeAudioId !== reel.id;
@@ -313,12 +303,13 @@ function ReelCard({
       {/* Background Video */}
       <video
         ref={videoRef}
-        src={reel.videoSrc}
+        src={reel.videoSrc.replace("/videos/", "/videos/previews/")}
+        poster={reel.videoSrc.replace("/videos/", "/videos/posters/").replace(".mp4", ".webp")}
+        aria-label={reel.title}
         loop
         playsInline
-        autoPlay
         muted
-        preload="metadata"
+        preload="none"
         onTimeUpdate={handleTimeUpdate}
         className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
       />
@@ -428,6 +419,17 @@ export default function ReelShowcase() {
     setModalReel(null);
   };
 
+  const navigateModal = (direction) => {
+    if (!modalReel) return;
+    const currentIndex = filteredReels.findIndex((r) => r.id === modalReel.id);
+    if (currentIndex === -1) return;
+    const nextIndex =
+      (currentIndex + direction + filteredReels.length) % filteredReels.length;
+    setModalReel(filteredReels[nextIndex]);
+    setModalIsPlaying(true);
+    setModalProgress(0);
+  };
+
   // Keyboard navigation for modal
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -443,17 +445,6 @@ export default function ReelShowcase() {
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [modalReel, filteredReels]);
-
-  const navigateModal = (direction) => {
-    if (!modalReel) return;
-    const currentIndex = filteredReels.findIndex((r) => r.id === modalReel.id);
-    if (currentIndex === -1) return;
-    const nextIndex =
-      (currentIndex + direction + filteredReels.length) % filteredReels.length;
-    setModalReel(filteredReels[nextIndex]);
-    setModalIsPlaying(true);
-    setModalProgress(0);
-  };
 
   const handleModalTimeUpdate = () => {
     if (modalVideoRef.current && modalVideoRef.current.duration) {
@@ -511,9 +502,9 @@ export default function ReelShowcase() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-3xl sm:text-5xl md:text-[3.5vw] font-bold text-[#180336] mb-3 sm:mb-4 md:mb-[1vw] tracking-tight leading-tight"
+            className="text-3xl sm:text-4xl md:text-[2.8vw] font-bold text-[#180336] mb-3 sm:mb-4 md:mb-[1vw] tracking-tight leading-tight"
           >
-            Scroll-Stopping Creative.
+            Video Ad and Reel Production for Performance Campaigns
           </motion.h2>
 
           <motion.p
@@ -523,7 +514,7 @@ export default function ReelShowcase() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-base sm:text-xl md:text-[1.25vw] text-[#370aa9] font-medium max-w-3xl md:max-w-[50vw] leading-relaxed"
           >
-            We produce high-impact vertical reels and performance video ads that capture attention in the first 3 seconds and drive real conversions.
+            Scroll-stopping creative. We produce high-impact vertical reels and performance video ads that capture attention in the first 3 seconds and drive real conversions.
           </motion.p>
         </div>
 

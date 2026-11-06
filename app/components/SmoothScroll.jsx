@@ -20,19 +20,23 @@ export default function SmoothScroll({ children }) {
 
       requestAnimationFrame(raf);
 
-      // Connect Lenis to internal anchor links (#reels, #expertise, etc.)
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          const href = this.getAttribute("href");
-          if (href && href !== "#") {
-            const target = document.querySelector(href);
-            if (target) {
-              e.preventDefault();
-              lenis.scrollTo(target, { offset: -60 });
-            }
+      // Smooth-scroll in-page links (#x, or /#x from the shared navbar and footer).
+      // Capture phase, so next/link sees preventDefault and doesn't navigate too.
+      document.addEventListener(
+        "click",
+        (e) => {
+          const href = e.target
+            .closest?.('a[href^="#"], a[href^="/#"]')
+            ?.getAttribute("href")
+            ?.replace(/^\//, "");
+          const target = href && href !== "#" && document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            lenis.scrollTo(target, { offset: -60 });
           }
-        });
-      });
+        },
+        true
+      );
     }
   };
 

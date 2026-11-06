@@ -11,8 +11,13 @@ export default function Hero() {
       {/* Background Banner Image */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
         <img
-          src="/assets/Rivreach - Hero Banner-01.png"
-          alt="Hero Background Banner"
+          src="/assets/rivreach-hero-banner-1920.webp"
+          srcSet="/assets/rivreach-hero-banner-1080.webp 1080w, /assets/rivreach-hero-banner-1920.webp 1920w"
+          sizes="100vw"
+          width={1920}
+          height={1080}
+          fetchPriority="high"
+          alt=""
           className="w-full h-full object-cover"
         />
       </div>
@@ -20,16 +25,23 @@ export default function Hero() {
       <div className="w-full max-w-7xl md:max-w-[78vw] mx-auto px-6 md:px-[3vw] relative z-10">
         <div className="max-w-3xl md:max-w-[50vw]">
           
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-lg sm:text-xl md:text-[1.35vw] font-semibold text-[#FF5914] mb-3 md:mb-[0.8vw]"
+          >
+            Stop Blending In. Start Breaking Through.
+          </motion.p>
+
           {/* Main Headline (Matching PDF Page 1 Typography) */}
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-6xl md:text-[4.2vw] font-semibold text-white tracking-tight leading-[1.08] md:leading-[4.6vw] mb-6 md:mb-[1.8vw]"
+            className="text-4xl sm:text-5xl md:text-[3.6vw] font-semibold text-white tracking-tight leading-[1.1] md:leading-[4.1vw] mb-6 md:mb-[1.8vw]"
           >
-            Stop Blending In.<br />
-            Start Breaking<br />
-            Through.
+            Ads, Video and AI Search Visibility that Turn Attention into Revenue
           </motion.h1>
 
           {/* Subtitle Text */}
@@ -62,7 +74,7 @@ export default function Hero() {
               href="#contact"
               className="px-8 py-4 md:px-[2.2vw] md:py-[1vw] rounded-full text-base md:text-[1vw] font-bold text-white bg-white/10 hover:bg-white/20 border border-white/30 backdrop-blur-md transition-all shadow-md hover:scale-105 active:scale-95 cursor-pointer flex items-center justify-center"
             >
-              Let’s Talk Growth
+              Get a Proposal
             </a>
           </motion.div>
 

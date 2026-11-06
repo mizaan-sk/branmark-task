@@ -17,7 +17,7 @@ export default function DrivingImpact() {
       title: "Third Wave Coffee",
       subtitle: "Website development and SEO",
       bgColor: "#f4f3f0",
-      imageSrc: "/card/im (1).png",
+      imageSrc: "/card/impact-1.png",
       metrics: [
         { bold: "4514% increase", text: " in clicks on Google" },
         { bold: "1736% growth", text: " in keywords ranking in SERP" },
@@ -29,7 +29,7 @@ export default function DrivingImpact() {
       title: "Kosala silk sarees",
       subtitle: "Social media and performance marketing",
       bgColor: "#e7e4d8",
-      imageSrc: "/card/im (3).webp",
+      imageSrc: "/card/impact-2.webp",
       metrics: [
         { bold: "7.5 ROAS", text: " on Meta ads" },
         { bold: "50% increase", text: " in engagement rate on Instagram" },
@@ -41,7 +41,7 @@ export default function DrivingImpact() {
       title: "MyMuse",
       subtitle: "Website development and SEO",
       bgColor: "#ea580c",
-      imageSrc: "/card/im (1).jpg",
+      imageSrc: "/card/impact-3.jpg",
       metrics: [
         { bold: "567% increase", text: " clicks on Google search" },
         { bold: "1st page ranking", text: " for s*x toys in India" },
@@ -53,7 +53,7 @@ export default function DrivingImpact() {
       title: "Krispy Kreme",
       subtitle: "Digital video commercials",
       bgColor: "#e2d5f8",
-      imageSrc: "/card/im (4).webp",
+      imageSrc: "/card/impact-4.webp",
       metrics: [
         { bold: "23M+ impressions", text: " on Diwali campaign" },
         { bold: "1.2M+ impressions", text: " across: Raksha Bandhan & DC donughts campaigns" },
@@ -65,7 +65,7 @@ export default function DrivingImpact() {
       title: "Damro",
       subtitle: "Social media, SEO, Performance",
       bgColor: "#e4e2dc",
-      imageSrc: "/card/im (2).webp",
+      imageSrc: "/card/impact-5.webp",
       metrics: [
         { bold: "Top 3 SERP ranking", text: " for keywords with SV>2,50,000" },
         { bold: "340 INR CPL", text: " with 15% conversion rate" },
@@ -77,7 +77,7 @@ export default function DrivingImpact() {
       title: "Eat Fit",
       subtitle: "Celebrity-Led Launch & Multi-Vertical Influencer Amplification",
       bgColor: "#dad4a5",
-      imageSrc: "/card/im (1).webp",
+      imageSrc: "/card/impact-6.webp",
       metrics: [
         { bold: "5 ad films films", text: " with 5 Macro Creators" },
         { bold: "12M+ impressions", text: " in 7 days" },

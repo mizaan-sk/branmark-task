@@ -1,0 +1,7 @@
+ErrorDocument 404 /404.html
+
+RewriteEngine On
+
+# One host only: send www to the non-www site. (Hostinger already redirects http to https.)
+RewriteCond %{HTTP_HOST} ^www\.rivreach\.com$ [NC]
+RewriteRule ^(.*)$ https://rivreach.com/$1 [R=301,L]

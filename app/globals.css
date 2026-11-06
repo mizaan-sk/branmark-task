@@ -89,6 +89,19 @@
   animation-play-state: paused;
 }
 
+/* Visible keyboard focus everywhere */
+:focus-visible {
+  outline: 3px solid #ff5914;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-infinite-scroll,
+  .animate-fast-scroll {
+    animation: none;
+  }
+}
+
 /* Hide scrollbar utility for clean hand horizontal scrolling */
 .no-scrollbar::-webkit-scrollbar {
   display: none;

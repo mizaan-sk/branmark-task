@@ -16,7 +16,7 @@ const clientResultsData = [
     id: "stoxbox",
     brandName: "StoxBox",
     category: "Financial Service",
-    logoSrc: "/assets/Clients/Web LOGOS-05.png",
+    logoSrc: "/assets/clients/stoxbox-logo.webp",
     logoClass: "h-10 sm:h-12 w-auto max-w-[140px] object-contain shrink-0",
     type: "App Installs",
     totalLeads: "3.99L Installs",
@@ -25,16 +25,16 @@ const clientResultsData = [
     cpl: "3", 
     costLabel: "CPI",
     channels: [
-      { name: "Google Ads", iconSrc: "/assets/8.png" },
-      { name: "Meta Logo", iconSrc: "/assets/3.png" },
-      { name: "Microsoft Logo", iconSrc: "/assets/7.png" },
+      { name: "Google Ads", iconSrc: "/assets/platforms/google-ads-icon.webp" },
+      { name: "Meta Logo", iconSrc: "/assets/platforms/meta-icon.webp" },
+      { name: "Microsoft Logo", iconSrc: "/assets/platforms/microsoft-icon.webp" },
     ],
   },
   {
     id: "beshak",
     brandName: "Beshak",
     category: "Insurance",
-    logoSrc: "/assets/Clients/Web LOGOS-04.png",
+    logoSrc: "/assets/clients/beshak-logo.webp",
     logoClass: "h-10 sm:h-12 w-auto max-w-[140px] object-contain shrink-0",
     type: "Lead Generation",
     totalLeads: "1476 Leads",
@@ -43,16 +43,16 @@ const clientResultsData = [
     cpl: "304",
     costLabel: "CPL",
     channels: [
-      { name: "Google Ads", iconSrc: "/assets/8.png" },
-      { name: "Meta Logo", iconSrc: "/assets/3.png" },
-      { name: "Microsoft Logo", iconSrc: "/assets/7.png" },
+      { name: "Google Ads", iconSrc: "/assets/platforms/google-ads-icon.webp" },
+      { name: "Meta Logo", iconSrc: "/assets/platforms/meta-icon.webp" },
+      { name: "Microsoft Logo", iconSrc: "/assets/platforms/microsoft-icon.webp" },
     ],
   },
   {
     id: "classic-paramount",
     brandName: "Classic Paramount Real Estate",
     category: "Real Estate",
-    logoSrc: "/assets/Clients/Web LOGOS-01.png",
+    logoSrc: "/assets/clients/classic-paramount-logo.webp",
     logoClass: "h-10 sm:h-12 w-auto max-w-[140px] object-contain shrink-0",
     type: "Lead Generation",
     totalLeads: "2972 Leads",
@@ -61,16 +61,16 @@ const clientResultsData = [
     cpl: "60.5",
     costLabel: "CPL",
     channels: [
-      { name: "Google Ads", iconSrc: "/assets/8.png" },
-      { name: "Meta Logo", iconSrc: "/assets/3.png" },
-      { name: "Microsoft Logo", iconSrc: "/assets/7.png" },
+      { name: "Google Ads", iconSrc: "/assets/platforms/google-ads-icon.webp" },
+      { name: "Meta Logo", iconSrc: "/assets/platforms/meta-icon.webp" },
+      { name: "Microsoft Logo", iconSrc: "/assets/platforms/microsoft-icon.webp" },
     ],
   },
   {
     id: "kotak-home-loan",
     brandName: "Kotak Home Loan",
     category: "Home Loan",
-    logoSrc: "/assets/Clients/Web LOGOS-03.png",
+    logoSrc: "/assets/clients/kotak-home-loan-logo.webp",
     logoClass: "h-10 sm:h-12 w-auto max-w-[140px] object-contain shrink-0",
     type: "Lead Generation",
     totalLeads: "4225 Leads",
@@ -79,16 +79,16 @@ const clientResultsData = [
     cpl: "164",
     costLabel: "CPL",
     channels: [
-      { name: "Google Ads", iconSrc: "/assets/8.png" },
-      { name: "Meta Logo", iconSrc: "/assets/3.png" },
-      { name: "Microsoft Logo", iconSrc: "/assets/7.png" },
+      { name: "Google Ads", iconSrc: "/assets/platforms/google-ads-icon.webp" },
+      { name: "Meta Logo", iconSrc: "/assets/platforms/meta-icon.webp" },
+      { name: "Microsoft Logo", iconSrc: "/assets/platforms/microsoft-icon.webp" },
     ],
   },
   {
     id: "radcliffe-education",
     brandName: "Radcliffe Education",
     category: "Education",
-    logoSrc: "/assets/Clients/Web LOGOS-02.png",
+    logoSrc: "/assets/clients/radcliffe-education-logo.webp",
     logoClass: "h-10 sm:h-12 w-auto max-w-[140px] object-contain shrink-0",
     type: "Lead Generation",
     totalLeads: "16,172 LEADS",
@@ -97,9 +97,9 @@ const clientResultsData = [
     cpl: "925",
     costLabel: "CPL",
     channels: [
-      { name: "Google Ads", iconSrc: "/assets/8.png" },
-      { name: "Meta Logo", iconSrc: "/assets/3.png" },
-      { name: "Microsoft Logo", iconSrc: "/assets/7.png" },
+      { name: "Google Ads", iconSrc: "/assets/platforms/google-ads-icon.webp" },
+      { name: "Meta Logo", iconSrc: "/assets/platforms/meta-icon.webp" },
+      { name: "Microsoft Logo", iconSrc: "/assets/platforms/microsoft-icon.webp" },
     ],
   },
 ];
@@ -113,120 +113,67 @@ export default function ClientResults() {
       {/* Subtle background decorative gradient blur */}
       <div className="absolute top-0 right-0 w-36 h-36 bg-gradient-to-br from-purple-100/40 to-transparent rounded-bl-full pointer-events-none group-hover:scale-110 transition-transform duration-500" />
 
-      {/* MOBILE LAYOUT (< 768px) */}
-      <div className="w-full flex flex-col items-center text-center md:hidden">
-        {/* Top Brand Header: Logo | Category */}
-        <div className="flex items-center justify-center gap-3 mb-3 flex-wrap">
+      <div className="w-full h-full flex flex-col items-center text-center md:items-start md:text-left">
+        {/* Brand Header: Logo | Category */}
+        <div className="flex items-center justify-center md:justify-start gap-3 mb-3 md:mb-5 flex-wrap md:flex-nowrap">
           <img
             src={card.logoSrc}
             alt={`${card.brandName} Logo`}
-            className={card.logoClass || "h-9 w-auto max-w-[130px] object-contain shrink-0"}
+            width={480}
+            height={113}
+            loading="lazy"
+            decoding="async"
+            className={card.logoClass}
           />
-          <div className="h-6 w-[2px] bg-purple-200 shrink-0" />
-          <span className="text-base font-bold text-[#180336] font-sans">
+          <div className="h-6 md:h-5 w-[2px] bg-purple-200 md:bg-[#480ed8]/20 shrink-0" />
+          <span className="text-base font-bold text-[#180336] md:text-sm md:text-[#480ed8] md:bg-purple-50/90 md:px-3 md:py-1 md:rounded-full md:border md:border-purple-100 md:uppercase md:tracking-wider md:whitespace-nowrap md:shrink-0 font-sans">
             {card.category}
           </span>
         </div>
 
-        {/* Campaign Service Subheading */}
-        <h3 className="text-[19px] font-semibold text-[#180336] tracking-tight font-sans mb-4">
+        {/* Campaign Type */}
+        <h3 className="text-[19px] md:text-2xl font-semibold md:font-bold text-[#180336] tracking-tight font-sans mb-4 md:mb-3">
           {card.type}
         </h3>
 
-        {/* Main Stat & Metrics Row (Side by side stat and spend pill on mobile) */}
-        <div className="flex items-center justify-center gap-4 flex-wrap w-full my-2">
-          {/* Left: Total Leads / Installs Stat */}
-          <div className="flex flex-col items-center text-center">
-            <div className="text-3xl font-extrabold text-[#480ed8] tracking-tight leading-none font-sans">
+        {/* Result, Spend and Cost: side by side on mobile, stacked on desktop */}
+        <div className="flex items-center justify-center gap-4 flex-wrap w-full my-2 md:block md:my-0">
+          <div className="flex flex-col items-center md:items-start md:my-3">
+            <div className="text-3xl md:text-5xl font-extrabold text-[#480ed8] tracking-tight leading-none font-sans">
               {card.totalLeads}
             </div>
-            <div className="text-xs font-bold uppercase text-[#FF5914] mt-1.5 tracking-wider font-sans">
+            <div className="text-xs md:text-sm font-bold uppercase text-[#FF5914] mt-1.5 md:mt-2 tracking-wider font-sans">
               {card.metricLabel}
             </div>
           </div>
 
-          {/* Right: Spend & CPL/CPI Pill */}
-          <div className="bg-slate-50/90 border border-slate-200/80 rounded-2xl px-4 py-2.5 shadow-sm inline-flex items-center gap-4 text-center">
-            <div>
-              <div className="text-[20px] font-bold text-[#480ed8] font-sans leading-snug">{card.spends}</div>
-              <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider font-sans">SPENDS</div>
+          <div className="bg-slate-50/90 border border-slate-200/80 rounded-2xl px-4 py-2.5 md:p-4 shadow-sm inline-flex md:flex items-center gap-4 md:justify-around text-center md:w-full md:my-4">
+            <div className="md:text-left">
+              <div className="text-[20px] md:text-2xl font-bold text-[#480ed8] font-sans leading-snug">{card.spends}</div>
+              <div className="text-[10px] md:text-xs font-bold md:font-semibold text-slate-500 uppercase tracking-wider font-sans">SPEND</div>
             </div>
-            <div className="h-7 w-[1px] bg-slate-200" />
-            <div>
-              <div className="text-lg font-bold text-[#480ed8] leading-snug font-sans">{card.cpl}</div>
-              <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider font-sans">{card.costLabel}</div>
-            </div>
-          </div>
-        </div>
-
-        {/* Channel Platform Logos Centered */}
-        <div className="flex items-center justify-center gap-3 mt-4 pt-1">
-          {card.channels.map((channel, idx) => (
-            <img
-              key={idx}
-              src={channel.iconSrc}
-              alt={channel.name}
-              className="h-5 w-auto object-contain"
-            />
-          ))}
-        </div>
-      </div>
-
-      {/* DESKTOP LAYOUT (>= 768px) */}
-      <div className="hidden md:flex md:flex-col md:justify-between w-full h-full">
-        <div>
-          {/* Top Brand Header */}
-          <div className="flex items-center justify-start gap-3 mb-5">
-            <img
-              src={card.logoSrc}
-              alt={`${card.brandName} Logo`}
-              className={card.logoClass || "h-10 sm:h-12 w-auto max-w-[140px] object-contain shrink-0"}
-            />
-            <div className="h-5 w-[2px] bg-[#480ed8]/20 shrink-0" />
-            <span className="text-xs sm:text-sm font-bold text-[#480ed8] bg-purple-50/90 px-3 py-1 rounded-full border border-purple-100 uppercase tracking-wider whitespace-nowrap shrink-0 font-sans">
-              {card.category}
-            </span>
-          </div>
-
-          {/* Campaign Service Subheading */}
-          <h3 className="text-2xl font-bold text-[#180336] tracking-tight font-sans mb-3 text-left">
-            {card.type}
-          </h3>
-
-          {/* Main Big Result Stat */}
-          <div className="flex flex-col items-start my-3 text-left">
-            <div className="text-4xl md:text-5xl font-extrabold text-[#480ed8] tracking-tight leading-none font-sans">
-              {card.totalLeads}
-            </div>
-            <div className="text-xs sm:text-sm font-bold uppercase text-[#FF5914] mt-2 tracking-wider font-sans">
-              {card.metricLabel}
-            </div>
-          </div>
-
-          {/* Metrics Pill (Spend & CPI/CPL) */}
-          <div className="bg-slate-50/90 border border-slate-200/80 rounded-2xl p-4 shadow-sm flex items-center justify-around text-center w-full my-4">
-            <div className="text-left">
-              <div className="text-2xl font-bold text-[#480ed8] font-sans">{card.spends}</div>
-              <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider font-sans">SPEND</div>
-            </div>
-            <div className="h-8 w-[1px] bg-slate-200" />
-            <div className="text-left">
-              <div className="text-2xl font-bold text-[#480ed8] leading-tight font-sans">{card.cpl}</div>
-              <div className="text-xs font-semibold text-slate-500 uppercase tracking-wider font-sans">{card.costLabel}</div>
+            <div className="h-7 md:h-8 w-[1px] bg-slate-200" />
+            <div className="md:text-left">
+              <div className="text-lg md:text-2xl font-bold text-[#480ed8] leading-snug md:leading-tight font-sans">{card.cpl}</div>
+              <div className="text-[10px] md:text-xs font-bold md:font-semibold text-slate-500 uppercase tracking-wider font-sans">{card.costLabel}</div>
             </div>
           </div>
         </div>
 
-        {/* Multi Channel Platform Logos */}
-        <div className="flex items-center justify-between pt-4 border-t border-slate-100 mt-auto w-full">
-          <span className="text-xs font-semibold text-slate-400 font-sans">Platforms:</span>
-          <div className="flex items-center gap-2.5">
-            {card.channels.map((channel, idx) => (
+        {/* Platforms */}
+        <div className="flex items-center justify-center md:justify-between gap-3 mt-4 pt-1 md:pt-4 md:border-t md:border-slate-100 md:mt-auto w-full">
+          <span className="hidden md:inline text-xs font-semibold text-slate-400 font-sans">Platforms:</span>
+          <div className="flex items-center gap-3 md:gap-2.5">
+            {card.channels.map((channel) => (
               <img
-                key={idx}
+                key={channel.name}
                 src={channel.iconSrc}
                 alt={channel.name}
-                className="h-6 w-auto object-contain transition-transform group-hover:scale-110"
+                width={120}
+                height={120}
+                loading="lazy"
+                decoding="async"
+                className="h-5 md:h-6 w-auto object-contain transition-transform md:group-hover:scale-110"
               />
             ))}
           </div>
@@ -247,9 +194,9 @@ export default function ClientResults() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-3xl sm:text-5xl md:text-[3.5vw] font-semibold text-[#180336] mb-2 sm:mb-4 md:mb-[1vw] tracking-tight font-sans"
+              className="text-3xl sm:text-4xl md:text-[2.8vw] font-semibold text-[#180336] mb-2 sm:mb-4 md:mb-[1vw] tracking-tight font-sans"
             >
-              Proof, Not Promises
+              Performance Marketing Results: Leads and App Installs at Scale
             </motion.h2>
 
             <motion.p
@@ -259,7 +206,7 @@ export default function ClientResults() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-sm sm:text-xl md:text-[1.25vw] text-[#480ed8] font-semibold mb-4 sm:mb-8 md:mb-[2vw] md:leading-[1.8vw] font-sans"
             >
-              The math behind our marketing. Download the full performance reports to see how we did it.
+              Proof, not promises. The math behind our marketing. Download the full performance reports to see how we did it.
             </motion.p>
           </div>
         </div>
